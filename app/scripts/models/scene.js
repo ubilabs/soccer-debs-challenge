@@ -11,8 +11,8 @@ var Scene = Model({
   initCamera: function(){
     var ratio = window.innerWidth / window.innerHeight;
     this.camera = new THREE.PerspectiveCamera( 60, ratio, 1, MAXX*2 );
-    this.camera.position.y = -MAXX;
-    this.camera.position.z = MAXX/2;
+    //this.camera.position.y = -MAXX;
+    this.camera.position.z = MAXX;
   },
 
   initRenderer: function(){
@@ -26,10 +26,10 @@ var Scene = Model({
     this.controls = new THREE.TrackballControls( this.camera );
 
     this.controls.rotateSpeed = 2.0;
-    this.controls.zoomSpeed = 1.2;
+    this.controls.zoomSpeed = 0.2;
     this.controls.panSpeed = 0.8;
 
-    this.controls.noZoom = true;
+    this.controls.noZoom = false;
     this.controls.noPan = true;
 
     this.controls.staticMoving = true;
@@ -38,7 +38,7 @@ var Scene = Model({
 
   initPane: function(){
     var plane = new THREE.Mesh(
-      new THREE.PlaneGeometry( MAXX, MAXY, 10, 10 ),
+      new THREE.PlaneGeometry( MAXX/2, MAXY, 2, 2 ),
       new THREE.MeshBasicMaterial( { color: 0x555555, wireframe: true } )
     );
 

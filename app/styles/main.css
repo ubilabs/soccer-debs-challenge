@@ -1,5 +1,12 @@
 body, html {
   padding: 0;
   margin: 0;
-  background: #000
+  background: #000;
+  color: #fff;
+}
+
+#time {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }

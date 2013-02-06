@@ -1,23 +1,56 @@
-
 var stats = new FPSCounter(),
-  scene = new Scene(),
-  players = [];
-
-for ( var i = 0; i < 11; i ++ ) {
-  var player = new Player({ scene: scene });
-  players.push(player);
-}
-
+  scene = new Scene();
 
 animate();
+
+var $time = $("#time");
+
+$.get("/data/1000.csv", function(data){
+  var lines = data.split("\n");
+
+  var cache = {};
+  var count = 0;
+  var index = 0;
+
+  function next(){
+
+    if (index == lines.length){
+      console.log("done") 
+      return; 
+    }
+
+    var line = lines[index++],
+      data = line.split(","),
+      id = data[0],
+      player = cache[id];
+
+    if (!player){
+      cache[id] = player;
+      player = new Player({ scene: scene });
+
+      cache[id] = player;
+    }
+
+    player.update(data);
+
+    if (count++ < 1500){
+      next();
+    } else {
+      count = 0;
+      var time = data[1] / 1e12; 
+      $time.html(Math.round(time))
+      requestAnimationFrame(next);
+    }
+  }
+
+  next();
+
+
+}, "text");
 
 function animate() {
 
   requestAnimationFrame( animate );
-
-  players.forEach(function(player){
-    player.update();
-  });
 
   scene.update();
   stats.update();

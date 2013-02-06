@@ -15,18 +15,20 @@ $.get("/data/1000.csv", function(data){
   function next(){
 
     if (index == lines.length){
-      console.log("done") 
-      return; 
+      return;
     }
 
     var line = lines[index++],
       data = line.split(","),
-      id = data[0],
+      id = 1*data[0],
       player = cache[id];
 
     if (!player){
       cache[id] = player;
-      player = new Player({ scene: scene });
+      player = new Player({
+        scene: scene,
+        id: id
+      });
 
       cache[id] = player;
     }
@@ -37,8 +39,8 @@ $.get("/data/1000.csv", function(data){
       next();
     } else {
       count = 0;
-      var time = data[1] / 1e12; 
-      $time.html(Math.round(time))
+      var time = data[1] / 1e12;
+      $time.html(Math.round(time));
       requestAnimationFrame(next);
     }
   }

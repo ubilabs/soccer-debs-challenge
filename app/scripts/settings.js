@@ -1,3 +1,3 @@
-var MAXX = 105000;
-var MAXY = 68000;
+var MAXX = 52477;
+var MAXY = 33960;
 

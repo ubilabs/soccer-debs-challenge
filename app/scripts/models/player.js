@@ -12,6 +12,7 @@ var Player = Model({
   init: function(options){
 
     this.scene = options.scene;
+
     this.id = options.id;
 
     var color = "#0F0";
@@ -23,8 +24,7 @@ var Player = Model({
     }
 
     var material = new THREE.MeshLambertMaterial({
-      color: color,
-      shading: THREE.FlatShading
+      color: color
     });
 
     this.mesh = new THREE.Mesh( this.geometry, material );
@@ -43,7 +43,7 @@ var Player = Model({
       y = 1 * data[3],
       z = 1 * data[4];
 
-    this.mesh.position.x = x - MAXX/4;
+    this.mesh.position.x = x;
     this.mesh.position.y = y;
     this.mesh.position.z = z;
   }

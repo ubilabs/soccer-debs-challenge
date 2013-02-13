@@ -5,50 +5,76 @@ animate();
 
 var $time = $("#time");
 
-$.get("/data/1000.csv", function(data){
-  var lines = data.split("\n");
 
-  var cache = {};
-  var count = 0;
-  var index = 0;
+var xhr = new XMLHttpRequest();
 
-  function next(){
+var stopped = true;
 
-    if (index == lines.length){
-      return;
-    }
+xhr.open('GET', '/data/1000.csv', true);
 
-    var line = lines[index++],
-      data = line.split(","),
-      id = 1*data[0],
-      player = cache[id];
+xhr.onreadystatechange = function(event) {
 
-    if (!player){
-      cache[id] = player;
-      player = new Player({
-        scene: scene,
-        id: id
-      });
+  if (this.readyState == 4 && this.responseText.length && stopped){
+    stopped = false;
+    run();
+  }
+};
 
-      cache[id] = player;
-    }
+xhr.send();
 
-    player.update(data);
+var cache = {},
+  index = 0,
+  count = 0,
+  lines;
 
-    if (count++ < 1500){
-      next();
-    } else {
-      count = 0;
-      var time = data[1] / 1e12;
-      $time.html(Math.round(time));
-      requestAnimationFrame(next);
-    }
+function run(){
+
+  if (stopped){ return; }
+
+  if (!lines){
+    var t = new Date();
+    lines = xhr.responseText.split("\n");
+    console.log("parsing", lines.length, "lines in", new Date() - t, "ms");
+  }
+  
+  var line, data, id, player;
+
+  if (index >= lines.length-1){
+    stopped = true;
+    lines = null;
+    return;
   }
 
-  next();
+  line = lines[index];
+  index++;
+  data = line.split(",");
+  id = 1*data[0];
+  player = cache[id];
 
+  if (!player){
+    cache[id] = player;
+    player = new Player({
+      scene: scene,
+      id: id
+    });
 
-}, "text");
+    cache[id] = player;
+  }
+
+  player.update(data);
+
+  var time = data[1] / 1e12;
+  $time.html(Math.round(time));
+
+  count++;
+
+  if (count < 1000){
+    run();
+  } else {
+    count = 0;
+    requestAnimationFrame(run);
+  }
+}
 
 function animate() {
 

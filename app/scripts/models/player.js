@@ -1,50 +1,78 @@
-var COLORS = {
-  "#FFF": [4,8,10,12],
-  "#F00": [13,14,97,98,47,16,49,88,19,52,53,54,23,24,57,58,59,28],
-  "#00F": [61,62,99,100,63,64,65,66,67,68,69,38,71,40,73,74,75,44],
-  "#F0F": [105,106]
-};
-
 var Player = Model({
+
+  TYPES: {
+    BALL: [4,8,10,12],
+    RED: [13,14,97,98,47,16,49,88,19,52,53,54,23,24,57,58,59,28],
+    BLUE: [61,62,99,100,63,64,65,66,67,68,69,38,71,40,73,74,75,44],
+    NEUTRAL: [105,106]
+  },
+
+  COLORS: {
+    BALL: "#FFF",
+    RED: "#F00",
+    BLUE: "#00F",
+    NEUTRAL: "#F0F"
+  },
+
 
   geometry: new THREE.CubeGeometry(400, 400, 400),
 
   init: function(options){
-
     this.scene = options.scene;
-
     this.id = options.id;
 
-    var color = "#0F0";
+    this.initTypeAndColor();
+    this.initMesh();
 
-    for (var hex in COLORS){
-      if (COLORS[hex].indexOf(this.id) >= 0){
-        color = hex;
+    this.initTracer();
+  },
+
+  initTypeAndColor: function(){
+
+    for (var id in this.TYPES){
+      if (this.TYPES[id].indexOf(this.id) >= 0){
+        this.type = id;
       }
     }
 
+    this.color = this.COLORS[this.type] || "#0F0";
+  },
+
+  initMesh: function(){
     var material = new THREE.MeshLambertMaterial({
-      color: color
+      color: this.color
     });
 
     this.mesh = new THREE.Mesh( this.geometry, material );
 
-    this.mesh.updateMatrix();
     this.mesh.matrixAutoUpdate = true;
 
     this.scene.add( this.mesh );
+  },
+
+  initTracer: function(){
+    this.tracer = new Tracer({
+      scene: this.scene,
+      color: this.color
+    });
   },
 
   update: function(data){
 
     if (!data){ return; }
 
-    var x = 1 * data[2],
-      y = 1 * data[3],
-      z = 1 * data[4];
+    this.position = {
+      x: 1 * data[2],
+      y: 1 * data[3],
+      z: 1 * data[4]
+    };
 
-    this.mesh.position.x = x;
-    this.mesh.position.y = y;
-    this.mesh.position.z = z;
+    this.mesh.position.x = this.position.x;
+    this.mesh.position.y = this.position.y;
+    this.mesh.position.z = this.position.z;
+
+    //if (this.type == "BALL"){
+    this.tracer.update(this.position);
+    //}
   }
 });

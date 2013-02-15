@@ -1,41 +1,50 @@
 Tracer = Model({
 
+  LENGTH: 500,
+
   init: function(options){
-    this.start = new THREE.Vector3();
-    this.end = new THREE.Vector3();
 
     var material = new THREE.LineBasicMaterial({
-      color: 0XFFFF00
-    });
+      color: 0xFFFF00
+    }), vector;
 
     this.geometry = new THREE.Geometry();
 
-    this.geometry.vertices.push(this.start);
-    this.geometry.vertices.push(this.end);
+    this.vectors = [];
+    this.positions = [];
+
+    for (var i = 0; i < this.LENGTH; i++){
+      vector = new THREE.Vector3();
+      this.vectors.push(vector);
+      this.geometry.vertices.push(vector);
+    }
 
     this.line = new THREE.Line(this.geometry, material);
     options.scene.add(this.line);
+
+    this.count = 0;
   },
 
   update: function(position){
+
+    var old = this.position;
+
+    if (this.count++ %20 != 0){
+      return;
+    }
+
+    this.positions.push(position);
+
+    this.positions = this.positions.slice(-this.LENGTH);
     
-    if (this.position){
-      this.end.set(
+    this.positions.forEach(function(position, index){
+      this.vectors[index].set(
         position.x,
         position.y,
         position.z
       );
+    }.bind(this));
 
-      this.start.set(
-        this.position.x,
-        this.position.y,
-        this.position.z
-      );
-
-      this.geometry.verticesNeedUpdate = true;
-    }
-
-    this.position = position;
-      
+    this.geometry.verticesNeedUpdate = true;      
   }
 });

@@ -48,7 +48,7 @@ function run(){
   line = lines[index];
   index++;
   data = line.split(",");
-  id = 1*data[0];
+  id = 1 * data[0];
   player = cache[id];
 
   if (!player){
@@ -63,6 +63,10 @@ function run(){
 
   player.update(data);
 
+  if (id == 4){
+    closest();
+  }
+
   var time = data[1] / 1e12;
   $time.html(Math.round(time));
 
@@ -76,8 +80,50 @@ function run(){
   }
 }
 
-function animate() {
+function closest(){
 
+  var min = Infinity,
+    d, select,
+    ball = 8,
+    all;
+
+  if (!cache[ball]){ return; }
+
+  for (all in cache){
+    if (all != ball){
+      d = distance(
+        cache[8].position,
+        cache[all].position
+      );
+
+      //console.log(all, d, min);
+
+      if ((d < min)){
+        select = all;
+        min = d;
+      }
+    }
+  }
+
+  var scale = 1,
+    player;
+
+  if (d > 50000){
+    select = null;
+  }
+
+  for (all in cache){
+    scale = (all == select) ? (d < 10000 ? 5 : 2.5) : 1;
+    player = cache[all].mesh.scale;
+
+    player.x = player.y = player.z = scale;
+
+  }
+
+  window.d = d;
+}
+
+function animate() {
   requestAnimationFrame( animate );
 
   scene.update();

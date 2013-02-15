@@ -39,7 +39,7 @@ var Scene = Model({
     this.controls.target = new THREE.Vector3(MAXX/2,0,0);
 
     this.controls.rotateSpeed = 2.0;
-    this.controls.zoomSpeed = 0.2;
+    this.controls.zoomSpeed = 0.1;
     this.controls.panSpeed = 0.8;
 
     this.controls.noZoom = false;

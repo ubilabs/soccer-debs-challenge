@@ -14,7 +14,6 @@ var Player = Model({
     NEUTRAL: "#F0F"
   },
 
-
   geometry: new THREE.CubeGeometry(400, 400, 400),
 
   init: function(options){
@@ -51,6 +50,11 @@ var Player = Model({
   },
 
   initTracer: function(){
+  
+    if (this.type != "BALL"){
+      return;
+    }
+
     this.tracer = new Tracer({
       scene: this.scene,
       color: this.color
@@ -60,6 +64,14 @@ var Player = Model({
   update: function(data){
 
     if (!data){ return; }
+
+    var oldPosition = this.position,
+      oldTime = this.time,
+      diffTime;
+
+    this.time = 1 * data[1];
+
+    diffTime = this.time - oldTime;
 
     this.position = {
       x: 1 * data[2],
@@ -71,8 +83,21 @@ var Player = Model({
     this.mesh.position.y = this.position.y;
     this.mesh.position.z = this.position.z;
 
-    //if (this.type == "BALL"){
-    this.tracer.update(this.position);
-    //}
+    if (this.tracer){
+      this.tracer.update(this.position);
+
+      this.c = this.c || 0;
+
+      this.c++;
+
+      if (this.id == 4 && this.c % 10000 == 10){
+        this.distance = distance(oldPosition, this.position);
+        this.speed = speed(this.distance, diffTime);
+        
+        // console.log(this.position, oldPosition);
+        // console.log(this.distance.toFixed(2), this.speed.toFixed(4), data[5]);
+      }
+
+    }
   }
 });

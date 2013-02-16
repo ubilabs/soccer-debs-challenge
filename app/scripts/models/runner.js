@@ -10,7 +10,7 @@ Runner = Model({
 
     function closest(){
 
-      var min = 50000,
+      var min = 1000,
         d, select,
         ball = 8,
         all;
@@ -18,7 +18,7 @@ Runner = Model({
       for (all in players){
         if (all != ball){
           d = distance(
-            players[8].position, 
+            players[ball].position, 
             players[all].position
           );
 
@@ -29,8 +29,7 @@ Runner = Model({
         }
       }
 
-      var hit = d < 10000,
-        scale = hit ? 5 : 2.5, 
+      var scale = select ? 2.5 : 1, 
         player;
 
       for (all in players){
@@ -38,11 +37,15 @@ Runner = Model({
 
         player.x = player.y = player.z = (all === select) ? scale : 1;
       }
+
+      return select;
     }
+
+    var hit, oldHit;
 
     function run(){
 
-      if (++index > lines.length){ return; }
+      if (++index >= lines.length){ return; }
 
       var data = lines[index].split(","),
         player = Player.get(data[0]);
@@ -50,10 +53,12 @@ Runner = Model({
       player.update(data);
 
       if (player.IS_BALL){
-        closest();
+        hit = closest();
+
+        //if (hit){ return;}
       }      
 
-      if (++count < 6000){
+      if (++count < 600){
         run();
       } else {
         count = 0;

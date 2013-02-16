@@ -2,10 +2,6 @@ App = Model({
 
   $time: $("#time"),
 
-  cache: {},
-  index: 0,
-  count: 0,
-
   init: function(){
     this.stats = new FPSCounter();
     this.scene = new Scene();
@@ -20,71 +16,16 @@ App = Model({
   },
 
   loaded: function(data){
-    this.lines = data;
-    this.run();
+    this.runner = new Runner(data, this.scene);
   },
-
-  getPlayer: function(id){
-    var player = this.cache[id];
-
-    if (!player){
-      player = this.cache[id] = new Player({
-        scene: this.scene,
-        id: id
-      });
-    }
-
-    return player;
-  },
-
-  run: function(){
-
-    var that = this;
-
-    function run(){
-
-      that.index++;
-
-      var data = that.lines[that.index];
-
-      if (!data) { return; }
-
-      data = data.split(",");
-
-      var id = 1 * data[0],
-        player = that.getPlayer(id);
-
-      player.update(data);
-
-      if (id == 4){
-        //closest();
-      }
-
-      that.time = data[1];
-
-      that.count++;
-
-      if (that.count < 2000){
-        run();
-      } else {
-        that.count = 0;
-        requestAnimationFrame(run);
-      }
-    }
-
-    run();
-
-
-  },
-
 
   render: function(){
     requestAnimationFrame( this.render );
     this.scene.update();
     this.stats.update();
 
-    if (this.time){
-      var time = (this.time - START) / 1e12;
+    if (this.runner){
+      var time = (this.runner.time - START) / 1e12;
       this.$time.html(
         Math.floor(time/60) + ":" + Math.round(time % 60)
       );

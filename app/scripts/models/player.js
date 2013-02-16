@@ -20,6 +20,8 @@ var Player = Model({
     this.scene = options.scene;
     this.id = options.id;
 
+    this.IS_BALL = this.id == 4;
+
     this.initTypeAndColor();
     this.initMesh();
 
@@ -29,7 +31,7 @@ var Player = Model({
   initTypeAndColor: function(){
 
     for (var id in this.TYPES){
-      if (this.TYPES[id].indexOf(this.id) >= 0){
+      if (this.TYPES[id].indexOf(this.id*1) >= 0){
         this.type = id;
       }
     }

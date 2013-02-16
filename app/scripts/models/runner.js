@@ -1,9 +1,6 @@
 Runner = Model({
-  cache: {},
 
   init: function(lines, scene){
-
-    this.scene = scene;
 
     var that = this,
       count = 0,
@@ -14,7 +11,7 @@ Runner = Model({
       if (++index > lines.length){ return; }
 
       var data = lines[index].split(","),
-        player = that.getPlayer(data[0]);
+        player = Player.get(data[0]);
 
       player.update(data);
 
@@ -32,18 +29,5 @@ Runner = Model({
     }
 
     run();
-  },
-
-  getPlayer: function(id){
-    var player = this.cache[id];
-
-    if (!player){
-      player = this.cache[id] = new Player({
-        scene: this.scene,
-        id: id
-      });
-    }
-
-    return player;
   }
 });

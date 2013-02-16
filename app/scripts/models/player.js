@@ -1,4 +1,4 @@
-var Player = Model({
+Player = Model({
 
   TYPES: {
     BALL: [4,8,10,12],
@@ -16,9 +16,9 @@ var Player = Model({
 
   geometry: new THREE.CubeGeometry(400, 400, 400),
 
-  init: function(options){
-    this.scene = options.scene;
-    this.id = options.id;
+  init: function(id){
+    this.scene = app.scene;
+    this.id = id;
 
     this.IS_BALL = this.id == 4;
 
@@ -103,3 +103,10 @@ var Player = Model({
     }
   }
 });
+
+Player.cache = {};
+
+Player.get = function(id){
+  var player = Player.cache[id] || (Player.cache[id] = new Player(id));
+  return player;
+};

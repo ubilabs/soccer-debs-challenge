@@ -11,26 +11,18 @@ Runner = Model({
 
     function run(){
 
-      index++;
+      if (++index > lines.length){ return; }
 
-      var data = lines[index];
-
-      if (!data) { return; }
-
-      data = data.split(",");
-
-      var id = 1 * data[0],
-        player = that.getPlayer(id);
+      var data = lines[index].split(","),
+        player = that.getPlayer(data[0]);
 
       player.update(data);
 
-      if (id == 4){
+      if (player.IS_BALL){
         //closest();
       }      
 
-      count++;
-
-      if (count < 2000){
+      if (++count < 6000){
         run();
       } else {
         count = 0;
@@ -40,7 +32,6 @@ Runner = Model({
     }
 
     run();
-
   },
 
   getPlayer: function(id){
@@ -54,5 +45,5 @@ Runner = Model({
     }
 
     return player;
-  },
+  }
 });

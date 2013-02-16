@@ -20,7 +20,7 @@ Player = Model({
     this.scene = app.scene;
     this.id = id;
 
-    this.IS_BALL = this.id == 4;
+    this.IS_BALL = this.id == 8;
 
     this.initTypeAndColor();
     this.initMesh();

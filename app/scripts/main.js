@@ -5,47 +5,26 @@ animate();
 
 var $time = $("#time");
 
-var xhr = new XMLHttpRequest();
-
-var stopped = true;
-
-xhr.open('GET', '/data/1000.csv', true);
-
-xhr.onreadystatechange = function(event) {
-
-  if (this.readyState == 4 && this.responseText.length && stopped){
-    stopped = false;
-    run();
-  }
-};
-
-xhr.send();
-
 var cache = {},
   index = 0,
   count = 0,
   lines;
 
+var loader = new Loader();
+
+loader.on("loaded", function(data){
+  lines = data;
+  run();
+});
+
 function run(){
-
-  if (stopped){ return; }
-
-  if (!lines){
-    var t = new Date();
-    lines = xhr.responseText.split("\n");
-    console.log("parsing", lines.length, "lines in", new Date() - t, "ms");
-  }
   
   var line, data, id, player;
 
-  if (index >= lines.length-1){
-    stopped = true;
-    lines = null;
-    return;
-  }
+  line = lines[index++];
 
-  line = lines[index];
-  index++;
+  if (!line) { return; }
+
   data = line.split(",");
   id = 1 * data[0];
   player = cache[id];
@@ -66,15 +45,14 @@ function run(){
     closest();
   }
 
-  var time = (data[1]-START) / 1e12;
-  $time.html(Math.floor(time/60) + ":" + Math.round(time % 60));
-
   count++;
 
-  if (count < 1000){
+  if (count < 2000){
     run();
   } else {
     count = 0;
+    var time = (data[1]-START) / 1e12;
+    $time.html(Math.floor(time/60) + ":" + Math.round(time % 60));
     requestAnimationFrame(run);
   }
 }
@@ -94,8 +72,6 @@ function closest(){
         cache[8].position,
         cache[all].position
       );
-
-      //console.log(all, d, min);
 
       if ((d < min)){
         select = all;
@@ -118,8 +94,6 @@ function closest(){
     player.x = player.y = player.z = scale;
 
   }
-
-  window.d = d;
 }
 
 function animate() {

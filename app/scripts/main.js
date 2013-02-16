@@ -5,7 +5,6 @@ animate();
 
 var $time = $("#time");
 
-
 var xhr = new XMLHttpRequest();
 
 var stopped = true;
@@ -67,8 +66,8 @@ function run(){
     closest();
   }
 
-  var time = data[1] / 1e12;
-  $time.html(Math.round(time));
+  var time = (data[1]-START) / 1e12;
+  $time.html(Math.floor(time/60) + ":" + Math.round(time % 60));
 
   count++;
 

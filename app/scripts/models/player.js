@@ -65,48 +65,32 @@ Player = Model({
 
   update: function(data){
 
-    if (!data){ return; }
+    if (!this.data){ return; }
 
     var oldPosition = this.position,
       oldTime = this.time,
       diffTime;
 
-    this.time = 1 * data[1];
+    this.time = 1 * this.data[1];
 
     diffTime = this.time - oldTime;
 
     this.position = {
-      x: 1 * data[2],
-      y: 1 * data[3],
-      z: 1 * data[4]
+      x: 1 * this.data[2],
+      y: 1 * this.data[3],
+      z: 1 * this.data[4]
     };
 
     this.mesh.position.x = this.position.x;
     this.mesh.position.y = this.position.y;
     this.mesh.position.z = this.position.z;
 
+    var scale = this.mesh.scale;
+
+    scale.x = scale.y = scale.z = this.scale;
+
     if (this.tracer){
       this.tracer.update(this.position);
-
-      this.c = this.c || 0;
-
-      this.c++;
-
-      if (this.id == 4 && this.c % 10000 == 10){
-        this.distance = distance(oldPosition, this.position);
-        this.speed = speed(this.distance, diffTime);
-        
-        // console.log(this.position, oldPosition);
-        // console.log(this.distance.toFixed(2), this.speed.toFixed(4), data[5]);
-      }
-
     }
   }
 });
-
-Player.cache = {};
-
-Player.get = function(id){
-  var player = Player.cache[id] || (Player.cache[id] = new Player(id));
-  return player;
-};

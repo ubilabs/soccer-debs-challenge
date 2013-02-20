@@ -6,9 +6,9 @@ Runner = Model({
       count = 0,
       index = 0;
 
-      players = Player.cache;
+      players = {};
 
-    function closest(){
+    function checkHit(){
 
       var min = 1000,
         d, select,
@@ -18,7 +18,7 @@ Runner = Model({
       for (all in players){
         if (all != ball){
           d = distance(
-            players[ball].position, 
+            players[ball].position,
             players[all].position
           );
 
@@ -29,13 +29,11 @@ Runner = Model({
         }
       }
 
-      var scale = select ? 2.5 : 1, 
+      var scale = select ? 2.5 : 1,
         player;
 
       for (all in players){
-        player = players[all].mesh.scale;
-
-        player.x = player.y = player.z = (all === select) ? scale : 1;
+        player = players[all].scale = (all === select) ? scale : 1;
       }
 
       return select;
@@ -43,26 +41,32 @@ Runner = Model({
 
     var hit, oldHit;
 
+    function render(){
+      for (all in players){
+        players[all].update();
+      }
+    }
+
     function run(){
 
       if (++index >= lines.length){ return; }
 
       var data = lines[index].split(","),
-        player = Player.get(data[0]);
+        id = data[0],
+        player = players[id] || (players[id] = new Player(id));
 
-      player.update(data);
+      player.data = data;
 
       if (player.IS_BALL){
-        hit = closest();
+        checkHit();
+      }
 
-        //if (hit){ return;}
-      }      
-
-      if (++count < 600){
+      if (++count < 4000){
         run();
       } else {
         count = 0;
         that.time = data[1];
+        render();
         requestAnimationFrame(run);
       }
     }

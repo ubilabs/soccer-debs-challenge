@@ -1,6 +1,6 @@
 Tracer = Model({
 
-  LENGTH: 500,
+  LENGTH: 50,
 
   init: function(options){
 
@@ -29,9 +29,7 @@ Tracer = Model({
 
     var old = this.position;
 
-    if (this.count++ %20 != 0){
-      return;
-    }
+    this.count++;
 
     this.positions.push(position);
 
@@ -45,6 +43,6 @@ Tracer = Model({
       );
     }.bind(this));
 
-    this.geometry.verticesNeedUpdate = true;      
+    this.geometry.verticesNeedUpdate = true;
   }
 });

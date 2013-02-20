@@ -75,10 +75,10 @@ var Scene = Model({
   initGoals: function(){
 
     var _this = this,
-      x1 = 20494.0,
-      x2 = 31994,
-      y = MAXY,
-      z = 4440,
+      x1 = GOAL_XMIN,
+      x2 = GOAL_XMAX,
+      y = GOAL_Y,
+      z = GOAL_Z,
       material = new THREE.LineBasicMaterial({
         color: 0xFF0000
       });

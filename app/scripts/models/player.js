@@ -65,21 +65,8 @@ Player = Model({
 
   update: function(data){
 
-    if (!this.data){ return; }
+    if (!this.position){ return; };
 
-    var oldPosition = this.position,
-      oldTime = this.time,
-      diffTime;
-
-    this.time = 1 * this.data[1];
-
-    diffTime = this.time - oldTime;
-
-    this.position = {
-      x: 1 * this.data[2],
-      y: 1 * this.data[3],
-      z: 1 * this.data[4]
-    };
 
     this.mesh.position.x = this.position.x;
     this.mesh.position.y = this.position.y;

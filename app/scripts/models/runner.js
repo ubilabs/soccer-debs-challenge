@@ -10,7 +10,7 @@ Runner = Model({
 
     function checkHit(){
 
-      var min = 1000,
+      var min = BALL_SIZE,
         d, select,
         ball = 8,
         all;
@@ -47,6 +47,23 @@ Runner = Model({
       }
     }
 
+    function checkGoal(ball){
+
+      var x = ball.position.x,
+        y = Math.abs(ball.position.y),
+        z = ball.position.z;
+
+      if (
+        y > GOAL_Y &&
+        y < GOAL_Y + BALL_SIZE &&
+        x > GOAL_XMIN &&
+        x < GOAL_XMAX &&
+        z < GOAL_Z
+      ){
+        console.log("GOAL");
+      }
+    }
+
     function run(){
 
       if (++index >= lines.length){ return; }
@@ -55,10 +72,15 @@ Runner = Model({
         id = data[0],
         player = players[id] || (players[id] = new Player(id));
 
-      player.data = data;
+      player.position = {
+        x: 1*data[2],
+        y: 1*data[3],
+        z: 1*data[4]
+      };
 
       if (player.IS_BALL){
         checkHit();
+        checkGoal(player);
       }
 
       if (++count < 4000){

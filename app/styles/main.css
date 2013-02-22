@@ -5,8 +5,36 @@ body, html {
   color: #fff;
 }
 
-#time {
+#time, #acceleration, #accelerationbar, #speed, #speedbar, #goal {
   position: absolute;
   top: 10px;
+}
+
+#speedbar, #accelerationbar {
+  background: white;
+  height: 2px;
+  overflow: hidden;
+  top: 28px;
+}
+
+#time {
   right: 10px;
+}
+
+#acceleration, #accelerationbar {
+  right: 250px;
+}
+
+#speed, #speedbar {
+  right: 100px;
+}
+
+#goal {
+  position: absolute;
+  top: 10px;
+  left: 120px;
+  background: green;
+  padding: 10px;
+  opacity: 0;
+  -webkit-transition: all 0.3s;
 }

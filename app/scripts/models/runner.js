@@ -6,7 +6,15 @@ Runner = Model({
       count = 0,
       index = 0;
 
-      players = {};
+      players = {},
+      goal = 0;
+
+      $goal = document.getElementById("goal"),
+      $acceleration = document.getElementById("acceleration"),
+      $speed = document.getElementById("speed"),
+      $speedbar = document.getElementById("speedbar"),
+      $accelerationbar = document.getElementById("accelerationbar")
+      ;
 
     function checkHit(){
 
@@ -45,6 +53,30 @@ Runner = Model({
       for (all in players){
         players[all].update();
       }
+
+      var ball = players[8];
+
+      $goal.style.opacity = (new Date() - goal) < 1000 ? 1 : 0;
+
+      var speed = Math.round(
+        ball.data[5] / // |v|
+        1e6 / // µm
+        1000 * // km
+        60 * // minutes
+        60 // secods
+      );
+
+      $speed.innerHTML = speed;
+
+      var dt = (ball.data[1] - ball.last[1]) / 1e12,
+        dv = (ball.data[5] - ball.last[5]) / 1e6,
+        acceleration = Math.round(dv / dt);
+
+      $acceleration.innerHTML = acceleration;
+
+      $speedbar.style.width = speed + "px";
+      $accelerationbar.style.width = acceleration + "px";
+
     }
 
     function checkGoal(ball){
@@ -60,7 +92,7 @@ Runner = Model({
         x < GOAL_XMAX &&
         z < GOAL_Z
       ){
-        console.log("GOAL");
+        goal = new Date();
       }
     }
 
@@ -77,6 +109,9 @@ Runner = Model({
         y: 1*data[3],
         z: 1*data[4]
       };
+
+      player.last = player.data;
+      player.data = data;
 
       if (player.IS_BALL){
         checkHit();

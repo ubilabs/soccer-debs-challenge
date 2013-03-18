@@ -1,0 +1,76 @@
+event_id;event_name;event_time_real;event_counter;comment
+6014;Niklas Welzlein Begin;00:00:06.950;1;empty
+6015;Niklas Welzlein End;00:00:08.013;1;empty
+6014;Niklas Welzlein Begin;00:01:30.670;2;empty
+6015;Niklas Welzlein End;00:01:31.853;2;empty
+6014;Niklas Welzlein Begin;00:03:18.077;3;empty
+6015;Niklas Welzlein End;00:03:20.316;3;empty
+6014;Niklas Welzlein Begin;00:04:09.335;4;empty
+6015;Niklas Welzlein End;00:04:09.335;4;empty
+6014;Niklas Welzlein Begin;00:05:24.969;5;empty
+6015;Niklas Welzlein End;00:05:24.969;5;empty
+6014;Niklas Welzlein Begin;00:05:27.779;6;empty
+6015;Niklas Welzlein End;00:05:28.995;6;empty
+6014;Niklas Welzlein Begin;00:05:43.804;7;empty
+6015;Niklas Welzlein End;00:05:44.407;7;empty
+6014;Niklas Welzlein Begin;00:06:45.595;8;empty
+6015;Niklas Welzlein End;00:06:48.538;8;empty
+6014;Niklas Welzlein Begin;00:08:05.158;9;empty
+6015;Niklas Welzlein End;00:08:07.650;9;empty
+6014;Niklas Welzlein Begin;00:09:22.414;10;empty
+6015;Niklas Welzlein End;00:09:31.412;10;empty
+6014;Niklas Welzlein Begin;00:10:24.874;11;empty
+6015;Niklas Welzlein End;00:10:24.874;11;empty
+6014;Niklas Welzlein Begin;00:11:56.837;12;empty
+6015;Niklas Welzlein End;00:11:58.001;12;empty
+6014;Niklas Welzlein Begin;00:13:38.607;13;empty
+6015;Niklas Welzlein End;00:13:38.607;13;empty
+6014;Niklas Welzlein Begin;00:13:45.067;14;empty
+6015;Niklas Welzlein End;00:13:48.959;14;empty
+6014;Niklas Welzlein Begin;00:14:29.715;15;empty
+6015;Niklas Welzlein End;00:14:29.715;15;empty
+6014;Niklas Welzlein Begin;00:15:38.265;16;empty
+6015;Niklas Welzlein End;00:15:39.590;16;empty
+6014;Niklas Welzlein Begin;00:16:16.131;17;empty
+6015;Niklas Welzlein End;00:16:17.493;17;empty
+6014;Niklas Welzlein Begin;00:16:49.499;18;empty
+6015;Niklas Welzlein End;00:16:51.305;18;empty
+6014;Niklas Welzlein Begin;00:18:26.702;19;empty
+6015;Niklas Welzlein End;00:18:26.702;19;empty
+6014;Niklas Welzlein Begin;00:21:50.697;20;empty
+6015;Niklas Welzlein End;00:21:51.398;20;empty
+6014;Niklas Welzlein Begin;00:23:10.260;21;empty
+6015;Niklas Welzlein End;00:23:15.423;21;empty
+6014;Niklas Welzlein Begin;00:24:19.177;22;empty
+6015;Niklas Welzlein End;00:24:19.177;22;empty
+6014;Niklas Welzlein Begin;00:25:16.231;23;empty
+6015;Niklas Welzlein End;00:25:17.612;23;empty
+6014;Niklas Welzlein Begin;00:25:45.325;24;empty
+6015;Niklas Welzlein End;00:25:46.161;24;empty
+6014;Niklas Welzlein Begin;00:28:24.427;25;empty
+6015;Niklas Welzlein End;00:28:24.427;25;empty
+6014;Niklas Welzlein Begin;00:29:23.710;26;empty
+6015;Niklas Welzlein End;00:29:23.710;26;empty
+
+
+
+Statistic:;
+Type:;Count:;
+;0;
+;0;
+New Event;0;
+New Event;0;
+New Event;0;
+;0;
+;0;
+New Event;0;
+New Event;0;
+New Event;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+Niklas Welzlein End;26;
+;0;
+Niklas Welzlein Begin;26;

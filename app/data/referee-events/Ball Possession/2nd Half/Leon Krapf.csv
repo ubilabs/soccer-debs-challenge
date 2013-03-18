@@ -1,0 +1,66 @@
+event_id;event_name;event_time_real;event_counter;comment
+6014;Leon Krapf Begin;00:00:21.709;1;empty
+6015;Leon Krapf End;00:00:21.709;1;empty
+6014;Leon Krapf Begin;00:03:00.016;2;empty
+6015;Leon Krapf End;00:03:00.016;2;empty
+6014;Leon Krapf Begin;00:03:39.444;3;empty
+6015;Leon Krapf End;00:03:39.444;3;empty
+6014;Leon Krapf Begin;00:04:40.603;4;empty
+6015;Leon Krapf End;00:04:41.668;4;empty
+6014;Leon Krapf Begin;00:07:32.028;5;empty
+6015;Leon Krapf End;00:07:34.315;5;empty
+6014;Leon Krapf Begin;00:09:43.481;6;empty
+6015;Leon Krapf End;00:09:45.790;6;empty
+6014;Leon Krapf Begin;00:12:29.629;7;empty
+6015;Leon Krapf End;00:12:31.484;7;empty
+6014;Leon Krapf Begin;00:13:32.166;8;empty
+6015;Leon Krapf End;00:13:32.166;8;empty
+6014;Leon Krapf Begin;00:13:53.286;9;empty
+6015;Leon Krapf End;00:13:53.286;9;empty
+6014;Leon Krapf Begin;00:14:52.098;10;empty
+6015;Leon Krapf End;00:14:52.098;10;empty
+6014;Leon Krapf Begin;00:15:24.739;11;empty
+6015;Leon Krapf End;00:15:26.248;11;empty
+6014;Leon Krapf Begin;00:16:24.700;12;empty
+6015;Leon Krapf End;00:16:25.457;12;empty
+6014;Leon Krapf Begin;00:17:27.866;13;empty
+6015;Leon Krapf End;00:17:32.957;13;empty
+6014;Leon Krapf Begin;00:18:24.161;14;empty
+6015;Leon Krapf End;00:18:24.161;14;empty
+6014;Leon Krapf Begin;00:19:44.478;15;empty
+6015;Leon Krapf End;00:19:44.478;15;empty
+6014;Leon Krapf Begin;00:20:17.667;16;empty
+6015;Leon Krapf End;00:20:19.691;16;empty
+6014;Leon Krapf Begin;00:21:06.075;17;empty
+6015;Leon Krapf End;00:21:06.075;17;empty
+6014;Leon Krapf Begin;00:21:37.555;18;empty
+6015;Leon Krapf End;00:21:39.828;18;empty
+6014;Leon Krapf Begin;00:23:20.370;19;empty
+6015;Leon Krapf End;00:23:20.370;19;empty
+6014;Leon Krapf Begin;00:26:57.666;20;empty
+6015;Leon Krapf End;00:26:57.666;20;empty
+6014;Leon Krapf Begin;00:29:33.264;21;empty
+6015;Leon Krapf End;00:29:35.182;21;empty
+
+
+
+Statistic:;
+Type:;Count:;
+Leon Krapf End;21;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+Leon Krapf Begin;21;

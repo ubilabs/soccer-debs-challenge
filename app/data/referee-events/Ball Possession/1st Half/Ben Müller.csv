@@ -1,0 +1,88 @@
+event_id;event_name;event_time_real;event_counter;comment
+6014;Ben Müller Begin;00:01:09.140;1;empty
+6015;Ben Müller End;00:01:10.227;1;empty
+6014;Ben Müller Begin;00:02:45.006;2;empty
+6015;Ben Müller End;00:02:48.875;2;empty
+6014;Ben Müller Begin;00:02:54.936;3;empty
+6015;Ben Müller End;00:02:56.033;3;empty
+6014;Ben Müller Begin;00:05:01.461;4;empty
+6015;Ben Müller End;00:05:05.482;4;empty
+6014;Ben Müller Begin;00:06:37.480;5;empty
+6015;Ben Müller End;00:06:38.457;5;empty
+6014;Ben Müller Begin;00:08:53.709;6;empty
+6015;Ben Müller End;00:08:53.709;6;empty
+6014;Ben Müller Begin;00:09:08.123;7;empty
+6015;Ben Müller End;00:09:08.123;7;empty
+6014;Ben Müller Begin;00:09:28.360;8;empty
+6015;Ben Müller End;00:09:29.795;8;empty
+6014;Ben Müller Begin;00:11:33.635;9;empty
+6015;Ben Müller End;00:11:42.479;9;empty
+6014;Ben Müller Begin;00:12:07.594;10;empty
+6015;Ben Müller End;00:12:07.594;10;empty
+6014;Ben Müller Begin;00:14:17.808;11;empty
+6015;Ben Müller End;00:14:18.480;11;empty
+6014;Ben Müller Begin;00:14:23.144;12;empty
+6015;Ben Müller End;00:14:23.144;12;empty
+6014;Ben Müller Begin;00:14:30.674;13;empty
+6015;Ben Müller End;00:14:32.004;13;empty
+6014;Ben Müller Begin;00:14:50.380;14;empty
+6015;Ben Müller End;00:14:50.380;14;empty
+6014;Ben Müller Begin;00:15:47.914;15;empty
+6015;Ben Müller End;00:15:47.914;15;empty
+6014;Ben Müller Begin;00:16:27.604;16;empty
+6015;Ben Müller End;00:16:29.003;16;empty
+6014;Ben Müller Begin;00:19:03.305;17;empty
+6015;Ben Müller End;00:19:03.305;17;empty
+6014;Ben Müller Begin;00:19:12.872;18;empty
+6015;Ben Müller End;00:19:13.950;18;empty
+6014;Ben Müller Begin;00:19:17.660;19;empty
+6015;Ben Müller End;00:19:20.529;19;empty
+6014;Ben Müller Begin;00:21:28.674;20;empty
+6015;Ben Müller End;00:21:31.252;20;empty
+6014;Ben Müller Begin;00:22:06.124;21;empty
+6015;Ben Müller End;00:22:10.772;21;empty
+6014;Ben Müller Begin;00:23:24.734;22;empty
+6015;Ben Müller End;00:23:26.529;22;empty
+6014;Ben Müller Begin;00:23:44.092;23;empty
+6015;Ben Müller End;00:23:44.092;23;empty
+6014;Ben Müller Begin;00:25:12.503;24;empty
+6015;Ben Müller End;00:25:14.007;24;empty
+6014;Ben Müller Begin;00:25:30.424;25;empty
+6015;Ben Müller End;00:25:31.720;25;empty
+6014;Ben Müller Begin;00:25:38.044;26;empty
+6015;Ben Müller End;00:25:38.044;26;empty
+6014;Ben Müller Begin;00:26:48.896;27;empty
+6015;Ben Müller End;00:26:50.283;27;empty
+6014;Ben Müller Begin;00:27:25.033;28;empty
+6015;Ben Müller End;00:27:25.033;28;empty
+6014;Ben Müller Begin;00:27:59.603;29;empty
+6015;Ben Müller End;00:27:59.603;29;empty
+6014;Ben Müller Begin;00:28:39.865;30;empty
+6015;Ben Müller End;00:28:40.788;30;empty
+6014;Ben Müller Begin;00:28:47.551;31;empty
+6015;Ben Müller End;00:28:48.924;31;empty
+6014;Ben Müller Begin;00:28:53.797;32;empty
+6015;Ben Müller End;00:28:56.951;32;empty
+
+
+
+Statistic:;
+Type:;Count:;
+Ben Müller Begin;32;
+Ben Müller End;32;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+;0;
+;0;
+New Event;0;
+New Event;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;

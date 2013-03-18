@@ -1,0 +1,48 @@
+event_id;event_name;event_time_real;event_counter;comment
+6014;Leon Krapf Begin;00:04:28.412;1;empty
+6015;Leon Krapf End;00:04:34.395;1;empty
+6014;Leon Krapf Begin;00:06:20.295;2;empty
+6015;Leon Krapf End;00:06:22.754;2;empty
+6014;Leon Krapf Begin;00:09:24.386;3;empty
+6015;Leon Krapf End;00:09:24.386;3;empty
+6014;Leon Krapf Begin;00:10:49.077;4;empty
+6015;Leon Krapf End;00:10:52.048;4;empty
+6014;Leon Krapf Begin;00:11:03.882;5;empty
+6015;Leon Krapf End;00:11:04.508;5;empty
+6014;Leon Krapf Begin;00:13:07.444;6;empty
+6015;Leon Krapf End;00:13:07.444;6;empty
+6014;Leon Krapf Begin;00:16:23.207;7;empty
+6015;Leon Krapf End;00:16:26.512;7;empty
+6014;Leon Krapf Begin;00:17:53.204;8;empty
+6015;Leon Krapf End;00:17:59.235;8;empty
+6014;Leon Krapf Begin;00:21:21.909;9;empty
+6015;Leon Krapf End;00:21:21.909;9;empty
+6014;Leon Krapf Begin;00:24:42.902;10;empty
+6015;Leon Krapf End;00:24:42.902;10;empty
+6014;Leon Krapf Begin;00:26:33.360;11;empty
+6015;Leon Krapf End;00:26:33.360;11;empty
+6014;Leon Krapf Begin;00:30:03.951;12;empty
+6015;Leon Krapf End;00:30:03.951;12;empty
+
+
+
+Statistic:;
+Type:;Count:;
+New Event;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+Leon Krapf End;12;
+Leon Krapf Begin;12;
+;0;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+;0;
+;0;
+;0;

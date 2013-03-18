@@ -1,0 +1,134 @@
+event_id;event_name;event_time_real;event_counter;comment
+6014;Willi Sommer Begin;00:01:23.078;1;empty
+6015;Willi Sommer End;00:01:24.099;1;empty
+6014;Willi Sommer Begin;00:01:36.064;2;empty
+6015;Willi Sommer End;00:01:37.607;2;empty
+6014;Willi Sommer Begin;00:01:39.481;3;empty
+6015;Willi Sommer End;00:01:40.989;3;empty
+6014;Willi Sommer Begin;00:01:52.633;4;empty
+6015;Willi Sommer End;00:01:56.933;4;empty
+6014;Willi Sommer Begin;00:02:08.668;5;empty
+6015;Willi Sommer End;00:02:08.668;5;empty
+6014;Willi Sommer Begin;00:02:17.655;6;empty
+6015;Willi Sommer End;00:02:21.283;6;empty
+6014;Willi Sommer Begin;00:02:29.322;7;empty
+6015;Willi Sommer End;00:02:30.911;7;empty
+6014;Willi Sommer Begin;00:02:35.512;8;empty
+6015;Willi Sommer End;00:02:38.163;8;empty
+6014;Willi Sommer Begin;00:03:55.126;9;empty
+6015;Willi Sommer End;00:03:56.594;9;empty
+6014;Willi Sommer Begin;00:03:59.490;10;empty
+6015;Willi Sommer End;00:04:02.219;10;empty
+6014;Willi Sommer Begin;00:04:56.400;11;empty
+6015;Willi Sommer End;00:04:59.462;11;empty
+6014;Willi Sommer Begin;00:05:22.100;12;empty
+6015;Willi Sommer End;00:05:22.693;12;empty
+6014;Willi Sommer Begin;00:05:34.747;13;empty
+6015;Willi Sommer End;00:05:36.196;13;empty
+6014;Willi Sommer Begin;00:05:42.024;14;empty
+6015;Willi Sommer End;00:05:43.073;14;empty
+6014;Willi Sommer Begin;00:06:52.564;15;empty
+6015;Willi Sommer End;00:06:54.407;15;empty
+6014;Willi Sommer Begin;00:06:56.133;16;empty
+6015;Willi Sommer End;00:06:58.325;16;empty
+6014;Willi Sommer Begin;00:08:07.660;17;empty
+6015;Willi Sommer End;00:08:09.084;17;empty
+6014;Willi Sommer Begin;00:08:13.734;18;empty
+6015;Willi Sommer End;00:08:15.444;18;empty
+6014;Willi Sommer Begin;00:08:17.262;19;empty
+6015;Willi Sommer End;00:08:17.968;19;empty
+6014;Willi Sommer Begin;00:08:36.348;20;empty
+6015;Willi Sommer End;00:08:36.962;20;empty
+6014;Willi Sommer Begin;00:10:06.568;21;empty
+6015;Willi Sommer End;00:10:08.568;21;empty
+6014;Willi Sommer Begin;00:10:31.234;22;empty
+6015;Willi Sommer End;00:10:32.670;22;empty
+6014;Willi Sommer Begin;00:11:23.907;23;empty
+6015;Willi Sommer End;00:11:25.837;23;empty
+6014;Willi Sommer Begin;00:11:55.874;24;empty
+6015;Willi Sommer End;00:11:55.874;24;empty
+6014;Willi Sommer Begin;00:12:28.416;25;empty
+6015;Willi Sommer End;00:12:31.782;25;empty
+6014;Willi Sommer Begin;00:14:00.821;26;empty
+6015;Willi Sommer End;00:14:02.117;26;empty
+6014;Willi Sommer Begin;00:14:05.178;27;empty
+6015;Willi Sommer End;00:14:06.736;27;empty
+6014;Willi Sommer Begin;00:15:06.124;28;empty
+6015;Willi Sommer End;00:15:08.015;28;empty
+6014;Willi Sommer Begin;00:15:24.407;29;empty
+6015;Willi Sommer End;00:15:28.978;29;empty
+6014;Willi Sommer Begin;00:16:02.411;30;empty
+6015;Willi Sommer End;00:16:03.477;30;empty
+6014;Willi Sommer Begin;00:16:14.334;31;empty
+6015;Willi Sommer End;00:16:16.135;31;empty
+6014;Willi Sommer Begin;00:17:17.916;32;empty
+6015;Willi Sommer End;00:17:21.706;32;empty
+6014;Willi Sommer Begin;00:17:39.643;33;empty
+6015;Willi Sommer End;00:17:41.614;33;empty
+6014;Willi Sommer Begin;00:19:02.174;34;empty
+6015;Willi Sommer End;00:19:02.174;34;empty
+6014;Willi Sommer Begin;00:19:07.704;35;empty
+6015;Willi Sommer End;00:19:12.215;35;empty
+6014;Willi Sommer Begin;00:19:36.026;36;empty
+6015;Willi Sommer End;00:19:41.521;36;empty
+6014;Willi Sommer Begin;00:19:52.972;37;empty
+6015;Willi Sommer End;00:19:55.632;37;empty
+6014;Willi Sommer Begin;00:19:57.992;38;empty
+6015;Willi Sommer End;00:20:02.667;38;empty
+6014;Willi Sommer Begin;00:21:02.639;39;empty
+6015;Willi Sommer End;00:21:03.682;39;empty
+6014;Willi Sommer Begin;00:22:45.126;40;empty
+6015;Willi Sommer End;00:22:46.261;40;empty
+6014;Willi Sommer Begin;00:22:48.351;41;empty
+6015;Willi Sommer End;00:22:49.630;41;empty
+6014;Willi Sommer Begin;00:23:02.322;42;empty
+6015;Willi Sommer End;00:23:05.178;42;empty
+6014;Willi Sommer Begin;00:23:45.151;43;empty
+6015;Willi Sommer End;00:23:45.151;43;empty
+6014;Willi Sommer Begin;00:23:51.482;44;empty
+6015;Willi Sommer End;00:23:52.710;44;empty
+6014;Willi Sommer Begin;00:23:56.109;45;empty
+6015;Willi Sommer End;00:23:58.499;45;empty
+6014;Willi Sommer Begin;00:24:08.447;46;empty
+6015;Willi Sommer End;00:24:10.624;46;empty
+6014;Willi Sommer Begin;00:25:36.421;47;empty
+6015;Willi Sommer End;00:25:36.421;47;empty
+6014;Willi Sommer Begin;00:25:48.254;48;empty
+6015;Willi Sommer End;00:25:49.549;48;empty
+6014;Willi Sommer Begin;00:27:41.926;49;empty
+6015;Willi Sommer End;00:27:44.550;49;empty
+6014;Willi Sommer Begin;00:28:06.002;50;empty
+6015;Willi Sommer End;00:28:07.638;50;empty
+6014;Willi Sommer Begin;00:28:09.784;51;empty
+6015;Willi Sommer End;00:28:11.399;51;empty
+6014;Willi Sommer Begin;00:29:09.964;52;empty
+6015;Willi Sommer End;00:29:14.586;52;empty
+6014;Willi Sommer Begin;00:29:16.791;53;empty
+6015;Willi Sommer End;00:29:16.791;53;empty
+6014;Willi Sommer Begin;00:29:40.458;54;empty
+6015;Willi Sommer End;00:29:45.167;54;empty
+6014;Willi Sommer Begin;00:29:51.298;55;empty
+6015;Willi Sommer End;00:29:55.007;55;empty
+
+
+
+Statistic:;
+Type:;Count:;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+New Event;0;
+Willi Sommer End;55;
+;0;
+Willi Sommer Begin;55;

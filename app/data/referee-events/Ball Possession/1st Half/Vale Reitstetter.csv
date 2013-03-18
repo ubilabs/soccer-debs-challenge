@@ -1,0 +1,90 @@
+event_id;event_name;event_time_real;event_counter;comment
+6014;Vale Reitstetter Begin;00:00:07.462;1;empty
+6015;Vale Reitstetter End;00:00:08.547;1;empty
+6014;Vale Reitstetter Begin;00:00:15.744;2;empty
+6015;Vale Reitstetter End;00:00:16.310;2;empty
+6014;Vale Reitstetter Begin;00:00:30.090;3;empty
+6015;Vale Reitstetter End;00:00:31.138;3;empty
+6014;Vale Reitstetter Begin;00:00:46.166;4;empty
+6015;Vale Reitstetter End;00:00:46.166;4;empty
+6014;Vale Reitstetter Begin;00:00:52.853;5;empty
+6015;Vale Reitstetter End;00:00:54.256;5;empty
+6014;Vale Reitstetter Begin;00:01:11.508;6;empty
+6015;Vale Reitstetter End;00:01:12.954;6;empty
+6014;Vale Reitstetter Begin;00:03:03.092;7;empty
+6015;Vale Reitstetter End;00:03:05.940;7;empty
+6014;Vale Reitstetter Begin;00:03:34.961;8;empty
+6015;Vale Reitstetter End;00:03:34.961;8;empty
+6014;Vale Reitstetter Begin;00:03:41.173;9;empty
+6015;Vale Reitstetter End;00:03:41.173;9;empty
+6014;Vale Reitstetter Begin;00:04:37.489;10;empty
+6015;Vale Reitstetter End;00:04:41.738;10;empty
+6014;Vale Reitstetter Begin;00:05:13.138;11;empty
+6015;Vale Reitstetter End;00:05:16.625;11;empty
+6014;Vale Reitstetter Begin;00:06:25.044;12;empty
+6015;Vale Reitstetter End;00:06:26.876;12;empty
+6014;Vale Reitstetter Begin;00:07:46.024;13;empty
+6015;Vale Reitstetter End;00:07:47.540;13;empty
+6014;Vale Reitstetter Begin;00:07:55.914;14;empty
+6015;Vale Reitstetter End;00:07:57.620;14;empty
+6014;Vale Reitstetter Begin;00:09:31.700;15;empty
+6015;Vale Reitstetter End;00:09:34.621;15;empty
+6014;Vale Reitstetter Begin;00:09:46.087;16;empty
+6015;Vale Reitstetter End;00:09:46.087;16;empty
+6014;Vale Reitstetter Begin;00:10:54.369;17;empty
+6015;Vale Reitstetter End;00:10:57.989;17;empty
+6014;Vale Reitstetter Begin;00:12:09.499;18;empty
+6015;Vale Reitstetter End;00:12:13.455;18;empty
+6014;Vale Reitstetter Begin;00:14:25.588;19;empty
+6015;Vale Reitstetter End;00:14:29.538;19;empty
+6014;Vale Reitstetter Begin;00:15:41.774;20;empty
+6015;Vale Reitstetter End;00:15:46.748;20;empty
+6014;Vale Reitstetter Begin;00:16:36.742;21;empty
+6015;Vale Reitstetter End;00:16:39.395;21;empty
+6014;Vale Reitstetter Begin;00:16:51.108;22;empty
+6015;Vale Reitstetter End;00:16:52.761;22;empty
+6014;Vale Reitstetter Begin;00:18:06.935;23;empty
+6015;Vale Reitstetter End;00:18:07.606;23;empty
+6014;Vale Reitstetter Begin;00:18:17.687;24;empty
+6015;Vale Reitstetter End;00:18:19.295;24;empty
+6014;Vale Reitstetter Begin;00:21:26.464;25;empty
+6015;Vale Reitstetter End;00:21:27.531;25;empty
+6014;Vale Reitstetter Begin;00:23:31.534;26;empty
+6015;Vale Reitstetter End;00:23:42.634;26;empty
+6014;Vale Reitstetter Begin;00:25:15.987;27;empty
+6015;Vale Reitstetter End;00:25:17.059;27;empty
+6014;Vale Reitstetter Begin;00:25:33.831;28;empty
+6015;Vale Reitstetter End;00:25:35.814;28;empty
+6014;Vale Reitstetter Begin;00:25:45.021;29;empty
+6015;Vale Reitstetter End;00:25:45.021;29;empty
+6014;Vale Reitstetter Begin;00:26:37.287;30;empty
+6015;Vale Reitstetter End;00:26:37.287;30;empty
+6014;Vale Reitstetter Begin;00:26:51.660;31;empty
+6015;Vale Reitstetter End;00:26:52.634;31;empty
+6014;Vale Reitstetter Begin;00:28:37.078;32;empty
+6015;Vale Reitstetter End;00:28:38.440;32;empty
+6014;Vale Reitstetter Begin;00:29:39.189;33;empty
+6015;Vale Reitstetter End;00:29:39.189;33;empty
+
+
+
+Statistic:;
+Type:;Count:;
+Vale Reitstetter Begin;33;
+Vale Reitstetter End;33;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;

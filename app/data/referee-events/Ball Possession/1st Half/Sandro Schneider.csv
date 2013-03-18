@@ -1,0 +1,58 @@
+event_id;event_name;event_time_real;event_counter;comment
+6014;Sandro Schneider Begin;00:04:46.714;1;empty
+6015;Sandro Schneider End;00:04:46.714;1;empty
+6014;Sandro Schneider Begin;00:05:00.287;2;empty
+6015;Sandro Schneider End;00:05:00.287;2;empty
+6014;Sandro Schneider Begin;00:07:05.907;3;empty
+6015;Sandro Schneider End;00:07:07.208;3;empty
+6014;Sandro Schneider Begin;00:09:07.080;4;empty
+6015;Sandro Schneider End;00:09:07.956;4;empty
+6014;Sandro Schneider Begin;00:09:09.002;5;empty
+6015;Sandro Schneider End;00:09:09.653;5;empty
+6014;Sandro Schneider Begin;00:09:52.831;6;empty
+6015;Sandro Schneider End;00:09:52.831;6;empty
+6014;Sandro Schneider Begin;00:10:38.500;7;empty
+6015;Sandro Schneider End;00:10:41.245;7;empty
+6014;Sandro Schneider Begin;00:13:59.329;8;empty
+6015;Sandro Schneider End;00:13:59.329;8;empty
+6014;Sandro Schneider Begin;00:19:25.866;9;empty
+6015;Sandro Schneider End;00:19:25.866;9;empty
+6014;Sandro Schneider Begin;00:20:43.223;10;empty
+6015;Sandro Schneider End;00:20:43.223;10;empty
+6014;Sandro Schneider Begin;00:22:37.538;11;empty
+6015;Sandro Schneider End;00:22:37.538;11;empty
+6014;Sandro Schneider Begin;00:23:09.684;12;empty
+6015;Sandro Schneider End;00:23:09.684;12;empty
+6014;Sandro Schneider Begin;00:24:35.783;13;empty
+6015;Sandro Schneider End;00:24:38.852;13;empty
+6014;Sandro Schneider Begin;00:25:54.790;14;empty
+6015;Sandro Schneider End;00:25:57.695;14;empty
+6014;Sandro Schneider Begin;00:26:02.381;15;empty
+6015;Sandro Schneider End;00:26:06.467;15;empty
+6014;Sandro Schneider Begin;00:30:01.417;16;empty
+6015;Sandro Schneider End;00:30:03.037;16;empty
+6014;Sandro Schneider Begin;00:30:05.817;17;empty
+6015;Sandro Schneider End;00:30:07.026;17;empty
+
+
+
+Statistic:;
+Type:;Count:;
+;0;
+;0;
+;0;
+New Event;0;
+New Event;0;
+;0;
+New Event;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+New Event;0;
+New Event;0;
+New Event;0;
+;0;
+Sandro Schneider End;17;
+Sandro Schneider Begin;17;

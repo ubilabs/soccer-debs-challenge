@@ -1,0 +1,82 @@
+event_id;event_name;event_time_real;event_counter;comment
+6014;Luca Ziegler Begin;00:00:10.758;1;empty
+6015;Luca Ziegler End;00:00:13.866;1;empty
+6014;Luca Ziegler Begin;00:00:25.532;2;empty
+6015;Luca Ziegler End;00:00:27.064;2;empty
+6014;Luca Ziegler Begin;00:01:00.792;3;empty
+6015;Luca Ziegler End;00:01:02.831;3;empty
+6014;Luca Ziegler Begin;00:01:15.279;4;empty
+6015;Luca Ziegler End;00:01:17.559;4;empty
+6014;Luca Ziegler Begin;00:02:02.191;5;empty
+6015;Luca Ziegler End;00:02:02.191;5;empty
+6014;Luca Ziegler Begin;00:02:04.383;6;empty
+6015;Luca Ziegler End;00:02:06.519;6;empty
+6014;Luca Ziegler Begin;00:02:53.935;7;empty
+6015;Luca Ziegler End;00:02:53.935;7;empty
+6014;Luca Ziegler Begin;00:06:02.476;8;empty
+6015;Luca Ziegler End;00:06:02.476;8;empty
+6014;Luca Ziegler Begin;00:07:42.455;9;empty
+6015;Luca Ziegler End;00:07:43.600;9;empty
+6014;Luca Ziegler Begin;00:07:49.129;10;empty
+6015;Luca Ziegler End;00:07:50.693;10;empty
+6014;Luca Ziegler Begin;00:07:59.849;11;empty
+6015;Luca Ziegler End;00:08:01.801;11;empty
+6014;Luca Ziegler Begin;00:09:25.662;12;empty
+6015;Luca Ziegler End;00:09:27.363;12;empty
+6014;Luca Ziegler Begin;00:09:40.538;13;empty
+6015;Luca Ziegler End;00:09:41.799;13;empty
+6014;Luca Ziegler Begin;00:09:51.196;14;empty
+6015;Luca Ziegler End;00:09:52.722;14;empty
+6014;Luca Ziegler Begin;00:09:54.832;15;empty
+6015;Luca Ziegler End;00:09:54.832;15;empty
+6014;Luca Ziegler Begin;00:10:43.459;16;empty
+6015;Luca Ziegler End;00:10:44.416;16;empty
+6014;Luca Ziegler Begin;00:14:33.907;17;empty
+6015;Luca Ziegler End;00:14:36.090;17;empty
+6014;Luca Ziegler Begin;00:14:39.688;18;empty
+6015;Luca Ziegler End;00:14:39.688;18;empty
+6014;Luca Ziegler Begin;00:16:30.693;19;empty
+6015;Luca Ziegler End;00:16:31.622;19;empty
+6014;Luca Ziegler Begin;00:16:58.087;20;empty
+6015;Luca Ziegler End;00:16:59.149;20;empty
+6014;Luca Ziegler Begin;00:18:00.512;21;empty
+6015;Luca Ziegler End;00:18:02.108;21;empty
+6014;Luca Ziegler Begin;00:18:12.576;22;empty
+6015;Luca Ziegler End;00:18:12.576;22;empty
+6014;Luca Ziegler Begin;00:19:22.366;23;empty
+6015;Luca Ziegler End;00:19:23.936;23;empty
+6014;Luca Ziegler Begin;00:20:07.282;24;empty
+6015;Luca Ziegler End;00:20:07.282;24;empty
+6014;Luca Ziegler Begin;00:25:19.155;25;empty
+6015;Luca Ziegler End;00:25:21.287;25;empty
+6014;Luca Ziegler Begin;00:26:54.647;26;empty
+6015;Luca Ziegler End;00:26:56.957;26;empty
+6014;Luca Ziegler Begin;00:28:42.217;27;empty
+6015;Luca Ziegler End;00:28:44.033;27;empty
+6014;Luca Ziegler Begin;00:28:50.464;28;empty
+6015;Luca Ziegler End;00:28:50.464;28;empty
+6014;Luca Ziegler Begin;00:29:59.524;29;empty
+6015;Luca Ziegler End;00:30:00.400;29;empty
+
+
+
+Statistic:;
+Type:;Count:;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+;0;
+;0;
+;0;
+;0;
+Luca Ziegler End;29;
+;0;
+;0;
+;0;
+Luca Ziegler Begin;29;
+New Event;0;
+New Event;0;
+;0;
+;0;
+;0;

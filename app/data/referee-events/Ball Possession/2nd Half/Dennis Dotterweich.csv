@@ -1,0 +1,72 @@
+event_id;event_name;event_time_real;event_counter;comment
+6014;Dennis Dotterweich Begin;00:00:04.762;1;empty
+6015;Dennis Dotterweich End;00:00:05.693;1;empty
+6014;Dennis Dotterweich Begin;00:00:23.622;2;empty
+6015;Dennis Dotterweich End;00:00:24.773;2;empty
+6014;Dennis Dotterweich Begin;00:03:22.935;3;empty
+6015;Dennis Dotterweich End;00:03:26.563;3;empty
+6014;Dennis Dotterweich Begin;00:03:29.521;4;empty
+6015;Dennis Dotterweich End;00:03:29.521;4;empty
+6014;Dennis Dotterweich Begin;00:05:41.424;5;empty
+6015;Dennis Dotterweich End;00:05:41.860;5;empty
+6014;Dennis Dotterweich Begin;00:06:11.691;6;empty
+6015;Dennis Dotterweich End;00:06:11.691;6;empty
+6014;Dennis Dotterweich Begin;00:09:21.024;7;empty
+6015;Dennis Dotterweich End;00:09:21.024;7;empty
+6014;Dennis Dotterweich Begin;00:09:32.703;8;empty
+6015;Dennis Dotterweich End;00:09:39.047;8;empty
+6014;Dennis Dotterweich Begin;00:10:35.311;9;empty
+6015;Dennis Dotterweich End;00:10:35.311;9;empty
+6014;Dennis Dotterweich Begin;00:10:46.145;10;empty
+6015;Dennis Dotterweich End;00:10:46.145;10;empty
+6014;Dennis Dotterweich Begin;00:11:54.116;11;empty
+6015;Dennis Dotterweich End;00:11:55.542;11;empty
+6014;Dennis Dotterweich Begin;00:12:05.928;12;empty
+6015;Dennis Dotterweich End;00:12:05.928;12;empty
+6014;Dennis Dotterweich Begin;00:15:33.261;13;empty
+6015;Dennis Dotterweich End;00:15:34.239;13;empty
+6014;Dennis Dotterweich Begin;00:16:18.613;14;empty
+6015;Dennis Dotterweich End;00:16:21.810;14;empty
+6014;Dennis Dotterweich Begin;00:16:46.712;15;empty
+6015;Dennis Dotterweich End;00:16:48.196;15;empty
+6014;Dennis Dotterweich Begin;00:19:12.562;16;empty
+6015;Dennis Dotterweich End;00:19:12.562;16;empty
+6014;Dennis Dotterweich Begin;00:20:58.621;17;empty
+6015;Dennis Dotterweich End;00:20:59.281;17;empty
+6014;Dennis Dotterweich Begin;00:22:25.892;18;empty
+6015;Dennis Dotterweich End;00:22:28.089;18;empty
+6014;Dennis Dotterweich Begin;00:23:06.908;19;empty
+6015;Dennis Dotterweich End;00:23:08.237;19;empty
+6014;Dennis Dotterweich Begin;00:24:21.399;20;empty
+6015;Dennis Dotterweich End;00:24:21.399;20;empty
+6014;Dennis Dotterweich Begin;00:24:33.255;21;empty
+6015;Dennis Dotterweich End;00:24:36.669;21;empty
+6014;Dennis Dotterweich Begin;00:25:19.053;22;empty
+6015;Dennis Dotterweich End;00:25:20.287;22;empty
+6014;Dennis Dotterweich Begin;00:25:31.774;23;empty
+6015;Dennis Dotterweich End;00:25:31.774;23;empty
+6014;Dennis Dotterweich Begin;00:27:20.812;24;empty
+6015;Dennis Dotterweich End;00:27:20.812;24;empty
+
+
+
+Statistic:;
+Type:;Count:;
+New Event;0;
+New Event;0;
+;0;
+;0;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+Dennis Dotterweich End;24;
+;0;
+;0;
+Dennis Dotterweich Begin;24;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;

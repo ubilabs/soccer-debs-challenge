@@ -1,0 +1,78 @@
+event_id;event_name;event_time_real;event_counter;comment
+6014;Luca Ziegler Begin;00:00:25.185;1;empty
+6015;Luca Ziegler End;00:00:25.185;1;empty
+6014;Luca Ziegler Begin;00:01:10.546;2;empty
+6015;Luca Ziegler End;00:01:10.546;2;empty
+6014;Luca Ziegler Begin;00:02:12.395;3;empty
+6015;Luca Ziegler End;00:02:12.395;3;empty
+6014;Luca Ziegler Begin;00:03:27.052;4;empty
+6015;Luca Ziegler End;00:03:29.562;4;empty
+6014;Luca Ziegler Begin;00:04:55.881;5;empty
+6015;Luca Ziegler End;00:04:57.276;5;empty
+6014;Luca Ziegler Begin;00:05:13.770;6;empty
+6015;Luca Ziegler End;00:05:14.800;6;empty
+6014;Luca Ziegler Begin;00:06:16.612;7;empty
+6015;Luca Ziegler End;00:06:16.612;7;empty
+6014;Luca Ziegler Begin;00:07:36.084;8;empty
+6015;Luca Ziegler End;00:07:38.029;8;empty
+6014;Luca Ziegler Begin;00:07:41.242;9;empty
+6015;Luca Ziegler End;00:07:42.398;9;empty
+6014;Luca Ziegler Begin;00:09:57.128;10;empty
+6015;Luca Ziegler End;00:09:58.117;10;empty
+6014;Luca Ziegler Begin;00:10:03.373;11;empty
+6015;Luca Ziegler End;00:10:08.835;11;empty
+6014;Luca Ziegler Begin;00:10:27.133;12;empty
+6015;Luca Ziegler End;00:10:28.133;12;empty
+6014;Luca Ziegler Begin;00:10:29.763;13;empty
+6015;Luca Ziegler End;00:10:30.419;13;empty
+6014;Luca Ziegler Begin;00:12:33.119;14;empty
+6015;Luca Ziegler End;00:12:33.959;14;empty
+6014;Luca Ziegler Begin;00:13:36.026;15;empty
+6015;Luca Ziegler End;00:13:36.821;15;empty
+6014;Luca Ziegler Begin;00:13:42.722;16;empty
+6015;Luca Ziegler End;00:13:43.599;16;empty
+6014;Luca Ziegler Begin;00:14:52.872;17;empty
+6015;Luca Ziegler End;00:14:54.926;17;empty
+6014;Luca Ziegler Begin;00:15:02.720;18;empty
+6015;Luca Ziegler End;00:15:02.720;18;empty
+6014;Luca Ziegler Begin;00:18:43.203;19;empty
+6015;Luca Ziegler End;00:18:43.203;19;empty
+6014;Luca Ziegler Begin;00:19:46.483;20;empty
+6015;Luca Ziegler End;00:19:50.052;20;empty
+6014;Luca Ziegler Begin;00:20:10.946;21;empty
+6015;Luca Ziegler End;00:20:10.946;21;empty
+6014;Luca Ziegler Begin;00:21:46.356;22;empty
+6015;Luca Ziegler End;00:21:47.671;22;empty
+6014;Luca Ziegler Begin;00:24:07.754;23;empty
+6015;Luca Ziegler End;00:24:07.754;23;empty
+6014;Luca Ziegler Begin;00:25:28.330;24;empty
+6015;Luca Ziegler End;00:25:28.330;24;empty
+6014;Luca Ziegler Begin;00:26:59.191;25;empty
+6015;Luca Ziegler End;00:27:00.019;25;empty
+6014;Luca Ziegler Begin;00:27:04.154;26;empty
+6015;Luca Ziegler End;00:27:04.154;26;empty
+6014;Luca Ziegler Begin;00:28:48.201;27;empty
+6015;Luca Ziegler End;00:28:50.816;27;empty
+
+
+
+Statistic:;
+Type:;Count:;
+Luca Ziegler Begin;27;
+Luca Ziegler End;27;
+;0;
+;0;
+New Event;0;
+New Event;0;
+New Event;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+New Event;0;
+New Event;0;
+New Event;0;

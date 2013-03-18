@@ -1,0 +1,56 @@
+event_id;event_name;event_time_real;event_counter;comment
+6014;Nick Gertje Begin;00:01:20.365;1;empty
+6015;Nick Gertje End;00:01:21.807;1;empty
+6014;Nick Gertje Begin;00:01:24.747;2;empty
+6015;Nick Gertje End;00:01:26.164;2;empty
+6014;Nick Gertje Begin;00:03:11.381;3;empty
+6015;Nick Gertje End;00:03:11.381;3;empty
+6014;Nick Gertje Begin;00:03:52.977;4;empty
+6015;Nick Gertje End;00:03:52.977;4;empty
+6014;Nick Gertje Begin;00:05:32.983;5;empty
+6015;Nick Gertje End;00:05:32.983;5;empty
+6014;Nick Gertje Begin;00:06:50.579;6;empty
+6015;Nick Gertje End;00:06:50.579;6;empty
+6014;Nick Gertje Begin;00:08:10.829;7;empty
+6015;Nick Gertje End;00:08:12.344;7;empty
+6014;Nick Gertje Begin;00:09:57.867;8;empty
+6015;Nick Gertje End;00:09:59.987;8;empty
+6014;Nick Gertje Begin;00:11:53.817;9;empty
+6015;Nick Gertje End;00:11:53.817;9;empty
+6014;Nick Gertje Begin;00:12:23.976;10;empty
+6015;Nick Gertje End;00:12:27.046;10;empty
+6014;Nick Gertje Begin;00:15:00.325;11;empty
+6015;Nick Gertje End;00:15:01.376;11;empty
+6014;Nick Gertje Begin;00:16:01.156;12;empty
+6015;Nick Gertje End;00:16:01.156;12;empty
+6014;Nick Gertje Begin;00:19:30.665;13;empty
+6015;Nick Gertje End;00:19:30.665;13;empty
+6014;Nick Gertje Begin;00:23:47.209;14;empty
+6015;Nick Gertje End;00:23:50.375;14;empty
+6014;Nick Gertje Begin;00:27:40.102;15;empty
+6015;Nick Gertje End;00:27:40.102;15;empty
+6014;Nick Gertje Begin;00:29:08.499;16;empty
+6015;Nick Gertje End;00:29:08.499;16;empty
+
+
+
+Statistic:;
+Type:;Count:;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+;0;
+New Event;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+Nick Gertje End;16;
+Nick Gertje Begin;16;
+;0;

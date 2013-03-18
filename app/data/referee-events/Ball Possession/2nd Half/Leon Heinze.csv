@@ -1,0 +1,70 @@
+event_id;event_name;event_time_real;event_counter;comment
+6014;Leon Heinze Begin;00:00:50.713;1;empty
+6015;Leon Heinze End;00:00:50.713;1;empty
+6014;Leon Heinze Begin;00:01:17.610;2;empty
+6015;Leon Heinze End;00:01:18.064;2;empty
+6014;Leon Heinze Begin;00:01:48.584;3;empty
+6015;Leon Heinze End;00:01:48.584;3;empty
+6014;Leon Heinze Begin;00:04:10.946;4;empty
+6015;Leon Heinze End;00:04:11.907;4;empty
+6014;Leon Heinze Begin;00:06:53.740;5;empty
+6015;Leon Heinze End;00:06:54.375;5;empty
+6014;Leon Heinze Begin;00:07:50.263;6;empty
+6015;Leon Heinze End;00:07:50.263;6;empty
+6014;Leon Heinze Begin;00:08:39.629;7;empty
+6015;Leon Heinze End;00:08:39.629;7;empty
+6014;Leon Heinze Begin;00:10:55.470;8;empty
+6015;Leon Heinze End;00:10:56.741;8;empty
+6014;Leon Heinze Begin;00:12:41.710;9;empty
+6015;Leon Heinze End;00:12:42.469;9;empty
+6014;Leon Heinze Begin;00:12:50.579;10;empty
+6015;Leon Heinze End;00:12:50.579;10;empty
+6014;Leon Heinze Begin;00:14:11.037;11;empty
+6015;Leon Heinze End;00:14:11.037;11;empty
+6014;Leon Heinze Begin;00:14:20.319;12;empty
+6015;Leon Heinze End;00:14:20.319;12;empty
+6014;Leon Heinze Begin;00:17:35.950;13;empty
+6015;Leon Heinze End;00:17:35.950;13;empty
+6014;Leon Heinze Begin;00:20:28.457;14;empty
+6015;Leon Heinze End;00:20:28.457;14;empty
+6014;Leon Heinze Begin;00:20:40.693;15;empty
+6015;Leon Heinze End;00:20:41.534;15;empty
+6014;Leon Heinze Begin;00:22:11.763;16;empty
+6015;Leon Heinze End;00:22:15.147;16;empty
+6014;Leon Heinze Begin;00:23:05.428;17;empty
+6015;Leon Heinze End;00:23:05.428;17;empty
+6014;Leon Heinze Begin;00:24:14.751;18;empty
+6015;Leon Heinze End;00:24:17.510;18;empty
+6014;Leon Heinze Begin;00:24:39.706;19;empty
+6015;Leon Heinze End;00:24:39.706;19;empty
+6014;Leon Heinze Begin;00:26:03.457;20;empty
+6015;Leon Heinze End;00:26:04.395;20;empty
+6014;Leon Heinze Begin;00:27:50.029;21;empty
+6015;Leon Heinze End;00:27:50.029;21;empty
+6014;Leon Heinze Begin;00:28:44.916;22;empty
+6015;Leon Heinze End;00:28:44.916;22;empty
+6014;Leon Heinze Begin;00:28:59.079;23;empty
+6015;Leon Heinze End;00:28:59.079;23;empty
+
+
+
+Statistic:;
+Type:;Count:;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+New Event;0;
+New Event;0;
+;0;
+;0;
+;0;
+;0;
+Leon Heinze Begin;23;
+Leon Heinze End;23;
+;0;

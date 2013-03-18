@@ -1,0 +1,80 @@
+event_id;event_name;event_time_real;event_counter;comment
+6014;Roman Hartleb Begin;00:00:33.078;1;empty
+6015;Roman Hartleb End;00:00:33.078;1;empty
+6014;Roman Hartleb Begin;00:00:35.000;2;empty
+6015;Roman Hartleb End;00:00:35.000;2;empty
+6014;Roman Hartleb Begin;00:01:38.203;3;empty
+6015;Roman Hartleb End;00:01:38.203;3;empty
+6014;Roman Hartleb Begin;00:04:10.355;4;empty
+6015;Roman Hartleb End;00:04:10.355;4;empty
+6014;Roman Hartleb Begin;00:04:23.951;5;empty
+6015;Roman Hartleb End;00:04:26.292;5;empty
+6014;Roman Hartleb Begin;00:06:14.394;6;empty
+6015;Roman Hartleb End;00:06:14.394;6;empty
+6014;Roman Hartleb Begin;00:08:16.047;7;empty
+6015;Roman Hartleb End;00:08:16.047;7;empty
+6014;Roman Hartleb Begin;00:08:27.110;8;empty
+6015;Roman Hartleb End;00:08:28.837;8;empty
+6014;Roman Hartleb Begin;00:10:45.335;9;empty
+6015;Roman Hartleb End;00:10:48.225;9;empty
+6014;Roman Hartleb Begin;00:11:57.246;10;empty
+6015;Roman Hartleb End;00:11:58.989;10;empty
+6014;Roman Hartleb Begin;00:15:11.774;11;empty
+6015;Roman Hartleb End;00:15:13.005;11;empty
+6014;Roman Hartleb Begin;00:15:21.617;12;empty
+6015;Roman Hartleb End;00:15:22.866;12;empty
+6014;Roman Hartleb Begin;00:15:48.012;13;empty
+6015;Roman Hartleb End;00:15:48.012;13;empty
+6014;Roman Hartleb Begin;00:16:06.770;14;empty
+6015;Roman Hartleb End;00:16:08.259;14;empty
+6014;Roman Hartleb Begin;00:17:14.162;15;empty
+6015;Roman Hartleb End;00:17:14.162;15;empty
+6014;Roman Hartleb Begin;00:17:50.710;16;empty
+6015;Roman Hartleb End;00:17:52.395;16;empty
+6014;Roman Hartleb Begin;00:18:31.122;17;empty
+6015;Roman Hartleb End;00:18:33.448;17;empty
+6014;Roman Hartleb Begin;00:22:39.456;18;empty
+6015;Roman Hartleb End;00:22:41.186;18;empty
+6014;Roman Hartleb Begin;00:22:57.086;19;empty
+6015;Roman Hartleb End;00:23:00.207;19;empty
+6014;Roman Hartleb Begin;00:24:26.368;20;empty
+6015;Roman Hartleb End;00:24:26.368;20;empty
+6014;Roman Hartleb Begin;00:24:29.028;21;empty
+6015;Roman Hartleb End;00:24:31.252;21;empty
+6014;Roman Hartleb Begin;00:24:39.734;22;empty
+6015;Roman Hartleb End;00:24:40.554;22;empty
+6014;Roman Hartleb Begin;00:25:37.917;23;empty
+6015;Roman Hartleb End;00:25:41.395;23;empty
+6014;Roman Hartleb Begin;00:25:50.343;24;empty
+6015;Roman Hartleb End;00:25:51.085;24;empty
+6014;Roman Hartleb Begin;00:26:46.141;25;empty
+6015;Roman Hartleb End;00:26:46.141;25;empty
+6014;Roman Hartleb Begin;00:27:45.458;26;empty
+6015;Roman Hartleb End;00:27:47.450;26;empty
+6014;Roman Hartleb Begin;00:28:03.411;27;empty
+6015;Roman Hartleb End;00:28:04.571;27;empty
+6014;Roman Hartleb Begin;00:29:15.226;28;empty
+6015;Roman Hartleb End;00:29:15.226;28;empty
+
+
+
+Statistic:;
+Type:;Count:;
+New Event;0;
+New Event;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+;0;
+Roman Hartleb Begin;28;
+Roman Hartleb End;28;
+;0;
+;0;
+;0;
+;0;

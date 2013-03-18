@@ -1,5 +1,6 @@
 temp
 dist
 .DS_Store
-app/data
+app/data/full-game
+app/data/*.csv
 node_modules/

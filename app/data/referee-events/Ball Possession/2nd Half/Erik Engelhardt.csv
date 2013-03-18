@@ -1,0 +1,70 @@
+event_id;event_name;event_time_real;event_counter;comment
+6014;Erik Engelhardt Begin;00:00:01.305;1;empty
+6015;Erik Engelhardt End;00:00:01.305;1;empty
+6014;Erik Engelhardt Begin;00:01:37.312;2;empty
+6015;Erik Engelhardt End;00:01:39.339;2;empty
+6014;Erik Engelhardt Begin;00:02:19.871;3;empty
+6015;Erik Engelhardt End;00:02:23.107;3;empty
+6014;Erik Engelhardt Begin;00:04:16.427;4;empty
+6015;Erik Engelhardt End;00:04:17.844;4;empty
+6014;Erik Engelhardt Begin;00:04:50.142;5;empty
+6015;Erik Engelhardt End;00:04:55.149;5;empty
+6014;Erik Engelhardt Begin;00:05:30.744;6;empty
+6015;Erik Engelhardt End;00:05:31.970;6;empty
+6014;Erik Engelhardt Begin;00:10:36.586;7;empty
+6015;Erik Engelhardt End;00:10:38.703;7;empty
+6014;Erik Engelhardt Begin;00:12:44.927;8;empty
+6015;Erik Engelhardt End;00:12:50.232;8;empty
+6014;Erik Engelhardt Begin;00:13:11.797;9;empty
+6015;Erik Engelhardt End;00:13:11.797;9;empty
+6014;Erik Engelhardt Begin;00:14:43.502;10;empty
+6015;Erik Engelhardt End;00:14:43.502;10;empty
+6014;Erik Engelhardt Begin;00:16:07.657;11;empty
+6015;Erik Engelhardt End;00:16:07.657;11;empty
+6014;Erik Engelhardt Begin;00:16:58.129;12;empty
+6015;Erik Engelhardt End;00:16:59.841;12;empty
+6014;Erik Engelhardt Begin;00:17:05.167;13;empty
+6015;Erik Engelhardt End;00:17:06.713;13;empty
+6014;Erik Engelhardt Begin;00:19:22.669;14;empty
+6015;Erik Engelhardt End;00:19:22.669;14;empty
+6014;Erik Engelhardt Begin;00:20:43.780;15;empty
+6015;Erik Engelhardt End;00:20:51.441;15;empty
+6014;Erik Engelhardt Begin;00:20:55.262;16;empty
+6015;Erik Engelhardt End;00:20:55.262;16;empty
+6014;Erik Engelhardt Begin;00:23:16.826;17;empty
+6015;Erik Engelhardt End;00:23:20.042;17;empty
+6014;Erik Engelhardt Begin;00:24:03.236;18;empty
+6015;Erik Engelhardt End;00:24:03.236;18;empty
+6014;Erik Engelhardt Begin;00:26:30.310;19;empty
+6015;Erik Engelhardt End;00:26:30.310;19;empty
+6014;Erik Engelhardt Begin;00:26:38.422;20;empty
+6015;Erik Engelhardt End;00:26:43.132;20;empty
+6014;Erik Engelhardt Begin;00:27:21.683;21;empty
+6015;Erik Engelhardt End;00:27:26.558;21;empty
+6014;Erik Engelhardt Begin;00:27:40.040;22;empty
+6015;Erik Engelhardt End;00:27:44.481;22;empty
+6014;Erik Engelhardt Begin;00:28:26.921;23;empty
+6015;Erik Engelhardt End;00:28:26.921;23;empty
+
+
+
+Statistic:;
+Type:;Count:;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+Erik Engelhardt End;23;
+Erik Engelhardt Begin;23;

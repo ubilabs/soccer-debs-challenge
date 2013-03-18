@@ -1,0 +1,54 @@
+event_id;event_name;event_time_real;event_counter;comment
+6014;Leon Heinze Begin;00:00:03.205;1;empty
+6015;Leon Heinze End;00:00:03.205;1;empty
+6014;Leon Heinze Begin;00:04:42.546;2;empty
+6015;Leon Heinze End;00:04:42.546;2;empty
+6014;Leon Heinze Begin;00:05:10.980;3;empty
+6015;Leon Heinze End;00:05:12.039;3;empty
+6014;Leon Heinze Begin;00:06:36.658;4;empty
+6015;Leon Heinze End;00:06:36.658;4;empty
+6014;Leon Heinze Begin;00:07:39.902;5;empty
+6015;Leon Heinze End;00:07:39.902;5;empty
+6014;Leon Heinze Begin;00:08:06.028;6;empty
+6015;Leon Heinze End;00:08:07.457;6;empty
+6014;Leon Heinze Begin;00:13:20.538;7;empty
+6015;Leon Heinze End;00:13:20.538;7;empty
+6014;Leon Heinze Begin;00:14:22.025;8;empty
+6015;Leon Heinze End;00:14:22.025;8;empty
+6014;Leon Heinze Begin;00:14:51.783;9;empty
+6015;Leon Heinze End;00:14:52.445;9;empty
+6014;Leon Heinze Begin;00:15:49.133;10;empty
+6015;Leon Heinze End;00:15:50.423;10;empty
+6014;Leon Heinze Begin;00:19:14.753;11;empty
+6015;Leon Heinze End;00:19:17.015;11;empty
+6014;Leon Heinze Begin;00:20:05.899;12;empty
+6015;Leon Heinze End;00:20:05.899;12;empty
+6014;Leon Heinze Begin;00:25:10.812;13;empty
+6015;Leon Heinze End;00:25:10.812;13;empty
+6014;Leon Heinze Begin;00:26:46.271;14;empty
+6015;Leon Heinze End;00:26:46.271;14;empty
+6014;Leon Heinze Begin;00:28:33.085;15;empty
+6015;Leon Heinze End;00:28:33.085;15;empty
+
+
+
+Statistic:;
+Type:;Count:;
+New Event;0;
+New Event;0;
+New Event;0;
+;0;
+;0;
+;0;
+;0;
+Leon Heinze End;15;
+;0;
+Leon Heinze Begin;15;
+New Event;0;
+New Event;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+New Event;0;

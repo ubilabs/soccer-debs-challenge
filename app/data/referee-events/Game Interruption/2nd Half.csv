@@ -1,0 +1,90 @@
+event_id;event_name;event_time_real;event_counter;comment
+6014;Game Interruption Begin;0;1;empty
+6015;Game Interruption End;00:00:00.455;1;empty
+6014;Game Interruption Begin;00:00:26.204;2;empty
+6015;Game Interruption End;00:00:48.628;2;empty
+6014;Game Interruption Begin;00:00:58.837;3;empty
+6015;Game Interruption End;00:01:05.854;3;empty
+6014;Game Interruption Begin;00:01:54.234;4;empty
+6015;Game Interruption End;00:02:08.730;4;empty
+6014;Game Interruption Begin;00:02:26.740;5;empty
+6015;Game Interruption End;00:02:59.104;5;empty
+6014;Game Interruption Begin;00:03:32.719;6;empty
+6015;Game Interruption End;00:03:39.137;6;empty
+6014;Game Interruption Begin;00:04:20.455;7;empty
+6015;Game Interruption End;00:04:34.673;7;empty
+6014;Game Interruption Begin;00:05:49.367;8;empty
+6015;Game Interruption End;00:05:58.587;8;empty
+6014;Game Interruption Begin;00:06:25.441;9;empty
+6015;Game Interruption End;00:06:35.221;9;empty
+6014;Game Interruption Begin;00:07:01.457;10;empty
+6015;Game Interruption End;00:07:19.732;10;empty
+6014;Game Interruption Begin;00:08:14.046;11;empty
+6015;Game Interruption End;00:08:25.330;11;empty
+6014;Game Interruption Begin;00:08:41.836;12;empty
+6015;Game Interruption End;00:09:07.724;12;empty
+6014;Game Interruption Begin;00:09:12.870;13;empty
+6015;Game Interruption End;00:09:20.626;13;empty
+6014;Game Interruption Begin;00:10:57.283;14;empty
+6015;Game Interruption End;00:11:44.547;14;empty
+6014;Game Interruption Begin;00:12:53.206;15;empty
+6015;Game Interruption End;00:13:08.901;16;empty
+6014;Game Interruption Begin;00:13:16.416;16;empty
+6015;Game Interruption End;00:13:32.082;16;empty
+6014;Game Interruption Begin;00:13:53.742;17;empty
+6015;Game Interruption End;00:14:08.274;17;empty
+6014;Game Interruption Begin;00:14:45.974;18;empty
+6015;Game Interruption End;00:14:51.330;18;empty
+6014;Game Interruption Begin;00:15:49.579;19;empty
+6015;Game Interruption End;00:16:06.161;19;empty
+6014;Game Interruption Begin;00:16:37.754;20;empty
+6015;Game Interruption End;00:16:44.241;20;empty
+6014;Game Interruption Begin;00:17:10.203;21;empty
+6015;Game Interruption End;00:17:21.201;21;empty
+6014;Game Interruption Begin;00:17:42.711;22;empty
+6015;Game Interruption End;00:18:23.523;23;empty
+6014;Game Interruption Begin;00:18:57.582;23;empty
+6015;Game Interruption End;00:19:10.968;23;empty
+6014;Game Interruption Begin;00:19:26.259;24;empty
+6015;Game Interruption End;00:19:35.667;24;empty
+6014;Game Interruption Begin;00:19:40.438;25;empty
+6015;Game Interruption End;00:19:44.185;25;empty
+6014;Game Interruption Begin;00:20:29.455;26;empty
+6015;Game Interruption End;00:20:39.153;26;empty
+6014;Game Interruption Begin;00:21:06.510;27;empty
+6015;Game Interruption End;00:21:35.913;27;empty
+6014;Game Interruption Begin;00:22:00.313;28;empty
+6015;Game Interruption End;00:22:03.165;28;empty
+6014;Game Interruption Begin;00:23:20.644;29;empty
+6015;Game Interruption End;00:23:37.268;29;empty
+6014;Game Interruption Begin;00:24:48.977;30;empty
+6015;Game Interruption End;00:25:04.040;30;empty
+6014;Game Interruption Begin;00:25:32.802;31;empty
+6015;Game Interruption End;00:25:37.422;31;empty
+6014;Game Interruption Begin;00:26:07.160;32;empty
+6015;Game Interruption End;00:26:29.998;32;empty
+6014;Game Interruption Begin;00:26:45.396;33;empty
+6015;Game Interruption End;00:26:56.611;34;empty
+6014;Game Interruption Begin;00:27:07.101;34;empty
+6015;Game Interruption End;00:27:20.529;36;empty
+6014;Game Interruption Begin;00:27:54.475;35;empty
+6015;Game Interruption End;00:28:00.782;35;empty
+6014;Game Interruption Begin;00:28:29.127;36;empty
+6015;Game Interruption End;00:28:45.112;36;empty
+6014;Game Interruption Begin;00:29:00.351;37;empty
+6015;Game Interruption End;00:29:14.352;37;empty
+6014;Game Interruption Begin;00:29:36.577;38;empty
+;;;;
+;;;;
+;;;;
+Statistic:;;;;
+Type:;Count:;;;
+EVENT_DECISION_REFEREE_GAME_INTERRUPTION_END;0;;;
+Diagonal Pass;0;;;
+Taktik Angriff;0;;;
+Corner;0;;;
+Taktik Abwehr;0;;;
+Bounce Pass;0;;;
+EVENT_DECISION_REFEREE_GAME_INTERRUPTION_START;0;;;
+Game Interruption End;37;;;
+Game Interruption Begin;38;;;

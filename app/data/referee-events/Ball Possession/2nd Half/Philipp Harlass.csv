@@ -1,0 +1,74 @@
+event_id;event_name;event_time_real;event_counter;comment
+6014;Philipp Harlass Begin;00:00:12.238;1;empty
+6015;Philipp Harlass End;00:00:12.238;1;empty
+6014;Philipp Harlass Begin;00:00:16.997;2;empty
+6015;Philipp Harlass End;00:00:16.997;2;empty
+6014;Philipp Harlass Begin;00:01:34.455;3;empty
+6015;Philipp Harlass End;00:01:35.640;3;empty
+6014;Philipp Harlass Begin;00:03:12.391;4;empty
+6015;Philipp Harlass End;00:03:13.193;4;empty
+6014;Philipp Harlass Begin;00:07:24.662;5;empty
+6015;Philipp Harlass End;00:07:24.662;5;empty
+6014;Philipp Harlass Begin;00:08:11.333;6;empty
+6015;Philipp Harlass End;00:08:12.283;6;empty
+6014;Philipp Harlass Begin;00:11:47.722;7;empty
+6015;Philipp Harlass End;00:11:49.628;7;empty
+6014;Philipp Harlass Begin;00:13:09.644;8;empty
+6015;Philipp Harlass End;00:13:09.644;8;empty
+6014;Philipp Harlass Begin;00:16:11.544;9;empty
+6015;Philipp Harlass End;00:16:11.544;9;empty
+6014;Philipp Harlass Begin;00:16:53.587;10;empty
+6015;Philipp Harlass End;00:16:57.505;10;empty
+6014;Philipp Harlass Begin;00:17:37.781;11;empty
+6015;Philipp Harlass End;00:17:39.001;11;empty
+6014;Philipp Harlass Begin;00:19:18.495;12;empty
+6015;Philipp Harlass End;00:19:22.043;12;empty
+6014;Philipp Harlass Begin;00:19:35.905;13;empty
+6015;Philipp Harlass End;00:19:35.905;13;empty
+6014;Philipp Harlass Begin;00:20:14.845;14;empty
+6015;Philipp Harlass End;00:20:14.845;14;empty
+6014;Philipp Harlass Begin;00:21:52.366;15;empty
+6015;Philipp Harlass End;00:21:53.273;15;empty
+6014;Philipp Harlass Begin;00:23:56.042;16;empty
+6015;Philipp Harlass End;00:23:56.042;16;empty
+6014;Philipp Harlass Begin;00:24:02.227;17;empty
+6015;Philipp Harlass End;00:24:02.227;17;empty
+6014;Philipp Harlass Begin;00:24:03.829;18;empty
+6015;Philipp Harlass End;00:24:07.546;18;empty
+6014;Philipp Harlass Begin;00:24:09.593;19;empty
+6015;Philipp Harlass End;00:24:09.593;19;empty
+6014;Philipp Harlass Begin;00:25:10.194;20;empty
+6015;Philipp Harlass End;00:25:11.258;20;empty
+6014;Philipp Harlass Begin;00:25:57.071;21;empty
+6015;Philipp Harlass End;00:25:57.071;21;empty
+6014;Philipp Harlass Begin;00:27:28.423;22;empty
+6015;Philipp Harlass End;00:27:31.732;22;empty
+6014;Philipp Harlass Begin;00:27:36.603;23;empty
+6015;Philipp Harlass End;00:27:37.496;23;empty
+6014;Philipp Harlass Begin;00:28:07.600;24;empty
+6015;Philipp Harlass End;00:28:11.621;24;empty
+6014;Philipp Harlass Begin;00:29:24.930;25;empty
+6015;Philipp Harlass End;00:29:26.699;25;empty
+
+
+
+Statistic:;
+Type:;Count:;
+New Event;0;
+New Event;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+Philipp Harlass End;25;
+Philipp Harlass Begin;25;
+;0;
+;0;
+;0;
+;0;
+;0;

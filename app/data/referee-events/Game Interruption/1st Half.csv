@@ -1,0 +1,84 @@
+event_id;event_name;event_time_real;event_counter;comment
+2010;Game Interruption Begin;0;1;empty
+2011;Game Interruption End;00:00:03.092;1;empty
+2010;Game Interruption Begin;00:00:38.397;2;empty
+2011;Game Interruption End;00:00:45.564;2;empty
+2010;Game Interruption Begin;00:03:12.106;3;empty
+2011;Game Interruption End;00:03:35.086;3;empty
+2010;Game Interruption Begin;00:03:41.896;4;empty
+2011;Game Interruption End;00:03:52.740;4;empty
+2010;Game Interruption Begin;00:05:26.094;5;empty
+2011;Game Interruption End;00:05:32.861;5;empty
+2010;Game Interruption Begin;00:06:03.734;6;empty
+2011;Game Interruption End;00:06:13.052;6;empty
+2010;Game Interruption Begin;00:06:39.942;7;empty
+2011;Game Interruption End;00:06:50.338;7;empty
+2010;Game Interruption Begin;00:07:08.221;8;empty
+2011;Game Interruption End;00:07:40.483;8;empty
+2010;Game Interruption Begin;00:08:39.473;9;empty
+2011;Game Interruption End;00:08:50.037;9;empty
+2010;Game Interruption Begin;00:08:53.115;10;empty
+2011;Game Interruption End;00:09:05.159;10;empty
+2010;Game Interruption Begin;00:09:15.416;11;empty
+2011;Game Interruption End;00:09:24.077;11;empty
+2010;Game Interruption Begin;00:10:10.653;12;empty
+2011;Game Interruption End;00:10:28.859;12;empty
+2010;Game Interruption Begin;00:11:07.654;13;empty
+2011;Game Interruption End;00:11:20.208;13;empty
+2010;Game Interruption Begin;00:11:44.897;14;empty
+2011;Game Interruption End;00:11:53.381;14;empty
+2010;Game Interruption Begin;00:12:46.227;15;empty
+2011;Game Interruption End;00:13:06.649;15;empty
+2010;Game Interruption Begin;00:13:21.525;16;empty
+2011;Game Interruption End;00:13:57.766;16;empty
+2010;Game Interruption Begin;00:14:15.047;17;empty
+2011;Game Interruption End;00:14:16.779;17;empty
+2010;Game Interruption Begin;00:15:29.237;18;empty
+2011;Game Interruption End;00:15:39.672;18;empty
+2010;Game Interruption Begin;00:15:55.945;19;empty
+2011;Game Interruption End;00:16:00.895;19;empty
+2010;Game Interruption Begin;00:18:19.646;20;empty
+2011;Game Interruption End;00:18:27.237;20;empty
+2010;Game Interruption Begin;00:18:38.105;21;empty
+2011;Game Interruption End;00:19:01.724;21;empty
+2010;Game Interruption Begin;00:20:18.215;22;empty
+2011;Game Interruption End;00:20:27.223;22;empty
+2010;Game Interruption Begin;00:20:45.563;23;empty
+2011;Game Interruption End;00:20:55.197;23;empty
+2010;Game Interruption Begin;00:21:12.846;24;empty
+2011;Game Interruption End;00:21:21.084;24;empty
+2010;Game Interruption Begin;00:21:42.604;25;empty
+2011;Game Interruption End;00:21:52.313;25;empty
+2010;Game Interruption Begin;00:22:11.800;26;empty
+2011;Game Interruption End;00:22:36.511;26;empty
+2010;Game Interruption Begin;00:23:13.330;27;empty
+2011;Game Interruption End;00:23:22.706;27;empty
+2010;Game Interruption Begin;00:24:44.647;28;empty
+2011;Game Interruption End;00:25:09.907;28;empty
+2010;Game Interruption Begin;00:26:09.608;29;empty
+2011;Game Interruption End;00:26:32.306;29;empty
+2010;Game Interruption Begin;00:26:57.200;30;empty
+2011;Game Interruption End;00:27:22.995;30;empty
+2010;Game Interruption Begin;00:27:25.880;31;empty
+2011;Game Interruption End;00:27:40.461;31;empty
+2010;Game Interruption Begin;00:28:15.590;32;empty
+2011;Game Interruption End;00:28:31.868;32;empty
+2010;Game Interruption Begin;00:29:01.873;33;empty
+2011;Game Interruption End;00:29:07.679;33;empty
+2010;Game Interruption Begin;00:29:23.469;34;empty
+2011;Game Interruption End;00:29:32.757;34;empty
+
+
+
+Statistic:;
+Type:;Count:;
+Game Interruption Begin;34;
+Game Interruption End;34;
+Double Pass;0;
+Bounce Pass;0;
+Direct Pass;0;
+Corner;0;
+Taktik Abwehr;0;
+Pass;0;
+Taktik Angriff;0;
+Diagonal Pass;0;

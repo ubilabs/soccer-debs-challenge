@@ -1,0 +1,92 @@
+event_id;event_name;event_time_real;event_counter;comment
+6014;Christopher Lee Begin;00:00:05.235;1;empty
+6015;Christopher Lee End;00:00:06.409;1;empty
+6014;Christopher Lee Begin;00:00:17.471;2;empty
+6015;Christopher Lee End;00:00:18.411;2;empty
+6014;Christopher Lee Begin;00:00:23.073;3;empty
+6015;Christopher Lee End;00:00:24.133;3;empty
+6014;Christopher Lee Begin;00:00:47.083;4;empty
+6015;Christopher Lee End;00:00:51.446;4;empty
+6014;Christopher Lee Begin;00:00:55.617;5;empty
+6015;Christopher Lee End;00:00:57.221;5;empty
+6014;Christopher Lee Begin;00:01:04.493;6;empty
+6015;Christopher Lee End;00:01:08.403;6;empty
+6014;Christopher Lee Begin;00:04:22.127;7;empty
+6015;Christopher Lee End;00:04:22.127;7;empty
+6014;Christopher Lee Begin;00:04:51.130;8;empty
+6015;Christopher Lee End;00:04:51.130;8;empty
+6014;Christopher Lee Begin;00:07:52.271;9;empty
+6015;Christopher Lee End;00:07:54.574;9;empty
+6014;Christopher Lee Begin;00:08:38.012;10;empty
+6015;Christopher Lee End;00:08:38.012;10;empty
+6014;Christopher Lee Begin;00:09:43.410;11;empty
+6015;Christopher Lee End;00:09:44.792;11;empty
+6014;Christopher Lee Begin;00:09:47.480;12;empty
+6015;Christopher Lee End;00:09:49.138;12;empty
+6014;Christopher Lee Begin;00:10:42.584;13;empty
+6015;Christopher Lee End;00:10:42.584;13;empty
+6014;Christopher Lee Begin;00:11:02.259;14;empty
+6015;Christopher Lee End;00:11:02.259;14;empty
+6014;Christopher Lee Begin;00:13:09.358;15;empty
+6015;Christopher Lee End;00:13:11.761;15;empty
+6014;Christopher Lee Begin;00:14:37.521;16;empty
+6015;Christopher Lee End;00:14:38.365;16;empty
+6014;Christopher Lee Begin;00:15:39.936;17;empty
+6015;Christopher Lee End;00:15:39.936;17;empty
+6014;Christopher Lee Begin;00:16:21.648;18;empty
+6015;Christopher Lee End;00:16:21.648;18;empty
+6014;Christopher Lee Begin;00:16:33.308;19;empty
+6015;Christopher Lee End;00:16:35.297;19;empty
+6014;Christopher Lee Begin;00:16:41.057;20;empty
+6015;Christopher Lee End;00:16:42.164;20;empty
+6014;Christopher Lee Begin;00:16:47.193;21;empty
+6015;Christopher Lee End;00:16:49.619;21;empty
+6014;Christopher Lee Begin;00:16:54.422;22;empty
+6015;Christopher Lee End;00:16:56.044;22;empty
+6014;Christopher Lee Begin;00:18:03.632;23;empty
+6015;Christopher Lee End;00:18:04.914;23;empty
+6014;Christopher Lee Begin;00:18:09.035;24;empty
+6015;Christopher Lee End;00:18:10.697;24;empty
+6014;Christopher Lee Begin;00:18:14.349;25;empty
+6015;Christopher Lee End;00:18:16.411;25;empty
+6014;Christopher Lee Begin;00:18:34.906;26;empty
+6015;Christopher Lee End;00:18:34.906;26;empty
+6014;Christopher Lee Begin;00:20:43.645;27;empty
+6015;Christopher Lee End;00:20:43.645;27;empty
+6014;Christopher Lee Begin;00:21:23.569;28;empty
+6015;Christopher Lee End;00:21:24.649;28;empty
+6014;Christopher Lee Begin;00:23:27.722;29;empty
+6015;Christopher Lee End;00:23:29.090;29;empty
+6014;Christopher Lee Begin;00:25:58.730;30;empty
+6015;Christopher Lee End;00:26:00.792;30;empty
+6014;Christopher Lee Begin;00:26:34.606;31;empty
+6015;Christopher Lee End;00:26:36.059;31;empty
+6014;Christopher Lee Begin;00:26:38.185;32;empty
+6015;Christopher Lee End;00:26:43.116;32;empty
+6014;Christopher Lee Begin;00:28:45.373;33;empty
+6015;Christopher Lee End;00:28:46.613;33;empty
+6014;Christopher Lee Begin;00:29:56.367;34;empty
+6015;Christopher Lee End;00:29:57.225;34;empty
+
+
+
+Statistic:;
+Type:;Count:;
+Christopher Lee Begin;34;
+Christopher Lee End;34;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;

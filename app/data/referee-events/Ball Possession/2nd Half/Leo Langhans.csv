@@ -1,0 +1,74 @@
+event_id;event_name;event_time_real;event_counter;comment
+6014;Leo Langhans Begin;00:03:48.955;1;empty
+6015;Leo Langhans End;00:04:00.548;1;empty
+6014;Leo Langhans Begin;00:04:05.015;2;empty
+6015;Leo Langhans End;00:04:08.514;2;empty
+6014;Leo Langhans Begin;00:05:09.062;3;empty
+6015;Leo Langhans End;00:05:10.869;3;empty
+6014;Leo Langhans Begin;00:06:24.737;4;empty
+6015;Leo Langhans End;00:06:24.737;4;empty
+6014;Leo Langhans Begin;00:06:36.351;5;empty
+6015;Leo Langhans End;00:06:36.351;5;empty
+6014;Leo Langhans Begin;00:06:56.064;6;empty
+6015;Leo Langhans End;00:07:00.500;6;empty
+6014;Leo Langhans Begin;00:07:43.455;7;empty
+6015;Leo Langhans End;00:07:46.258;7;empty
+6014;Leo Langhans Begin;00:10:49.466;8;empty
+6015;Leo Langhans End;00:10:55.015;8;empty
+6014;Leo Langhans Begin;00:14:11.589;9;empty
+6015;Leo Langhans End;00:14:11.589;9;empty
+6014;Leo Langhans Begin;00:15:12.055;10;empty
+6015;Leo Langhans End;00:15:17.309;10;empty
+6014;Leo Langhans Begin;00:15:44.585;11;empty
+6015;Leo Langhans End;00:15:48.705;11;empty
+6014;Leo Langhans Begin;00:18:29.446;12;empty
+6015;Leo Langhans End;00:18:33.302;12;empty
+6014;Leo Langhans Begin;00:19:51.600;13;empty
+6015;Leo Langhans End;00:20:03.541;13;empty
+6014;Leo Langhans Begin;00:21:41.451;14;empty
+6015;Leo Langhans End;00:21:43.689;14;empty
+6014;Leo Langhans Begin;00:22:48.733;15;empty
+6015;Leo Langhans End;00:22:53.286;15;empty
+6014;Leo Langhans Begin;00:22:57.909;16;empty
+6015;Leo Langhans End;00:22:57.909;16;empty
+6014;Leo Langhans Begin;00:23:00.535;17;empty
+6015;Leo Langhans End;00:23:01.559;17;empty
+6014;Leo Langhans Begin;00:23:06.700;18;empty
+6015;Leo Langhans End;00:23:06.700;18;empty
+6014;Leo Langhans Begin;00:23:52.955;19;empty
+6015;Leo Langhans End;00:23:55.126;19;empty
+6014;Leo Langhans Begin;00:23:58.189;20;empty
+6015;Leo Langhans End;00:23:58.189;20;empty
+6014;Leo Langhans Begin;00:25:49.426;21;empty
+6015;Leo Langhans End;00:25:51.656;21;empty
+6014;Leo Langhans Begin;00:26:06.341;22;empty
+6015;Leo Langhans End;00:26:06.341;22;empty
+6014;Leo Langhans Begin;00:27:06.479;23;empty
+6015;Leo Langhans End;00:27:06.479;23;empty
+6014;Leo Langhans Begin;00:28:46.438;24;empty
+6015;Leo Langhans End;00:28:46.438;24;empty
+6014;Leo Langhans Begin;00:29:16.712;25;empty
+6015;Leo Langhans End;00:29:18.762;25;empty
+
+
+
+Statistic:;
+Type:;Count:;
+;0;
+;0;
+;0;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+New Event;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+;0;
+Leo Langhans Begin;25;
+Leo Langhans End;25;

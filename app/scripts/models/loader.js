@@ -1,6 +1,6 @@
 Loader = Model({
 
-  file: '/data/1000.csv',
+  file: '/data/samples.csv',
 
   init: function(){
     this.xhr = new XMLHttpRequest();

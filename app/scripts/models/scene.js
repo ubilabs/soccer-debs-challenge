@@ -61,7 +61,6 @@ var Scene = Model({
     geometry.vertices.push(new THREE.Vector3(MAXX, MAXY, 0));
 
     var line = new THREE.Line(geometry, material);
-
     this.add(line);
 
     geometry.vertices.push(new THREE.Vector3(MAXX, 0, 0));

@@ -5,7 +5,7 @@ body, html {
   color: #fff;
 }
 
-#time, #acceleration, #accelerationbar, #speed, #speedbar, #goal {
+#time, #acceleration, #accelerationbar, #speed, #speedbar, #goal, #out {
   position: absolute;
   top: 10px;
 }
@@ -29,12 +29,18 @@ body, html {
   right: 100px;
 }
 
-#goal {
-  position: absolute;
-  top: 10px;
-  left: 120px;
-  background: green;
+#goal, #out{
   padding: 10px;
   opacity: 0;
+}
+
+#goal {
+  left: 120px;
+  background: green;
   -webkit-transition: all 0.3s;
+}
+
+#out {
+  left: 220px;
+  background: red;
 }

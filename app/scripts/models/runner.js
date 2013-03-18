@@ -52,13 +52,14 @@ Runner = Model({
     var hit, oldHit;
 
     function render(){
-      for (all in players){
+      for (var all in players){
         players[all].update();
       }
 
       var ball = players[8];
 
       $goal.style.opacity = (new Date() - goal) < 1000 ? 1 : 0;
+      $out.style.opacity = (new Date() - out) < 1000 ? 1 : 0;
 
       var speed = Math.round(
         ball.data[5] / // |v|
@@ -95,6 +96,11 @@ Runner = Model({
         z < GOAL_Z
       ){
         goal = new Date();
+      } else if (
+        y > MAXY &&
+        Math.abs(x) > MAXX
+      ) {
+        out = new Date();
       }
     }
 
@@ -120,7 +126,7 @@ Runner = Model({
         checkGoal(player);
       }
 
-      if (++count < 4000){
+      if (++count < ITERATIONS){
         run();
       } else {
         count = 0;

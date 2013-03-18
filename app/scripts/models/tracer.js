@@ -1,6 +1,6 @@
 Tracer = Model({
 
-  LENGTH: 50,
+  LENGTH: 10,
 
   init: function(options){
 

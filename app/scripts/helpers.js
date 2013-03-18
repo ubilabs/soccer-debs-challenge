@@ -7,8 +7,8 @@ function distance(positionA, positionB){
   if (!positionA || !positionB){ return 0; }
 
   return Math.sqrt(
-    Math.pow(positionA.x - positionB.x, 2) + 
-    Math.pow(positionA.y - positionB.y, 2) + 
+    Math.pow(positionA.x - positionB.x, 2) +
+    Math.pow(positionA.y - positionB.y, 2) +
     Math.pow(positionA.z - positionB.z, 2)
   );
 }

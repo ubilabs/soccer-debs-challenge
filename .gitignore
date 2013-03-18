@@ -2,3 +2,4 @@ temp
 dist
 .DS_Store
 app/data
+node_modules/

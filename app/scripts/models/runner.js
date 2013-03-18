@@ -7,14 +7,16 @@ Runner = Model({
       index = 0;
 
       players = {},
-      goal = 0;
+      goal = 0,
 
-      $goal = document.getElementById("goal"),
-      $acceleration = document.getElementById("acceleration"),
-      $speed = document.getElementById("speed"),
-      $speedbar = document.getElementById("speedbar"),
-      $accelerationbar = document.getElementById("accelerationbar")
-      ;
+      out = 0,
+
+      $goal = $("goal"),
+      $out = $("out"),
+      $acceleration = $("acceleration"),
+      $speed = $("speed"),
+      $speedbar = $("speedbar"),
+      $accelerationbar = $("accelerationbar");
 
     function checkHit(){
 

@@ -1,3 +1,7 @@
+function $(id){
+  return document.getElementById(id);
+}
+
 function distance(positionA, positionB){
 
   if (!positionA || !positionB){ return 0; }

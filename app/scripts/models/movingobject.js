@@ -1,12 +1,10 @@
-Player = Model({
+MovingObject = Model({
 
   geometry: new THREE.CubeGeometry(400, 400, 400),
 
   init: function(id){
     this.scene = app.scene;
     this.id = id*1;
-
-    this.IS_BALL = this.id == 8;
 
     this.initTypeAndColor();
     this.initMesh();
@@ -29,6 +27,9 @@ Player = Model({
         this.name = name;
       }
     }
+
+    this.IS_BALL = this.id == 8;
+    this.IS_PLAYER = (this.type == "TEAM1" || this.type == "TEAM1");
   },
 
   initMesh: function(){
@@ -45,7 +46,7 @@ Player = Model({
 
   initTracer: function(){
 
-    if (this.type != "BALL"){
+    if (!this.IS_BALL){
       return;
     }
 

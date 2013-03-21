@@ -4,12 +4,19 @@ Runner = Model({
 
     var that = this,
       count = 0,
-      index = 0;
+      index = 0,
 
-      players = {},
+      entries = {},
+
+      ball,
       goal = 0,
 
       out = 0,
+
+      startTime,
+
+      currentPlayer,
+      currentTeam,
 
       $goal = $("goal"),
       $out = $("out"),
@@ -22,41 +29,42 @@ Runner = Model({
 
       var min = BALL_SIZE,
         d, select,
-        ball = 8,
-        all;
+        all, entry;
 
-      for (all in players){
-        if (all != ball){
+      for (all in entries){
+        entry = entries[all];
+        if (entry != ball){
           d = distance(
-            players[ball].position,
-            players[all].position
+            ball.position,
+            entry.position
           );
 
           if ((d < min)){
-            select = all;
+            select = entry;
             min = d;
           }
         }
       }
 
-      var scale = select ? 2.5 : 1,
-        player;
+      var scale = select ? 2.5 : 1;
 
-      for (all in players){
-        player = players[all].scale = (all === select) ? scale : 1;
+      for (all in entries){
+        entry = entries[all];
+        entry.scale = (entry === select) ? scale : 1;
       }
 
-      return select;
+      if (select){
+        currentPlayer = select;
+        currentTeam = select.type;
+      }
     }
 
-    var hit, oldHit;
-
     function render(){
-      for (var all in players){
-        players[all].update();
+      for (var all in entries){
+        entries[all].update();
       }
 
-      var ball = players[8];
+      var ball = entries[8];
 
       $goal.style.opacity = (new Date() - goal) < 1000 ? 1 : 0;
       $out.style.opacity = (new Date() - out) < 1000 ? 1 : 0;
@@ -81,7 +89,7 @@ Runner = Model({
       $accelerationbar.style.width = acceleration + "px";
     }
 
-    function checkGoal(ball){
+    function checkGoal(){
 
       var x = ball.position.x,
         y = Math.abs(ball.position.y),
@@ -109,20 +117,30 @@ Runner = Model({
 
       var data = lines[index].split(","),
         id = data[0],
-        player = players[id] || (players[id] = new Player(id));
+        entry = entries[id];
 
-      player.position = {
+      if (!entry){
+        entry = new MovingObject(id);
+        entries[id] = entry;
+        if (id == 8){ ball = entry; }
+      }
+
+      if (!startTime){
+        startTime = data[1];
+      }
+
+      entry.position = {
         x: 1*data[2],
         y: 1*data[3],
         z: 1*data[4]
       };
 
-      player.last = player.data;
-      player.data = data;
+      entry.last = entry.data;
+      entry.data = data;
 
-      if (player.IS_BALL){
+      if (entry == ball){
         checkHit();
-        checkGoal(player);
+        checkGoal();
       }
 
       if (++count < ITERATIONS){

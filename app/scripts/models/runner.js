@@ -79,7 +79,6 @@ Runner = Model({
 
       $speedbar.style.width = speed + "px";
       $accelerationbar.style.width = acceleration + "px";
-
     }
 
     function checkGoal(ball){

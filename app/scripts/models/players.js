@@ -7,24 +7,17 @@ Players = Model({
     this.players = {};
 
     for (name in PLAYERS){
-      player = [];
-      player.possesionTime = 0;
-      player.name = name;
-
-      this.players[name] = player;
+      this.players[name] = new Player(name);
     }
 
-    console.log(this.players)
+    console.log(this.players);
   },
 
   add: function(entry){
     var player = this.players[entry.name];
     if (!player){ return; }
 
-    player.team = entry.type;
-
+    player.addLeg(entry);
     entry.player = player;
-    player.push(entry);
-
   }
 });

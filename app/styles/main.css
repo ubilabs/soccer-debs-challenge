@@ -3,6 +3,7 @@ body, html {
   margin: 0;
   background: #000;
   color: #fff;
+  font-family: Helvetica, Arial;
 }
 
 #time, #acceleration, #accelerationbar, #speed, #speedbar, #goal, #out {
@@ -45,7 +46,31 @@ body, html {
   background: red;
 }
 
-#current {
+#TEAM1 {
+  color: #F66;
+}
+
+#TEAM2 {
+  color: #66F;
+}
+
+#teams {
   position: absolute;
-  bottom: 20px;
+  bottom: 0;
+  right: 50%;
+  margin-right: -300px;
+}
+
+#teams ul {
+  width: 300px;
+  float: left;  
+  list-style: none;
+}
+
+#teams ul li {
+  opacity: 0.5;
+}
+
+#teams ul span {
+  padding-right: 8px;
 }

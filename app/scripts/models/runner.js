@@ -20,7 +20,6 @@ Runner = Model({
 
       $goal = $("goal"),
       $out = $("out"),
-      $current = $("current"),
       $acceleration = $("acceleration"),
       $speed = $("speed"),
       $speedbar = $("speedbar"),
@@ -61,7 +60,10 @@ Runner = Model({
         if (current){
           if (current.player == select.player){ return; }
           current.player.possesionTime += time - current.time;
+          current.player.downlight();
         }
+
+        select.player.highlight();
 
         current = {
           name: select.name,
@@ -101,8 +103,8 @@ Runner = Model({
       $accelerationbar.style.width = acceleration + "px";
 
       if (current){
-        var time = ((ball.data[1] - current.time + current.player.possesionTime) / 1e12).toFixed(2);
-        $current.innerHTML = current.team + ": " + current.name + " " + time;
+        var time = (ball.data[1] - current.time);
+        current.player.render(time);
       }
     }
 

@@ -56,13 +56,18 @@ Runner = Model({
 
       if (select){
 
-        if (current && (current.name == select.name)){ return; }
+        var time = select.data[1];
+
+        if (current){
+          if (current.player == select.player){ return; }
+          current.player.possesionTime += time - current.time;
+        }
 
         current = {
           name: select.name,
           team: select.team,
-          player: select,
-          time: select.data[1]
+          player: select.player,
+          time: time
         };
       }
     }
@@ -96,8 +101,8 @@ Runner = Model({
       $accelerationbar.style.width = acceleration + "px";
 
       if (current){
-        var time = ((ball.data[1] - current.time) / 1e12).toFixed(2);
-        $current.innerHTML = current.team + ": " + current.name + " " +time;
+        var time = ((ball.data[1] - current.time + current.player.possesionTime) / 1e12).toFixed(2);
+        $current.innerHTML = current.team + ": " + current.name + " " + time;
       }
     }
 

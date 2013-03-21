@@ -16,10 +16,10 @@ Runner = Model({
       startTime,
 
       currentPlayer,
-      currentTeam,
 
       $goal = $("goal"),
       $out = $("out"),
+      $current = $("current"),
       $acceleration = $("acceleration"),
       $speed = $("speed"),
       $speedbar = $("speedbar"),
@@ -55,7 +55,6 @@ Runner = Model({
 
       if (select){
         currentPlayer = select;
-        currentTeam = select.type;
       }
     }
 
@@ -87,6 +86,11 @@ Runner = Model({
 
       $speedbar.style.width = speed + "px";
       $accelerationbar.style.width = acceleration + "px";
+
+      if (currentPlayer){
+        $current.innerHTML = currentPlayer.name + " (" + currentPlayer.team + ")";
+      }
+
     }
 
     function checkGoal(){

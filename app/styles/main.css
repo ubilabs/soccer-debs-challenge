@@ -44,3 +44,8 @@ body, html {
   left: 220px;
   background: red;
 }
+
+#current {
+  position: absolute;
+  bottom: 20px;
+}

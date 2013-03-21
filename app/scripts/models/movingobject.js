@@ -22,14 +22,17 @@ MovingObject = Model({
 
     this.color = COLORS[this.type] || "#0F0";
 
-    for (var name in PLAYERS){
-      if (PLAYERS[name].indexOf(this.id) > -1){
-        this.name = name;
+    this.IS_BALL = this.id == 8;
+    this.IS_PLAYER = (this.type == "TEAM1" || this.type == "TEAM2");
+
+    if (this.IS_PLAYER){
+      this.team = this.type;
+      for (var name in PLAYERS){
+        if (PLAYERS[name].indexOf(this.id) > -1){
+          this.name = name;
+        }
       }
     }
-
-    this.IS_BALL = this.id == 8;
-    this.IS_PLAYER = (this.type == "TEAM1" || this.type == "TEAM1");
   },
 
   initMesh: function(){

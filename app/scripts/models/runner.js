@@ -7,6 +7,7 @@ Runner = Model({
       index = 0,
 
       entries = {},
+      players = new Players(),
 
       ball,
       goal = 0,
@@ -15,7 +16,7 @@ Runner = Model({
 
       startTime,
 
-      currentPlayer,
+      current,
 
       $goal = $("goal"),
       $out = $("out"),
@@ -54,7 +55,15 @@ Runner = Model({
       }
 
       if (select){
-        currentPlayer = select;
+
+        if (current && (current.name == select.name)){ return; }
+
+        current = {
+          name: select.name,
+          team: select.team,
+          player: select,
+          time: select.data[1]
+        };
       }
     }
 
@@ -63,12 +72,11 @@ Runner = Model({
         entries[all].update();
       }
 
-      var ball = entries[8];
-
       $goal.style.opacity = (new Date() - goal) < 1000 ? 1 : 0;
       $out.style.opacity = (new Date() - out) < 1000 ? 1 : 0;
 
-      var speed = Math.round(
+      var ball = entries[8],
+        speed = Math.round(
         ball.data[5] / // |v|
         1e6 / // µm
         1000 * // km
@@ -87,10 +95,10 @@ Runner = Model({
       $speedbar.style.width = speed + "px";
       $accelerationbar.style.width = acceleration + "px";
 
-      if (currentPlayer){
-        $current.innerHTML = currentPlayer.name + " (" + currentPlayer.team + ")";
+      if (current){
+        var time = ((ball.data[1] - current.time) / 1e12).toFixed(2);
+        $current.innerHTML = current.team + ": " + current.name + " " +time;
       }
-
     }
 
     function checkGoal(){
@@ -123,10 +131,12 @@ Runner = Model({
         id = data[0],
         entry = entries[id];
 
+      // create a new entry
       if (!entry){
         entry = new MovingObject(id);
         entries[id] = entry;
-        if (id == 8){ ball = entry; }
+        if (entry.IS_BALL){ ball = entry; }
+        players.add(entry);
       }
 
       if (!startTime){

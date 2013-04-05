@@ -16,3 +16,7 @@ function distance(positionA, positionB){
 function speed (distance, time) {
   return (distance / 1000) / (time / 1e12);
 }
+
+function format(time){
+  return Math.round(time / 1e12);
+}

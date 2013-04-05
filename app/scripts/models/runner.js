@@ -54,24 +54,23 @@ Runner = Model({
         entry.scale = (entry === select) ? scale : 1;
       }
 
+      var time = ball.data[1];
+
+      select = select || current;
+
       if (select){
 
-        var time = select.data[1];
-
         if (current){
-          if (current.player == select.player){ return; }
-          current.player.possesionTime += time - current.time;
-          current.player.downlight();
+          if (current.player == select.player){
+            current.player.select(true, time);
+            return;
+          }
+          current.player.select(false, time);
         }
 
-        select.player.highlight();
+        select.player.select(true, time);
 
-        current = {
-          name: select.name,
-          team: select.team,
-          player: select.player,
-          time: time
-        };
+        current = select;
       }
     }
 
@@ -84,13 +83,14 @@ Runner = Model({
       $out.style.opacity = (new Date() - out) < 1000 ? 1 : 0;
 
       var ball = entries[8],
+        time = ball.data[1],
         speed = Math.round(
-        ball.data[5] / // |v|
-        1e6 / // µm
-        1000 * // km
-        60 * // minutes
-        60 // secods
-      );
+          ball.data[5] / // |v|
+          1e6 / // µm
+          1000 * // km
+          60 * // minutes
+          60 // secods
+        );
 
       $speed.innerHTML = speed;
 
@@ -103,11 +103,7 @@ Runner = Model({
       $speedbar.style.width = speed + "px";
       $accelerationbar.style.width = acceleration + "px";
 
-      if (current){
-        var time = (ball.data[1] - current.time);
-        current.player.render(time);
-      }
-
+      players.render(time);
       teams.render();
     }
 

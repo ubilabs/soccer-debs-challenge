@@ -19,5 +19,11 @@ Players = Model({
 
     player.addLeg(entry);
     entry.player = player;
+  },
+
+  render: function(time){
+    for (var all in this.players){
+      this.players[all].render(time);
+    }
   }
 });

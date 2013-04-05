@@ -1,8 +1,14 @@
 Player = Klass({
+
+
+
   init: function(name){
     this.legs = [];
     this.possesionTime = 0;
+    this.hitCount = 0;
+    this.active = false;
     this.name = name;
+
     var team1 = MAPPING.TEAM1.indexOf(PLAYERS[name][0]) > -1;
     this.team = team1 ? TYPES.TEAM1 : TYPES.TEAM2;
 
@@ -24,16 +30,33 @@ Player = Klass({
 
   render: function(time){
 
-    time = Math.round((this.possesionTime + time) / 1e12);
-    time = (1e6+time+"").slice(-3);
-    this.$time.innerHTML = time;
+    if (this.active){
+      this.possesionTime += time - this.time;
+      this.time = time;
+    }
+
+    var possesion = this.possesionTime;
+    possesion = Math.round(possesion / 1e12);
+    possesion = (1e10 + "" + possesion).slice(-4);
+
+    this.$time.innerHTML = possesion + " : " + this.hitCount;
+    this.$li.style.opacity = this.active ? 1 : "";
   },
 
-  downlight: function(){
-    this.$li.style.opacity = "";
-  },
+  select: function(active, time){
 
-  highlight: function(){
-    this.$li.style.opacity = 1;
+    if (active){
+
+      if (!this.active){
+        this.time = time;
+        this.hitCount++;
+      }
+
+    } else {
+      this.possesionTime += time - this.time;
+    }
+
+    this.active = active;
+
   }
 });

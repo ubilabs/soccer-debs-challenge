@@ -24,31 +24,23 @@ Teams = Klass({
 
   render: function(){
 
-
-    var total = 0,
+    var total, percent,
       t1 = 0,
       t2 = 0;
 
     this.TEAM1.forEach(function(player){
-
-      var time = player.possesionTime || 0;
-
-      total += time;
-      t1 += time;
+      t1 += player.possesionTime;
     });
 
     this.TEAM2.forEach(function(player){
-
-      var time = player.possesionTime || 0;
-
-      total += time;
-      t2 += time;
+      t2 += player.possesionTime;
     });
 
-    time = Math.round(t1 / 1e12);
+    total = t1 + t2;
 
+    percent = Math.round((t1/total || 0) * 100);
 
-    this.$team1.innerHTML = "jiijij";
-    this.$team2.innerHTML = "ijdieowd";
+    this.$team1.innerHTML = "TEAM1: " + format(t1) + " : " + percent + "%";
+    this.$team2.innerHTML = "TEAM2: " + format(t2) + " : " + (100-percent) + "%";
   }
 });

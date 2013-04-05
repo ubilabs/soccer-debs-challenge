@@ -14,7 +14,6 @@ Teams = Klass({
       this.players.push(player);
     }
 
-
     this.$team1 = document.createElement("li");
     this.$team2 = document.createElement("li");
     $("TEAM1").appendChild(this.$team1);
@@ -40,7 +39,7 @@ Teams = Klass({
 
     percent = Math.round((t1/total || 0) * 100);
 
-    this.$team1.innerHTML = "TEAM1: " + format(t1) + " : " + percent + "%";
-    this.$team2.innerHTML = "TEAM2: " + format(t2) + " : " + (100-percent) + "%";
+    this.$team1.innerHTML = "<span class='name'>TEAM1</span>" + format(t1) + " : " + percent + "%";
+    this.$team2.innerHTML = "<span class='name'>TEAM2</span>" + format(t2) + " : " + (100-percent) + "%";
   }
 });

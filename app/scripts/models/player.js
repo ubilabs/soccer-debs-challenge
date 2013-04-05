@@ -11,15 +11,23 @@ Player = Klass({
     this.team = isTeam1 ? TYPES.TEAM1 : TYPES.TEAM2;
 
     this.$li = document.createElement("li");
-    this.$time = document.createElement("span");
-    this.$name = document.createElement("span");
+
+    this.$name = this.addSpan("name");
+    this.$time = this.addSpan("time");
+    this.$speed = this.addSpan("speed");
+    this.$hits = this.addSpan("hits");
 
     this.$name.innerHTML = name.split(" ")[1];
     this.$time.innerHTML = "000";
 
     $(this.team).appendChild(this.$li);
-    this.$li.appendChild(this.$time);
-    this.$li.appendChild(this.$name);
+  },
+
+  addSpan: function(klass){
+    var $span = document.createElement("span");
+    $span.className = klass;
+    this.$li.appendChild($span);
+    return $span;
   },
 
   addSensor: function(leg){
@@ -62,7 +70,7 @@ Player = Klass({
     diff = time - this.timeStamp;
     speed = computeSpeed(distance, diff);
 
-    this.$time.innerHTML += " " + speed.toFixed(1) + "m/s";
+    this.$speed.innerHTML = speed.toFixed(1);
   },
 
   calculatePosession: function(time){
@@ -74,9 +82,10 @@ Player = Klass({
 
     var possesion = this.possesionTime;
     possesion = Math.round(possesion / 1e12);
-    possesion = (1e10 + "" + possesion).slice(-4);
 
-    this.$time.innerHTML = possesion + " : " + this.hitCount;
+    this.$time.innerHTML = possesion;
+    this.$hits.innerHTML = this.hitCount;
+
     this.$li.style.opacity = this.active ? 1 : "";
   },
 

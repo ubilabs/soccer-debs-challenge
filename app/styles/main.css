@@ -72,5 +72,13 @@ body, html {
 }
 
 #teams ul span {
-  padding-right: 8px;
+  display: inline-block;
+  overflow: hidden;
+  text-align: right;
+  width: 30px;
+}
+
+#teams ul span.name {
+  text-align: left;
+  width: 100px;
 }

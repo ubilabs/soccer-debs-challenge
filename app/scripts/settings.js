@@ -47,4 +47,22 @@ var
     "Christopher Lee": [71, 40],
     "Leon Heinze": [73, 74],
     "Leo Langhans": [75, 44]
-  };
+  },
+
+  SPEED = {
+    "1": "standing",
+    "11": "trot",
+    "14": "low speed run",
+    "17": "medium speed run",
+    "24": "high speed run",
+    "9999": "sprint"
+  },
+
+  SPEED_COLOR = {
+    "1":  "green",
+    "11": "blue",
+    "14": "purple",
+    "17": "red",
+    "24": "orange",
+    "9999": "yellow"
+  }

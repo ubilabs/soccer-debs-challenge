@@ -62,13 +62,13 @@ body, html {
 }
 
 #teams ul {
-  width: 300px;
   float: left;  
   list-style: none;
 }
 
 #teams ul li {
   opacity: 0.5;
+  height: 24px;
 }
 
 #teams ul span {
@@ -81,4 +81,12 @@ body, html {
 #teams ul span.name {
   text-align: left;
   width: 100px;
+}
+
+#teams ul span.speed {
+  width: 60px;
+}
+
+#teams ul canvas {
+  margin-left: 10px;
 }

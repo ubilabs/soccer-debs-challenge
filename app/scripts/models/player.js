@@ -7,20 +7,29 @@ Player = Klass({
     this.active = false;
     this.name = name;
 
+    this.counter = 0;
+
     var isTeam1 = MAPPING.TEAM1.indexOf(PLAYERS[name][0]) > -1;
     this.team = isTeam1 ? TYPES.TEAM1 : TYPES.TEAM2;
 
     this.$li = document.createElement("li");
+    $(this.team).appendChild(this.$li);
 
     this.$name = this.addSpan("name");
     this.$time = this.addSpan("time");
-    this.$speed = this.addSpan("speed");
     this.$hits = this.addSpan("hits");
 
     this.$name.innerHTML = name.split(" ")[1];
     this.$time.innerHTML = "000";
 
-    $(this.team).appendChild(this.$li);
+    this.$canvas = document.createElement("canvas");
+    this.$canvas.width = 100;
+    this.$canvas.height = 20;
+
+    this.context = this.$canvas.getContext('2d');
+
+    this.$speed = this.addSpan("speed");
+    this.$li.appendChild(this.$canvas);
   },
 
   addSpan: function(klass){
@@ -49,7 +58,8 @@ Player = Klass({
       y = 0,
       position,
       distance,
-      speed;
+      speed,
+      color;
 
     this.sensors.forEach(function(sensor){
       x += sensor.position.x;
@@ -68,9 +78,30 @@ Player = Klass({
     if (!this.timeStamp){ return; }
 
     diff = time - this.timeStamp;
+
+    this.counter += 0.3;
+
+    this.context.beginPath();
+    this.context.moveTo(this.counter-1, 20-this.speed);
+
     speed = computeSpeed(distance, diff);
 
-    this.$speed.innerHTML = speed.toFixed(1);
+    this.speed = (speed + this.speed||0) / 2;
+
+    for (var i in SPEED){
+      if ((1*i) < this.speed){
+        color = SPEED_COLOR[i];
+      }
+    }
+
+    this.context.strokeStyle = color;
+
+    this.$speed.style.color = color;
+
+    this.context.lineTo(this.counter, 20-this.speed);
+    this.context.stroke();
+
+    this.$speed.innerHTML = Math.round(this.speed) + "km/h";
   },
 
   calculatePosession: function(time){
@@ -80,11 +111,8 @@ Player = Klass({
       this.time = time;
     }
 
-    var possesion = this.possesionTime;
-    possesion = Math.round(possesion / 1e12);
-
-    this.$time.innerHTML = possesion;
-    this.$hits.innerHTML = this.hitCount;
+    this.$time.innerHTML = Math.round(this.possesionTime / 1e12) + "s";
+    this.$hits.innerHTML = this.hitCount + "x";
 
     this.$li.style.opacity = this.active ? 1 : "";
   },

@@ -14,7 +14,7 @@ function computeDistance(positionA, positionB){
 }
 
 function computeSpeed(distance, time) {
-  return (distance / 1000) / (time / 1e12);
+  return (distance / 1000 / 1000) / (time / 1e12 / 60 / 60);
 }
 
 function format(time){

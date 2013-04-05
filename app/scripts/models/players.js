@@ -1,16 +1,10 @@
 Players = Model({
 
   init: function(){
-
-    var name, all;
-
     this.players = {};
-
-    for (name in PLAYERS){
+    for (var name in PLAYERS){
       this.players[name] = new Player(name);
     }
-
-    console.log(this.players);
   },
 
   add: function(sensor){

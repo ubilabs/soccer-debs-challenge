@@ -7,8 +7,8 @@ Player = Klass({
     this.active = false;
     this.name = name;
 
-    var team1 = MAPPING.TEAM1.indexOf(PLAYERS[name][0]) > -1;
-    this.team = team1 ? TYPES.TEAM1 : TYPES.TEAM2;
+    var isTeam1 = MAPPING.TEAM1.indexOf(PLAYERS[name][0]) > -1;
+    this.team = isTeam1 ? TYPES.TEAM1 : TYPES.TEAM2;
 
     this.$li = document.createElement("li");
     this.$time = document.createElement("span");

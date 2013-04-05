@@ -2,7 +2,7 @@ function $(id){
   return document.getElementById(id);
 }
 
-function distance(positionA, positionB){
+function computeDistance(positionA, positionB){
 
   if (!positionA || !positionB){ return 0; }
 
@@ -13,7 +13,7 @@ function distance(positionA, positionB){
   );
 }
 
-function speed (distance, time) {
+function computeSpeed(distance, time) {
   return (distance / 1000) / (time / 1e12);
 }
 

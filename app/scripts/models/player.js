@@ -28,6 +28,45 @@ Player = Klass({
 
   render: function(time){
 
+    this.calculatePosession(time);
+    this.calcualteSpeed(time);
+
+    this.timeStamp = time;
+  },
+
+  calcualteSpeed: function(time){
+
+    var diff,
+      x = 0,
+      y = 0,
+      position,
+      distance,
+      speed;
+
+    this.sensors.forEach(function(sensor){
+      x += sensor.position.x;
+      y += sensor.position.y;
+    });
+
+    x /= this.sensors.length;
+    y /= this.sensors.length;
+
+    position = { x: x, y: y, z: 0 };
+
+    distance = computeDistance(position, this.position);
+
+    this.position = position;
+
+    if (!this.timeStamp){ return; }
+
+    diff = time - this.timeStamp;
+    speed = computeSpeed(distance, diff);
+
+    this.$time.innerHTML += " " + speed.toFixed(1) + "m/s";
+  },
+
+  calculatePosession: function(time){
+
     if (this.active){
       this.possesionTime += time - this.time;
       this.time = time;

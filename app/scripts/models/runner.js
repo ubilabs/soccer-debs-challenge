@@ -35,7 +35,7 @@ Runner = Model({
       for (all in sensors){
         sensor = sensors[all];
         if (sensor != ball){
-          d = distance(
+          d = computeDistance(
             ball.position,
             sensor.position
           );

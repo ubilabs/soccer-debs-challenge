@@ -8,6 +8,7 @@ Runner = Model({
 
       entries = {},
       players = new Players(),
+      teams = new Teams(players),
 
       ball,
       goal = 0,
@@ -106,6 +107,8 @@ Runner = Model({
         var time = (ball.data[1] - current.time);
         current.player.render(time);
       }
+
+      teams.render();
     }
 
     function checkGoal(){

@@ -114,7 +114,7 @@ Player = Klass({
     this.$time.innerHTML = Math.round(this.possesionTime / 1e12) + "s";
     this.$hits.innerHTML = this.hitCount + "x";
 
-    this.$li.style.opacity = this.active ? 1 : "";
+    this.$li.className = this.active ? "active" : "";
   },
 
   select: function(active, time){

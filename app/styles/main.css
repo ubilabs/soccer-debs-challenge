@@ -4,6 +4,7 @@ body, html {
   background: #000;
   color: #fff;
   font-family: Helvetica, Arial;
+  font-size: 14px;
 }
 
 #time, #acceleration, #accelerationbar, #speed, #speedbar, #goal, #out {
@@ -46,11 +47,11 @@ body, html {
   background: red;
 }
 
-#TEAM1 {
+#TEAM1 .name {
   color: #F66;
 }
 
-#TEAM2 {
+#TEAM2 .name {
   color: #66F;
 }
 
@@ -67,8 +68,11 @@ body, html {
 }
 
 #teams ul li {
-  opacity: 0.5;
-  height: 24px;
+  line-height: 24px;
+}
+
+#teams ul li.active .name {
+  color: #FFF;
 }
 
 #teams ul span {

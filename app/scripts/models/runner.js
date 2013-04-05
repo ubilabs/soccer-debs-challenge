@@ -6,7 +6,7 @@ Runner = Model({
       count = 0,
       index = 0,
 
-      entries = {},
+      sensors = {},
       players = new Players(),
       teams = new Teams(players),
 
@@ -30,18 +30,18 @@ Runner = Model({
 
       var min = BALL_SIZE,
         d, select,
-        all, entry;
+        all, sensor;
 
-      for (all in entries){
-        entry = entries[all];
-        if (entry != ball){
+      for (all in sensors){
+        sensor = sensors[all];
+        if (sensor != ball){
           d = distance(
             ball.position,
-            entry.position
+            sensor.position
           );
 
           if ((d < min)){
-            select = entry;
+            select = sensor;
             min = d;
           }
         }
@@ -49,9 +49,9 @@ Runner = Model({
 
       var scale = select ? 2.5 : 1;
 
-      for (all in entries){
-        entry = entries[all];
-        entry.scale = (entry === select) ? scale : 1;
+      for (all in sensors){
+        sensor = sensors[all];
+        sensor.scale = (sensor === select) ? scale : 1;
       }
 
       var time = ball.data[1];
@@ -75,14 +75,14 @@ Runner = Model({
     }
 
     function render(){
-      for (var all in entries){
-        entries[all].update();
+      for (var all in sensors){
+        sensors[all].update();
       }
 
       $goal.style.opacity = (new Date() - goal) < 1000 ? 1 : 0;
       $out.style.opacity = (new Date() - out) < 1000 ? 1 : 0;
 
-      var ball = entries[8],
+      var ball = sensors[8],
         time = ball.data[1],
         speed = Math.round(
           ball.data[5] / // |v|
@@ -135,30 +135,30 @@ Runner = Model({
 
       var data = lines[index].split(","),
         id = data[0],
-        entry = entries[id];
+        sensor = sensors[id];
 
-      // create a new entry
-      if (!entry){
-        entry = new MovingObject(id);
-        entries[id] = entry;
-        if (entry.IS_BALL){ ball = entry; }
-        players.add(entry);
+      // create a new sensor
+      if (!sensor){
+        sensor = new Sensor(id);
+        sensors[id] = sensor;
+        if (sensor.IS_BALL){ ball = sensor; }
+        players.add(sensor);
       }
 
       if (!startTime){
         startTime = data[1];
       }
 
-      entry.position = {
+      sensor.position = {
         x: 1*data[2],
         y: 1*data[3],
         z: 1*data[4]
       };
 
-      entry.last = entry.data;
-      entry.data = data;
+      sensor.last = sensor.data;
+      sensor.data = data;
 
-      if (entry == ball){
+      if (sensor == ball){
         checkHit();
         checkGoal();
       }

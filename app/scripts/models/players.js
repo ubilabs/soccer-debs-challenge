@@ -13,12 +13,12 @@ Players = Model({
     console.log(this.players);
   },
 
-  add: function(entry){
-    var player = this.players[entry.name];
+  add: function(sensor){
+    var player = this.players[sensor.name];
     if (!player){ return; }
 
-    player.addLeg(entry);
-    entry.player = player;
+    player.addSensor(sensor);
+    sensor.player = player;
   },
 
   render: function(time){

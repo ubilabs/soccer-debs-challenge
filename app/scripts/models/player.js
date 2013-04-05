@@ -1,9 +1,7 @@
 Player = Klass({
 
-
-
   init: function(name){
-    this.legs = [];
+    this.sensors = [];
     this.possesionTime = 0;
     this.hitCount = 0;
     this.active = false;
@@ -24,8 +22,8 @@ Player = Klass({
     this.$li.appendChild(this.$name);
   },
 
-  addLeg: function(leg){
-    this.legs.push(leg);
+  addSensor: function(leg){
+    this.sensors.push(leg);
   },
 
   render: function(time){

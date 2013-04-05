@@ -1,4 +1,4 @@
-MovingObject = Model({
+Sensor = Model({
 
   geometry: new THREE.CubeGeometry(400, 400, 400),
 

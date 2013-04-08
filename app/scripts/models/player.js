@@ -12,6 +12,10 @@ Player = Klass({
     var isTeam1 = MAPPING.TEAM1.indexOf(PLAYERS[name][0]) > -1;
     this.team = isTeam1 ? TYPES.TEAM1 : TYPES.TEAM2;
 
+    this.initDisplay();
+  },
+
+  initDisplay: function(){
     this.$li = document.createElement("li");
     $(this.team).appendChild(this.$li);
 
@@ -19,7 +23,7 @@ Player = Klass({
     this.$time = this.addSpan("time");
     this.$hits = this.addSpan("hits");
 
-    this.$name.innerHTML = name.split(" ")[1];
+    this.$name.innerHTML = this.name.split(" ")[1];
     this.$time.innerHTML = "000";
 
     this.$canvas = document.createElement("canvas");
@@ -59,6 +63,7 @@ Player = Klass({
       position,
       distance,
       speed,
+      type,
       color;
 
     this.sensors.forEach(function(sensor){
@@ -79,20 +84,27 @@ Player = Klass({
 
     diff = time - this.timeStamp;
 
+    speed = computeSpeed(distance, diff);
+
+    for (var i in SPEED){
+      if ((1*i) < this.speed){
+        type = i;
+      }
+    }
+
+    this.renderSpeed(speed, type);
+    this.speed = (speed + this.speed||0) / 2;
+
+  },
+
+  renderSpeed: function(speed, type){
+
+    var color = SPEED_COLOR[type];
+
     this.counter += 0.3;
 
     this.context.beginPath();
     this.context.moveTo(this.counter-1, 20-this.speed);
-
-    speed = computeSpeed(distance, diff);
-
-    this.speed = (speed + this.speed||0) / 2;
-
-    for (var i in SPEED){
-      if ((1*i) < this.speed){
-        color = SPEED_COLOR[i];
-      }
-    }
 
     this.context.strokeStyle = color;
 

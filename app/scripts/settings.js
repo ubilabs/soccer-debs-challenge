@@ -1,7 +1,11 @@
 var
   ITERATIONS = 6000, // set to 600 to slow down
-  MAXX = 52483,
-  MAXY = 33960,
+  MINX =  0,
+  MAXX =  52483,
+  MINY = -33960,
+  MAXY =  33965,
+  WIDTH = MAXY - MINY,
+  HEIGHT = MAXX - MINX,
   START = 13086639146403495,
   GOAL_XMIN = 20494,
   GOAL_XMAX = 31994,

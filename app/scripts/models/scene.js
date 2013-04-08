@@ -55,9 +55,9 @@ var Scene = Model({
       });
 
     geometry.vertices.push(new THREE.Vector3(MAXX, MAXY, 0));
-    geometry.vertices.push(new THREE.Vector3(0, MAXY, 0));
-    geometry.vertices.push(new THREE.Vector3(0, -MAXY, 0));
-    geometry.vertices.push(new THREE.Vector3(MAXX, -MAXY, 0));
+    geometry.vertices.push(new THREE.Vector3(MINX, MAXY, 0));
+    geometry.vertices.push(new THREE.Vector3(MINX, MINY, 0));
+    geometry.vertices.push(new THREE.Vector3(MAXX, MINY, 0));
     geometry.vertices.push(new THREE.Vector3(MAXX, MAXY, 0));
 
     var line = new THREE.Line(geometry, material);

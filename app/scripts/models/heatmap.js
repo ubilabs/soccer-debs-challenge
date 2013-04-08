@@ -1,4 +1,4 @@
-HHH = false;
+HHH = 0;
 
 Heatmap = Klass({
 
@@ -10,14 +10,30 @@ Heatmap = Klass({
     this.x = 64;
     this.y = 100;
 
+    this.size = 1000;
+
     this.cells = [];
+    this.colors = [];
 
-    if (HHH){ return; }
-    HHH = true;
+    if (++HHH != 8){ return; }
 
-    this.counter = 0;
+    this.count = 0;
+
+    this.geometry = new THREE.Geometry();
+    this.material =  new THREE.ParticleBasicMaterial( { 
+      size: this.size, 
+      color: 0xFF0000, 
+      vertexColors: true 
+    });
 
     this.initCells();
+
+    this.geometry.colors = this.colors;
+
+    this.particles = new THREE.ParticleSystem(this.geometry, this.material);
+
+    app.scene.add( this.particles );
+
   },
 
   initCells: function(){
@@ -31,31 +47,65 @@ Heatmap = Klass({
   },
 
   addCell: function(x, y){
-    var height = 1/this.x,
-      width = 1/this.y,
-      plane = new THREE.PlaneGeometry(height*HEIGHT-100, width*WIDTH-100),
-      material = new THREE.MeshBasicMaterial({ color: 0xFF0000, opacity: Math.random()/1000 }),
-      mesh = new THREE.Mesh(plane, material);
+    var color = new THREE.Color(),
+      vertex = new THREE.Vector3(),
+      height = 1/this.x * HEIGHT,
+      width = 1/this.y * WIDTH;
 
-    mesh.material.color.r = Math.random();
+    x = x / this.x * HEIGHT;
+    y = y / this.y * WIDTH + MINY;
 
-    x = x / this.x + height/2;
-    y = y / this.y + width/2;
+    vertex.x = x + height/2;
+    vertex.y = y + width/2;
+    vertex.z = 0;
 
-    mesh.position.x = x * HEIGHT;
-    mesh.position.y = y * WIDTH + MINY;
+    this.geometry.vertices.push( vertex );
+    this.colors.push(color);
 
-    app.scene.add(mesh, material);
-
-    this.cells.push(mesh);
+    this.cells.push({
+      x: { min: x, max: x + height },
+      y: { min: y, max: y + width },
+      color: color,
+      count: 0
+    });
   },
 
   render: function(){
 
-    if (this.counter++ % 50) { return }
+    if (!this.geometry){ return; }
+
+    var position = this.player.position;
+
+    this.count++;
+
+    var count = this.count;
+
+    var max = 0;
 
     this.cells.forEach(function(cell){
-      cell.material.color.r = Math.random();
+      if (
+        position.x >= cell.x.min &&
+        position.x <  cell.x.max &&
+        position.y >= cell.y.min &&
+        position.y <  cell.y.max
+      ) {
+        cell.count++;
+      }
+      max = Math.max(cell.count, max);
     });
+
+
+    this.cells.forEach(function(cell){
+      var value = (cell.count / max) || 0;
+
+      value = Math.max(value, 0.1);
+      cell.color.setHSV(0, 1, value);
+    });
+
+    //console.log(this.cells);
+
+    this.geometry.colorsNeedUpdate = true;
+
+
   } 
 });

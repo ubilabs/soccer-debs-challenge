@@ -39,7 +39,7 @@ Teams = Klass({
 
     percent = Math.round((t1/total || 0) * 100);
 
-    this.$team1.innerHTML = "<span class='name'>TEAM1</span><span>" + format(t1) + "s</span><span class='speed'>" + percent + "%</span>";
-    this.$team2.innerHTML = "<span class='name'>TEAM2</span><span>" + format(t2) + "s</span><span class='speed'>" + (100-percent) + "%</span>";
+    this.$team1.innerHTML = "<span class='name'>= " + percent + "%</span><span>" + format(t1) + "s</span>";
+    this.$team2.innerHTML = "<span class='name'>= " + (100-percent) + "%</span><span>" + format(t2) + "s</span>";
   }
 });

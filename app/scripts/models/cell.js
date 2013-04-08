@@ -1,0 +1,5 @@
+Cell = Klass({
+  init: function(){
+
+  }
+});

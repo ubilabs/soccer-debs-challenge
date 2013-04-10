@@ -12,7 +12,7 @@ Player = Klass({
     var isTeam1 = MAPPING.TEAM1.indexOf(PLAYERS[name][0]) > -1;
     this.team = isTeam1 ? TYPES.TEAM1 : TYPES.TEAM2;
 
-    this.heatmap = new Heatmap(this);
+    this.heatmap = new Heatmap(this, 64, 100);
 
     this.initDisplay();
   },
@@ -53,7 +53,7 @@ Player = Klass({
     this.calculatePosession(time);
     this.calcualteSpeed(time);
 
-    this.heatmap.render();
+    this.heatmap.render(time);
 
     this.timeStamp = time;
   },

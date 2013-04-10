@@ -2,12 +2,12 @@ HHH = 0;
 
 Heatmap = Klass({
 
-  init: function(player){
+  init: function(player, x, y){
 
     this.player = player;
 
-    this.x = 20;
-    this.y = 20;
+    this.x = x;
+    this.y = y;
 
     this.height = 1/this.x * HEIGHT;
     this.width = 1/this.y * WIDTH;
@@ -79,8 +79,13 @@ Heatmap = Klass({
     this.vertices.push(vertex);
   },
 
-  render: function(){
+  render: function(time){
 
+    if (this.lastUpdate){
+      if ((time-this.lastUpdate) / 1e12 < 1){ return; }
+    }
+
+    this.lastUpdate = time;
 
     var position = this.player.position;
 

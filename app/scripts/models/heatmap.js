@@ -17,7 +17,16 @@ Heatmap = Klass({
     this.cells = [];
     this.colors = [];
 
+    this.vertices = [];
+
     this.count = 0;
+
+    this.initCells();
+
+    this.initGeometry();
+  },
+
+  initGeometry: function(){
 
     this.geometry = new THREE.Geometry();
     this.material =  new THREE.ParticleBasicMaterial({
@@ -26,7 +35,7 @@ Heatmap = Klass({
       vertexColors: true
     });
 
-    this.initCells();
+    this.geometry.vertices = this.vertices;
 
     if (++HHH != 8){ return; }
 
@@ -35,7 +44,6 @@ Heatmap = Klass({
     this.particles = new THREE.ParticleSystem(this.geometry, this.material);
 
     app.scene.add( this.particles );
-
   },
 
   initCells: function(){
@@ -59,7 +67,6 @@ Heatmap = Klass({
     vertex.y = y + this.width/2;
     vertex.z = 0;
 
-    this.geometry.vertices.push( vertex );
     this.colors.push(color);
 
     this.cells.push({
@@ -68,6 +75,8 @@ Heatmap = Klass({
       color: color,
       count: 0
     });
+
+    this.vertices.push(vertex);
   },
 
   render: function(){

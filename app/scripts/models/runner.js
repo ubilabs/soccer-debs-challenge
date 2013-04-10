@@ -12,8 +12,8 @@ Runner = Model({
 
       ball,
       goal = 0,
-
       out = 0,
+      inField = false,
 
       startTime,
 
@@ -30,7 +30,16 @@ Runner = Model({
 
       var min = BALL_SIZE,
         d, select,
+        time = ball.data[1],
         all, sensor;
+
+      if (!inField){
+        if (current){
+          current.player.select(false, time);
+        }
+        current = null;
+        return;
+      }
 
       for (all in sensors){
         sensor = sensors[all];
@@ -54,7 +63,6 @@ Runner = Model({
         sensor.scale = (sensor === select) ? scale : 1;
       }
 
-      var time = ball.data[1];
 
       select = select || current;
 
@@ -94,9 +102,7 @@ Runner = Model({
 
       $speed.innerHTML = speed;
 
-      var dt = (ball.data[1] - ball.last[1]) / 1e12,
-        dv = (ball.data[5] - ball.last[5]) / 1e6,
-        acceleration = Math.round(dv / dt);
+      var acceleration = Math.round(ball.data[6] / 1e6);
 
       $acceleration.innerHTML = acceleration;
 
@@ -121,11 +127,15 @@ Runner = Model({
         z < GOAL_Z
       ){
         goal = new Date();
+        inField = false;
       } else if (
         y > MAXY &&
         Math.abs(x) > MAXX
       ) {
         out = new Date();
+        inField = false;
+      } else {
+        inField = true;
       }
     }
 
@@ -159,8 +169,8 @@ Runner = Model({
       sensor.data = data;
 
       if (sensor == ball){
-        checkHit();
         checkGoal();
+        checkHit();
       }
 
       if (++count < ITERATIONS){

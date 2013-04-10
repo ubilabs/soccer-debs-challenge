@@ -34,17 +34,22 @@ body, html {
 #goal, #out{
   padding: 10px;
   opacity: 0;
+  position: absolute;
+  top: 25%;
+  left: 0;
+  font-size: 80px;
+  line-height: 100px;
+  right: 0;
+  text-align: center; 
 }
 
 #goal {
-  left: 120px;
-  background: green;
+  color: green;
   -webkit-transition: all 0.3s;
 }
 
 #out {
-  left: 220px;
-  background: red;
+  color: red;
 }
 
 #TEAM1 .name {

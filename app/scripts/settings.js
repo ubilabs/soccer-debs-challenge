@@ -1,5 +1,5 @@
 var
-  ITERATIONS = 6000, // set to 600 to slow down
+  ITERATIONS = 1000, // set to 600 to slow down
   MINX =  0,
   MAXX =  52483,
   MINY = -33960,
@@ -69,4 +69,11 @@ var
     "17": "red",
     "24": "orange",
     "9999": "yellow"
-  }
+  },
+
+  HEATMAPS = [
+    { x: 8,  y: 13 },
+    { x: 16, y: 25 },
+    { x: 32, y: 50 },
+    { x: 64, y: 100 }
+  ];

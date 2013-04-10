@@ -4,18 +4,18 @@ Heatmap = Klass({
 
   init: function(player){
 
-
     this.player = player;
 
     this.x = 20;
     this.y = 20;
 
-    this.size = 1000;
+    this.height = 1/this.x * HEIGHT;
+    this.width = 1/this.y * WIDTH;
+
+    this.size = this.height;
 
     this.cells = [];
     this.colors = [];
-
-    if (++HHH != 8){ return; }
 
     this.count = 0;
 
@@ -27,6 +27,8 @@ Heatmap = Klass({
     });
 
     this.initCells();
+
+    if (++HHH != 8){ return; }
 
     this.geometry.colors = this.colors;
 
@@ -48,23 +50,21 @@ Heatmap = Klass({
 
   addCell: function(x, y){
     var color = new THREE.Color(),
-      vertex = new THREE.Vector3(),
-      height = 1/this.x * HEIGHT,
-      width = 1/this.y * WIDTH;
+      vertex = new THREE.Vector3();
 
     x = x / this.x * HEIGHT;
     y = y / this.y * WIDTH + MINY;
 
-    vertex.x = x + height/2;
-    vertex.y = y + width/2;
+    vertex.x = x + this.height/2;
+    vertex.y = y + this.width/2;
     vertex.z = 0;
 
     this.geometry.vertices.push( vertex );
     this.colors.push(color);
 
     this.cells.push({
-      x: { min: x, max: x + height },
-      y: { min: y, max: y + width },
+      x: { min: x, max: x + this.height },
+      y: { min: y, max: y + this.width },
       color: color,
       count: 0
     });
@@ -72,7 +72,6 @@ Heatmap = Klass({
 
   render: function(){
 
-    if (!this.geometry){ return; }
 
     var position = this.player.position;
 
@@ -102,10 +101,6 @@ Heatmap = Klass({
       cell.color.setHSV(0.1, 0, value);
     });
 
-    //console.log(this.cells);
-
     this.geometry.colorsNeedUpdate = true;
-
-
-  } 
+  }
 });

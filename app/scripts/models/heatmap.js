@@ -7,8 +7,8 @@ Heatmap = Klass({
 
     this.player = player;
 
-    this.x = 64;
-    this.y = 100;
+    this.x = 20;
+    this.y = 20;
 
     this.size = 1000;
 
@@ -20,10 +20,10 @@ Heatmap = Klass({
     this.count = 0;
 
     this.geometry = new THREE.Geometry();
-    this.material =  new THREE.ParticleBasicMaterial( { 
-      size: this.size, 
-      color: 0xFF0000, 
-      vertexColors: true 
+    this.material =  new THREE.ParticleBasicMaterial({
+      size: this.size,
+      color: 0xFFFF00,
+      vertexColors: true
     });
 
     this.initCells();
@@ -99,7 +99,7 @@ Heatmap = Klass({
       var value = (cell.count / max) || 0;
 
       value = Math.max(value, 0.1);
-      cell.color.setHSV(0, 1, value);
+      cell.color.setHSV(0.1, 0, value);
     });
 
     //console.log(this.cells);

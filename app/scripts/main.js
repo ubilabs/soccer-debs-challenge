@@ -25,10 +25,23 @@ App = Model({
 
     if (this.runner){
       var time = (START - this.runner.time) / 1e12,
+        local = new Date() / 1000,
         minutes = - Math.floor(time/60),
-        seconds = Math.abs(Math.round(time % 60));
+        seconds = Math.abs(Math.round(time % 60)),
+        factor = 0;
+
       if (seconds < 10) { seconds = "0" + seconds; }
-      this.$time.innerHTML = minutes + ":" + seconds;
+
+      if (this.lastUpdate){
+        factor = (this.lastUpdate.stream - time) / (local - this.lastUpdate.local);
+      }
+
+      this.$time.innerHTML = minutes + ":" + seconds + " " + Math.round(factor) + "x";
+
+      this.lastUpdate = {
+        stream: time,
+        local: local
+      };
     }
     requestAnimationFrame( this.render );
   }

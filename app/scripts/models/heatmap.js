@@ -65,7 +65,7 @@ Heatmap = Klass({
 
     vertex.x = x + this.height/2;
     vertex.y = y + this.width/2;
-    vertex.z = 0;
+    vertex.z = -this.size;
 
     this.colors.push(color);
 

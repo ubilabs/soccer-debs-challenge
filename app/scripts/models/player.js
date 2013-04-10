@@ -54,8 +54,6 @@ Player = Klass({
     this.calcualteSpeed(time);
 
     this.heatmap.render(time);
-
-    this.timeStamp = time;
   },
 
   calcualteSpeed: function(time){
@@ -83,9 +81,16 @@ Player = Klass({
 
     this.position = position;
 
-    if (!this.timeStamp){ return; }
+    if (!this.timeStamp){
+      this.timeStamp = time;
+      return;
+    }
 
     diff = time - this.timeStamp;
+
+    if (diff/1e12 < 1/50) { return; }
+
+    this.timeStamp = time;
 
     speed = computeSpeed(distance, diff);
 
@@ -104,7 +109,7 @@ Player = Klass({
 
     var color = SPEED_COLOR[type];
 
-    this.counter += 0.3;
+    this.counter += 0.1;
 
     this.context.beginPath();
     this.context.moveTo(this.counter-1, 20-this.speed);

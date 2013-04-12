@@ -156,6 +156,7 @@ Game = Klass({
     } else {
       this.inField = true;
     }
+
   },
 
   run: function(){

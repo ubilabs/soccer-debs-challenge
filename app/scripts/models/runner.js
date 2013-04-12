@@ -1,31 +1,29 @@
 PAUSED = false;
 
+
+
 Runner = Model({
 
   init: function(lines, scene){
 
+    GAME = {
+      goal: 0,
+      out: 0,
+      inField: false
+    };
+
+    GAME.sensors = {};
+    GAME.players = new Players();
+    GAME.teams = new Teams(GAME.players);
+    GAME.target = new Target();
+    GAME.count = 0;
+    GAME.index = 0;
+
     var that = this,
-      count = 0,
-      index = 0,
-
-      target = new Target(),
-
-      sensors = {},
-      players = new Players(),
-      teams = new Teams(players),
-
-      ball,
-      time,
-      goal = 0,
-      out = 0,
-      inField = false,
-
-      startTime,
-
-      current,
 
       $goal = $("goal"),
       $out = $("out"),
+      $shot = $("shot"),
       $acceleration = $("acceleration"),
       $speed = $("speed"),
       $speedbar = $("speedbar"),
@@ -34,71 +32,72 @@ Runner = Model({
     function checkHit(){
 
       var min = BALL_SIZE,
-        d, select,
+        distance, select,
         all, sensor;
 
-      if (!inField){
-        if (current){
-          current.player.select(false, time);
+      if (!GAME.inField){
+        if (GAME.current){
+          GAME.current.player.select(false, GAME.time);
         }
-        current = null;
+        GAME.current = null;
         return;
       }
 
-      for (all in sensors){
-        sensor = sensors[all];
-        if (sensor != ball){
-          d = computeDistance(
-            ball.position,
+      for (all in GAME.sensors){
+        sensor = GAME.sensors[all];
+        if (sensor != GAME.ball){
+          distance = computeDistance(
+            GAME.ball.position,
             sensor.position
           );
 
-          if ((d < min)){
+          if ((distance < min)){
             select = sensor;
-            min = d;
+            min = distance;
           }
         }
       }
 
-      ball.hit = !!select;
+      GAME.ball.hit = !!select;
 
       var scale = select ? 2.5 : 1;
 
-      for (all in sensors){
-        sensor = sensors[all];
+      for (all in GAME.sensors){
+        sensor = GAME.sensors[all];
         sensor.scale = (sensor === select) ? scale : 1;
       }
 
-      select = select || current;
+      select = select || GAME.current;
 
       if (select){
 
-        if (current){
-          if (current.player == select.player){
-            current.player.select(true, time);
+        if (GAME.current){
+          if (GAME.current.player == select.player){
+            GAME.current.player.select(true, GAME.time);
             return;
           }
-          current.player.select(false, time);
+          GAME.current.player.select(false, GAME.time);
         }
 
-        select.player.select(true, time);
+        select.player.select(true, GAME.time);
 
-        current = select;
+        GAME.current = select;
       }
     }
 
     function render(){
-      for (var all in sensors){
-        sensors[all].update();
+      for (var all in GAME.sensors){
+        GAME.sensors[all].update();
       }
 
-      target.render(ball);
+      GAME.target.render();
 
-      $goal.style.opacity = (new Date() - goal) < 1000 ? 1 : 0;
-      $out.style.opacity = (new Date() - out) < 1000 ? 1 : 0;
+      $goal.style.opacity = (new Date() - GAME.goal) < 1000 ? 1 : 0;
+      $out.style.opacity = (new Date() - GAME.out) < 1000 ? 1 : 0;
+      $shot.style.opacity = (new Date() - shot) < 1000 ? 1 : 0;
 
       var speed = Math.round(
-          ball.data[5] / // |v|
+          GAME.ball.data[5] / // |v|
           1e6 / // µm
           1000 * // km
           60 * // minutes
@@ -107,20 +106,20 @@ Runner = Model({
 
       $speed.innerHTML = speed;
 
-      $acceleration.innerHTML = Math.round(ball.acceleration);
+      $acceleration.innerHTML = Math.round(GAME.ball.acceleration);
 
       $speedbar.style.width = speed + "px";
-      $accelerationbar.style.width = ball.acceleration + "px";
+      $accelerationbar.style.width = GAME.ball.acceleration + "px";
 
-      players.render(time);
-      teams.render();
+      GAME.players.render(GAME.time);
+      GAME.teams.render();
     }
 
     function checkGoal(){
 
-      var x = ball.position.x,
-        y = Math.abs(ball.position.y),
-        z = ball.position.z;
+      var x = GAME.ball.position.x,
+        y = Math.abs(GAME.ball.position.y),
+        z = GAME.ball.position.z;
 
       if (
         y > GOAL_Y &&
@@ -129,45 +128,42 @@ Runner = Model({
         x < GOAL_XMAX &&
         z < GOAL_Z
       ){
-        goal = new Date();
-        inField = false;
+        GAME.goal = new Date();
+        GAME.inField = false;
       } else if (
         y > MAXY &&
         Math.abs(x) > MAXX
       ) {
-        out = new Date();
-        inField = false;
+        GAME.out = new Date();
+        GAME.inField = false;
       } else {
-        inField = true;
+        GAME.inField = true;
       }
     }
 
     function checkShotOnGoal(){
-      // target.render(ball);
+      // GAME.target.render(ball);
     }
 
     // END = 14794090930027846;
-    // index = 452011;
+    // GAME.index = 452011;
 
     function run(){
 
-      if (++index >= lines.length){ return; }
+      if (++GAME.index >= lines.length){ return; }
 
-      var data = lines[index].split(","),
-        id = data[0],
-        sensor = sensors[id];
+      var data = lines[GAME.index].split(","),
+       id = data[0],
+        sensor = GAME.sensors[id];
 
       // create a new sensor
       if (!sensor){
         sensor = new Sensor(id);
-        sensors[id] = sensor;
-        if (sensor.IS_BALL){ ball = sensor; }
-        players.add(sensor);
+        GAME.sensors[id] = sensor;
+        if (sensor.IS_BALL){ GAME.ball = sensor; }
+        GAME.players.add(sensor);
       }
 
-      if (!startTime){
-        startTime = data[1];
-      }
 
       sensor.position = {
         x: 1*data[2],
@@ -178,29 +174,29 @@ Runner = Model({
       sensor.last = sensor.data;
       sensor.data = data;
 
-      if (sensor == ball){
+      if (sensor == GAME.ball){
 
-        time = ball.data[1];
+        GAME.time = GAME.ball.data[1];
 
-        if (time > END){
+        if (GAME.time > END){
           PAUSED = true;
           END = Infinity;
         }
 
-        ball.acceleration = data[6] / 1e6;
+        GAME.ball.acceleration = data[6] / 1e6;
 
-        // if (ball.acceleration > 55){ console.log(time)}
+        // if (ball.acceleration > 55){ console.log(GAME.time)}
 
         checkShotOnGoal();
         checkGoal();
         checkHit();
       }
 
-      if (++count < ITERATIONS){
+      if (++GAME.count < ITERATIONS){
         run();
       } else {
-        count = 0;
-        that.time = time;
+        GAME.count = 0;
+        that.time = GAME.time;
         render();
         if (PAUSED) { return; }
         requestAnimationFrame(run);

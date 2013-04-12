@@ -25,8 +25,8 @@ Player = Klass({
     this.$time = this.addSpan("time");
     this.$hits = this.addSpan("hits");
 
-    this.$name.innerHTML = this.name.split(" ")[1];
-    this.$time.innerHTML = "000";
+    this.$name.innerText = this.name.split(" ")[1];
+    this.$time.innerText = "000";
 
     this.$canvas = document.createElement("canvas");
     this.$canvas.width = 100;
@@ -121,7 +121,7 @@ Player = Klass({
     this.context.lineTo(this.counter, 20-this.speed);
     this.context.stroke();
 
-    this.$speed.innerHTML = Math.round(this.speed) + "km/h";
+    this.$speed.innerText = Math.round(this.speed) + "km/h";
   },
 
   calculatePosession: function(time){
@@ -131,8 +131,8 @@ Player = Klass({
       this.time = time;
     }
 
-    this.$time.innerHTML = Math.round(this.possesionTime / 1e12) + "s";
-    this.$hits.innerHTML = this.hitCount + "x";
+    this.$time.innerText = Math.round(this.possesionTime / 1e12) + "s";
+    this.$hits.innerText = this.hitCount + "x";
 
     this.$li.className = this.active ? "active" : "";
   },

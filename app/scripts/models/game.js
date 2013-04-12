@@ -116,9 +116,9 @@ Game = Klass({
       60 // secods
     );
 
-    this.$speed.innerHTML = speed;
+    this.$speed.innerText = speed;
 
-    this.$acceleration.innerHTML = Math.round(this.ball.acceleration);
+    this.$acceleration.innerText = Math.round(this.ball.acceleration);
 
     this.$speedbar.style.width = speed + "px";
     this.$accelerationbar.style.width = this.ball.acceleration + "px";

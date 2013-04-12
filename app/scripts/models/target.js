@@ -30,10 +30,6 @@ Target = Klass({
     app.scene.add( this.mesh );
   },
 
-  check: function(ball){
-    
-  },
-
   render: function(){
 
     var ball = GAME.ball;

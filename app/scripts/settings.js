@@ -7,6 +7,8 @@ var
   WIDTH = MAXY - MINY,
   HEIGHT = MAXX - MINX,
   START = 13086639146403495,
+
+  // @todo: Check coords on website!
   GOAL_XMIN = 20494,
   GOAL_XMAX = 31994,
   GOAL_Y = MAXY,

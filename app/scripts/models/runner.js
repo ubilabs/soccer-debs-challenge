@@ -6,6 +6,8 @@ Runner = Model({
       count = 0,
       index = 0,
 
+      target = new Sensor(),
+
       sensors = {},
       players = new Players(),
       teams = new Teams(players),
@@ -14,6 +16,7 @@ Runner = Model({
       goal = 0,
       out = 0,
       inField = false,
+      acceleration = 0,
 
       startTime,
 
@@ -87,6 +90,8 @@ Runner = Model({
         sensors[all].update();
       }
 
+      target.update();
+
       $goal.style.opacity = (new Date() - goal) < 1000 ? 1 : 0;
       $out.style.opacity = (new Date() - out) < 1000 ? 1 : 0;
 
@@ -102,9 +107,7 @@ Runner = Model({
 
       $speed.innerHTML = speed;
 
-      var acceleration = Math.round(ball.data[6] / 1e6);
-
-      $acceleration.innerHTML = acceleration;
+      $acceleration.innerHTML = Math.round(acceleration);
 
       $speedbar.style.width = speed + "px";
       $accelerationbar.style.width = acceleration + "px";
@@ -139,6 +142,27 @@ Runner = Model({
       }
     }
 
+    function checkShotOnGoal(){
+
+      if (acceleration < 55){ return }
+
+      var data = ball.data,
+        seconds = 1.5,
+        v = data[5],
+        factor = v * 1e4 * 1e3 * seconds,
+        vx = data[7] / factor,
+        vy = data[8] / factor,
+        vz = data[9] / factor;
+
+      target.position = {
+        x: vx * factor + ball.position.x,
+        y: vy * factor + ball.position.y,
+        z: vz * factor + ball.position.z
+      };
+
+
+    }
+
     function run(){
 
       if (++index >= lines.length){ return; }
@@ -169,6 +193,10 @@ Runner = Model({
       sensor.data = data;
 
       if (sensor == ball){
+
+        acceleration = data[6] / 1e6;
+
+        checkShotOnGoal();
         checkGoal();
         checkHit();
       }

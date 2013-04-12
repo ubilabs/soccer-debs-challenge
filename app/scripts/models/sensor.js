@@ -2,6 +2,8 @@ Sensor = Model({
 
   geometry: new THREE.CubeGeometry(400, 400, 400),
 
+  scale: 1,
+
   init: function(id){
     this.scene = app.scene;
     this.id = id*1;
@@ -59,7 +61,7 @@ Sensor = Model({
     });
   },
 
-  update: function(data){
+  update: function(){
 
     if (!this.position){ return; }
 

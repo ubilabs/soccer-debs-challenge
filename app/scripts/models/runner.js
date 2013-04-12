@@ -6,13 +6,14 @@ Runner = Model({
       count = 0,
       index = 0,
 
-      target = new Sensor(),
+      target = new Target(),
 
       sensors = {},
       players = new Players(),
       teams = new Teams(players),
 
       ball,
+      time,
       goal = 0,
       out = 0,
       inField = false,
@@ -33,7 +34,6 @@ Runner = Model({
 
       var min = BALL_SIZE,
         d, select,
-        time = ball.data[1],
         all, sensor;
 
       if (!inField){
@@ -66,7 +66,6 @@ Runner = Model({
         sensor.scale = (sensor === select) ? scale : 1;
       }
 
-
       select = select || current;
 
       if (select){
@@ -90,14 +89,12 @@ Runner = Model({
         sensors[all].update();
       }
 
-      target.update();
+      target.render(ball);
 
       $goal.style.opacity = (new Date() - goal) < 1000 ? 1 : 0;
       $out.style.opacity = (new Date() - out) < 1000 ? 1 : 0;
 
-      var ball = sensors[8],
-        time = ball.data[1],
-        speed = Math.round(
+      var speed = Math.round(
           ball.data[5] / // |v|
           1e6 / // µm
           1000 * // km
@@ -144,23 +141,7 @@ Runner = Model({
 
     function checkShotOnGoal(){
 
-      if (acceleration < 55){ return }
-
-      var data = ball.data,
-        seconds = 1.5,
-        v = data[5],
-        factor = 1e4 * 1e3,
-        vx = v * data[7] / factor * seconds,
-        vy = v * data[8] / factor * seconds,
-        vz = v * data[9] / factor * seconds;
-
-      target.position = {
-        x: vx + ball.position.x,
-        y: vy + ball.position.y,
-        z: Math.max(vz + ball.position.z - (0.5 * GRAVITY * seconds * seconds), 0)
-      };
-
-
+      // target.render(ball);
     }
 
     function run(){
@@ -194,6 +175,10 @@ Runner = Model({
 
       if (sensor == ball){
 
+        time = ball.data[1];
+
+        if (time > END){ return; }
+
         acceleration = data[6] / 1e6;
 
         checkShotOnGoal();
@@ -205,7 +190,7 @@ Runner = Model({
         run();
       } else {
         count = 0;
-        that.time = data[1];
+        that.time = time;
         render();
         requestAnimationFrame(run);
       }

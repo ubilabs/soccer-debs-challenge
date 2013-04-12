@@ -149,15 +149,15 @@ Runner = Model({
       var data = ball.data,
         seconds = 1.5,
         v = data[5],
-        factor = v * 1e4 * 1e3 * seconds,
-        vx = data[7] / factor,
-        vy = data[8] / factor,
-        vz = data[9] / factor;
+        factor = 1e4 * 1e3,
+        vx = v * data[7] / factor * seconds,
+        vy = v * data[8] / factor * seconds,
+        vz = v * data[9] / factor * seconds;
 
       target.position = {
-        x: vx * factor + ball.position.x,
-        y: vy * factor + ball.position.y,
-        z: vz * factor + ball.position.z
+        x: vx + ball.position.x,
+        y: vy + ball.position.y,
+        z: Math.max(vz + ball.position.z - (0.5 * GRAVITY * seconds * seconds), 0)
       };
 
 

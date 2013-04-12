@@ -1,4 +1,4 @@
-Runner = Klass({
+Game = Klass({
 
   goal: 0,
   out: 0,

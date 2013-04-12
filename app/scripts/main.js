@@ -16,15 +16,15 @@ App = Model({
   },
 
   loaded: function(data){
-    this.runner = new Runner(data, this.scene);
+    this.game = new Game(data, this.scene);
   },
 
   render: function(){
     this.scene.update();
     this.stats.update();
 
-    if (this.runner){
-      var time = (START - this.runner.time) / 1e12,
+    if (this.game){
+      var time = (START - this.game.time) / 1e12,
         local = new Date() / 1000,
         minutes = - Math.floor(time/60),
         seconds = Math.abs(Math.round(time % 60)),

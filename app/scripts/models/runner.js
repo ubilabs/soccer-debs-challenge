@@ -19,7 +19,6 @@ Runner = Model({
       goal = 0,
       out = 0,
       inField = false,
-      acceleration = 0,
 
       startTime,
 
@@ -60,6 +59,8 @@ Runner = Model({
           }
         }
       }
+
+      ball.hit = !!select;
 
       var scale = select ? 2.5 : 1;
 
@@ -106,10 +107,10 @@ Runner = Model({
 
       $speed.innerHTML = speed;
 
-      $acceleration.innerHTML = Math.round(acceleration);
+      $acceleration.innerHTML = Math.round(ball.acceleration);
 
       $speedbar.style.width = speed + "px";
-      $accelerationbar.style.width = acceleration + "px";
+      $accelerationbar.style.width = ball.acceleration + "px";
 
       players.render(time);
       teams.render();
@@ -192,9 +193,9 @@ Runner = Model({
           END = Infinity;
         }
 
-        acceleration = data[6] / 1e6;
+        ball.acceleration = data[6] / 1e6;
 
-        // if (acceleration > 55){ console.log(time)}
+        // if (ball.acceleration > 55){ console.log(time)}
 
         checkShotOnGoal();
         checkGoal();

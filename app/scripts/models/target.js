@@ -69,12 +69,13 @@ Target = Klass({
     this.mesh.position.z = z;
 
     if (
+      ball.hit &&
+      ball.acceleration > 55 &&
       ratio < 1 &&
       x > GOAL_XMIN &&
       x < GOAL_XMAX &&
       z < GOAL_Z
     ) {
-
 
       PAUSED = true;
     }

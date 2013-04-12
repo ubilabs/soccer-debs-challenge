@@ -93,9 +93,13 @@ Heatmap = Klass({
 
     var count = this.count;
 
-    var max = 0;
+    var max = 0,
+      i,
+      value,
+      cell;
 
-    this.cells.forEach(function(cell){
+    for (i=0; i<this.cells.length; i++){
+      cell = this.cells[i];
       if (
         position.x >= cell.x.min &&
         position.x <  cell.x.max &&
@@ -105,15 +109,17 @@ Heatmap = Klass({
         cell.count++;
       }
       max = Math.max(cell.count, max);
-    });
+    }
 
-
-    this.cells.forEach(function(cell){
-      var value = (cell.count / max) || 0;
+    for (i=0; i<this.cells.length; i++){
+      cell = this.cells[i];
+      value = (cell.count / max) || 0;
 
       value = Math.max(value, 0.1);
-      cell.color.setHSV(0.1, 0, value);
-    });
+      cell.color.r = value;
+      cell.color.g = value;
+      cell.color.b = 0;
+    }
 
     this.geometry.colorsNeedUpdate = true;
   }

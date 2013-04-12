@@ -8,6 +8,8 @@ Runner = Model({
 
       target = new Target(),
 
+      paused = false,
+
       sensors = {},
       players = new Players(),
       teams = new Teams(players),
@@ -126,7 +128,13 @@ Runner = Model({
         x < GOAL_XMAX &&
         z < GOAL_Z
       ){
+
+        !goal && console.log(time, index);
+
         goal = new Date();
+
+        
+
         inField = false;
       } else if (
         y > MAXY &&
@@ -140,9 +148,12 @@ Runner = Model({
     }
 
     function checkShotOnGoal(){
-
       // target.render(ball);
     }
+
+     END = 14788022242835956;
+    index = 400000
+
 
     function run(){
 
@@ -177,9 +188,14 @@ Runner = Model({
 
         time = ball.data[1];
 
-        if (time > END){ return; }
+        if (time > END){ 
+          paused = true;
+          END = Infinity;
+        }
 
         acceleration = data[6] / 1e6;
+
+        // if (acceleration > 55){ console.log(time)}
 
         checkShotOnGoal();
         checkGoal();
@@ -192,9 +208,20 @@ Runner = Model({
         count = 0;
         that.time = time;
         render();
+        if (paused) { return; }
         requestAnimationFrame(run);
       }
     }
+
+    document.addEventListener("keydown", function(event){
+
+      console.log(event.keyCode);
+
+      switch (event.keyCode){
+        case 32: paused = !paused; run(); break;
+        case 39: run(); break;
+      }
+    });
 
     run();
   }

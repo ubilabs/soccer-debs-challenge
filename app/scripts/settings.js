@@ -16,7 +16,7 @@ var
   GOAL_Z = 4440,
   BALL_SIZE = 1000,
 
-  GRAVITY = 9.81 / 1e3,
+  GRAVITY = 9.81 * 1e3,
 
   TYPES = {
     BALL: "BALL",

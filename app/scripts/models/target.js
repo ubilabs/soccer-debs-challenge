@@ -28,20 +28,20 @@ Target = Klass({
     if (!ball){ return; }
 
     var data = ball.data,
-      seconds = 1.5,
       v = data[5],
       factor = 1e4 * 1e3,
       vx = v * data[7] / factor,
       vy = v * data[8] / factor,
       vz = v * data[9] / factor,
+      z,
       time;
 
     for (var i = 0; i < this.LENGTH; i++){
-      time = (i/this.LENGTH) * seconds;
+      time = (i/this.LENGTH) * this.SECONDS;
       this.vectors[i].set(
         vx*time + ball.position.x,
         vy*time + ball.position.y,
-        Math.abs(vz*time + ball.position.z - (0.5 * GRAVITY * time * time), 0)
+        Math.max(vz*time + ball.position.z - (0.5 * GRAVITY * time * time), 0)
       );
     }
 

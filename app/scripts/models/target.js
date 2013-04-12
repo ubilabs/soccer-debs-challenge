@@ -3,10 +3,12 @@ Target = Klass({
   LENGTH: 10,
   SECONDS: 1.5,
 
+  box: new THREE.CubeGeometry(400, 400, 400),
+
   init: function(){
 
     var material = new THREE.LineBasicMaterial({
-      color: 0xFF00FF
+      color: 0x00FF00
     }), vector;
 
     this.geometry = new THREE.Geometry();
@@ -21,6 +23,11 @@ Target = Klass({
 
     this.line = new THREE.Line(this.geometry, material);
     app.scene.add(this.line);
+
+    this.mesh = new THREE.Mesh( this.box, material );
+    this.mesh.matrixAutoUpdate = true;
+
+    app.scene.add( this.mesh );
   },
 
   render: function(ball){
@@ -33,17 +40,34 @@ Target = Klass({
       vx = v * data[7] / factor,
       vy = v * data[8] / factor,
       vz = v * data[9] / factor,
-      z,
-      time;
+      x, y, z,
+      min = vy < 0 ? MINY : -MINY,
+      vector,
+      time,
+      ratio;
 
     for (var i = 0; i < this.LENGTH; i++){
       time = (i/this.LENGTH) * this.SECONDS;
-      this.vectors[i].set(
-        vx*time + ball.position.x,
-        vy*time + ball.position.y,
-        Math.max(vz*time + ball.position.z - (0.5 * GRAVITY * time * time), 0)
-      );
+      vector = this.vectors[i];
+      x = vx * time + ball.position.x;
+      y = vy * time + ball.position.y;
+      z = vz*time + ball.position.z - (0.5 * GRAVITY * time * time);
+      z = Math.max(z, 0);
+      vector.set(x,y,z);
     }
+
+    ratio = (ball.position.y - min) / (ball.position.y - y);
+
+    y = ball.position.y + (y - ball.position.y) * ratio;
+    x = ball.position.x + (x - ball.position.x) * ratio;
+    z = ball.position.z + (z - ball.position.z) * ratio;
+
+    z = Math.max(z, 0);
+
+    this.mesh.position.y = y;
+    this.mesh.position.x = x;
+    this.mesh.position.z = z;
+
 
     this.geometry.verticesNeedUpdate = true;
   }

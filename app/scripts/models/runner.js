@@ -129,13 +129,7 @@ Runner = Model({
         x < GOAL_XMAX &&
         z < GOAL_Z
       ){
-
-        !goal && console.log(time, index);
-
         goal = new Date();
-
-        
-
         inField = false;
       } else if (
         y > MAXY &&
@@ -152,8 +146,8 @@ Runner = Model({
       // target.render(ball);
     }
 
-    END = 14794090930027846;
-    index = 452011;
+    // END = 14794090930027846;
+    // index = 452011;
 
     function run(){
 

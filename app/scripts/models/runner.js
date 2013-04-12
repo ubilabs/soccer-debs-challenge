@@ -1,3 +1,5 @@
+PAUSED = false;
+
 Runner = Model({
 
   init: function(lines, scene){
@@ -7,8 +9,6 @@ Runner = Model({
       index = 0,
 
       target = new Target(),
-
-      paused = false,
 
       sensors = {},
       players = new Players(),
@@ -151,9 +151,8 @@ Runner = Model({
       // target.render(ball);
     }
 
-     END = 14788022242835956;
-    index = 400000
-
+    END = 14794090930027846;
+    index = 452011;
 
     function run(){
 
@@ -188,8 +187,8 @@ Runner = Model({
 
         time = ball.data[1];
 
-        if (time > END){ 
-          paused = true;
+        if (time > END){
+          PAUSED = true;
           END = Infinity;
         }
 
@@ -208,7 +207,7 @@ Runner = Model({
         count = 0;
         that.time = time;
         render();
-        if (paused) { return; }
+        if (PAUSED) { return; }
         requestAnimationFrame(run);
       }
     }
@@ -218,7 +217,7 @@ Runner = Model({
       console.log(event.keyCode);
 
       switch (event.keyCode){
-        case 32: paused = !paused; run(); break;
+        case 32: PAUSED = !PAUSED; run(); break;
         case 39: run(); break;
       }
     });

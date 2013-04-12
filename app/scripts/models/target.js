@@ -68,6 +68,17 @@ Target = Klass({
     this.mesh.position.x = x;
     this.mesh.position.z = z;
 
+    if (
+      ratio < 1 &&
+      x > GOAL_XMIN &&
+      x < GOAL_XMAX &&
+      z < GOAL_Z
+    ) {
+
+
+      PAUSED = true;
+    }
+
 
     this.geometry.verticesNeedUpdate = true;
   }

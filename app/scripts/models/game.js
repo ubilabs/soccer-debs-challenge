@@ -1,8 +1,8 @@
 Game = Klass({
 
-  goal: 0,
-  out: 0,
-
+  goal: false,
+  out: false,
+  shot: false,
   inField: false,
   paused: false,
 
@@ -104,9 +104,9 @@ Game = Klass({
 
     this.target.render();
 
-    this.$goal.style.opacity = (new Date() - this.goal) < 1000 ? 1 : 0;
-    this.$out.style.opacity = (new Date() - this.out) < 1000 ? 1 : 0;
-    this.$shot.style.opacity = (new Date() - shot) < 1000 ? 1 : 0;
+    this.$goal.className = this.goal ? "active" : "";
+    this.$out.className = this.out ? "active" : "";
+    this.$shot.className = this.shot ? "active" : "";
 
     var speed = Math.round(
       this.ball.data[5] / // |v|
@@ -129,6 +129,9 @@ Game = Klass({
 
   checkGoal: function(){
 
+    this.out = false;
+    this.goal = false;
+
     var x = this.ball.position.x,
       y = Math.abs(this.ball.position.y),
       z = this.ball.position.z;
@@ -140,13 +143,13 @@ Game = Klass({
       x < GOAL_XMAX &&
       z < GOAL_Z
     ){
-      this.goal = new Date();
+      this.goal = true;
       this.inField = false;
     } else if (
       y > MAXY &&
       Math.abs(x) > MAXX
     ) {
-      this.out = new Date();
+      this.out = true;
       this.inField = false;
     } else {
       this.inField = true;

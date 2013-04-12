@@ -74,6 +74,9 @@ Target = Klass({
     this.mesh.position.x = x;
     this.mesh.position.z = z;
 
+
+      GAME.shot = false;
+
     if (
       ball.hit &&
       ball.acceleration > 55 &&
@@ -83,7 +86,7 @@ Target = Klass({
       z < GOAL_Z
     ) {
 
-      GAME.paused = true;
+      GAME.shot = true;
     }
 
 

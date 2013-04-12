@@ -83,7 +83,7 @@ Target = Klass({
       z < GOAL_Z
     ) {
 
-      PAUSED = true;
+      GAME.paused = true;
     }
 
 

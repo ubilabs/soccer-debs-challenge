@@ -31,7 +31,7 @@ body, html {
   right: 100px;
 }
 
-#goal, #out{
+#goal, #out, #shot{
   padding: 10px;
   opacity: 0;
   position: absolute;

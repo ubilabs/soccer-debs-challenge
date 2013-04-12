@@ -146,8 +146,10 @@ Game = Klass({
       this.goal = true;
       this.inField = false;
     } else if (
-      y > MAXY &&
-      Math.abs(x) > MAXX
+      y > MAXY ||
+      y < MINY ||
+      x > MAXX ||
+      x < MINX
     ) {
       this.out = true;
       this.inField = false;

@@ -57,6 +57,8 @@ body, html {
 }
 
 #out {
+  transition-delay: 0s;
+  -webkit-transition: opacity 0;
   color: red;
 }
 

@@ -50,10 +50,9 @@ GLOBAL.Target = Klass({
       vy = v * data[8] / factor,
       vz = v * data[9] / factor,
       x, y, z,
-      min = vy < 0 ? MINY : -MINY,
       vector,
       time,
-      ratio;
+      goal;
 
     for (var i = 0; i < this.LENGTH; i++){
       time = (i/this.LENGTH) * this.SECONDS;
@@ -67,32 +66,26 @@ GLOBAL.Target = Klass({
       }
     }
 
-    ratio = (ball.position.y - min) / (ball.position.y - y);
-
-    y = ball.position.y + (y - ball.position.y) * ratio;
-    x = ball.position.x + (x - ball.position.x) * ratio;
-    z = ball.position.z + (z - ball.position.z) * ratio;
-
-    z = Math.max(z, 0);
+    goal = goalTarget(
+      ball.position,
+      { x: x, y: y, z: z }
+    );
 
     GAME.shot = false;
 
+    // TODO: CHECK EVERY TIME
     if (
       ball.hit &&
       ball.acceleration > 55 &&
-      ratio < 1 &&
-      x > GOAL_XMIN &&
-      x < GOAL_XMAX &&
-      z < GOAL_Z
+      goal.hit
     ) {
       GAME.shot = true;
-      console.log("shot", GAME.time);
     }
 
     if (IS_BROWSER){
-      this.mesh.position.y = y;
-      this.mesh.position.x = x;
-      this.mesh.position.z = z;
+      this.mesh.position.y = goal.y;
+      this.mesh.position.x = goal.x;
+      this.mesh.position.z = goal.z;
 
       this.geometry.verticesNeedUpdate = true;
     }

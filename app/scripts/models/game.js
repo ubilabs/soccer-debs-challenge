@@ -29,6 +29,7 @@ GLOBAL.Game = Klass({
     this.target = new Target();
 
     this.startTime = new Date();
+    this.initKeys();
 
     this.run();
   },
@@ -148,19 +149,21 @@ GLOBAL.Game = Klass({
     this.out = false;
     this.goal = false;
 
+    if (!this.ball.last){
+      return;
+    }
+
     var x = this.ball.position.x,
       y = Math.abs(this.ball.position.y),
-      z = this.ball.position.z;
+      z = this.ball.position.z,
+      goal = goalTarget(this.ball.last, this.ball.position);
 
     if (
-      y > GOAL_Y &&
-      y < GOAL_Y + BALL_SIZE &&
-      x > GOAL_XMIN &&
-      x < GOAL_XMAX &&
-      z < GOAL_Z
+      goal.hit
     ){
       this.goal = true;
       this.inField = false;
+      console.log("goal");
     } else if (
       y > MAXY ||
       y < MINY ||
@@ -199,13 +202,14 @@ GLOBAL.Game = Klass({
       this.players.add(sensor);
     }
 
+    sensor.last = sensor.position;
+
     sensor.position = {
       x: 1*data[2],
       y: 1*data[3],
       z: 1*data[4]
     };
 
-    sensor.last = sensor.data;
     sensor.data = data;
 
     if (sensor == this.ball){

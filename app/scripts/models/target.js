@@ -75,7 +75,7 @@ GLOBAL.Target = Klass({
 
     z = Math.max(z, 0);
 
-      GAME.shot = false;
+    GAME.shot = false;
 
     if (
       ball.hit &&
@@ -85,8 +85,8 @@ GLOBAL.Target = Klass({
       x < GOAL_XMAX &&
       z < GOAL_Z
     ) {
-
       GAME.shot = true;
+      console.log("shot", GAME.time);
     }
 
     if (IS_BROWSER){

@@ -28,6 +28,8 @@ GLOBAL.Game = Klass({
     this.teams = new Teams(this.players);
     this.target = new Target();
 
+    this.startTime = new Date();
+
     this.run();
   },
 
@@ -138,7 +140,7 @@ GLOBAL.Game = Klass({
   },
 
   renderInNode: function(){
-    console.log(this.index, this.lines.length);
+    //console.log(this.index, this.lines.length);
   },
 
   checkGoal: function(){
@@ -173,6 +175,14 @@ GLOBAL.Game = Klass({
 
   },
 
+  end: function(){
+    var duration = new Date() - this.startTime;
+    this.paused = true;
+    END = Infinity;
+
+    console.log(duration/1000 + " secods");
+  },
+
   run: function(){
 
     if (++this.index >= this.lines.length){ return; }
@@ -203,8 +213,7 @@ GLOBAL.Game = Klass({
       this.time = this.ball.data[1];
 
       if (this.time > END){
-        this.paused = true;
-        END = Infinity;
+        this.end();
       }
 
       this.ball.acceleration = data[6] / 1e6;

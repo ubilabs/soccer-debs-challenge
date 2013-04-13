@@ -12,7 +12,7 @@ GLOBAL.Player = Klass({
     var isTeam1 = MAPPING.TEAM1.indexOf(PLAYERS[name][0]) > -1;
     this.team = isTeam1 ? TYPES.TEAM1 : TYPES.TEAM2;
 
-    this.heatmap = new Heatmap(this, 64, 100);
+    this.heatmap = new Heatmap(this, 32, 50);
 
     this.initBrowser();
   },
@@ -148,7 +148,6 @@ GLOBAL.Player = Klass({
     } else {
       this.renderPosessionInNode();
     }
-
   },
 
   renderPosessionInBrowser: function(){

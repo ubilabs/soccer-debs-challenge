@@ -33,7 +33,7 @@ GLOBAL.Heatmap = Klass({
     this.geometry = new THREE.Geometry();
     this.material =  new THREE.ParticleBasicMaterial({
       size: this.size,
-      color: 0xFFFF00,
+      color: 0x333300,
       vertexColors: true
     });
 
@@ -123,6 +123,7 @@ GLOBAL.Heatmap = Klass({
   },
 
   renderBrowser: function(max){
+
     if (!IS_BROWSER){ return; }
 
     var i, cell, value;
@@ -137,6 +138,7 @@ GLOBAL.Heatmap = Klass({
       cell.color.g = value;
       cell.color.b = 0;
     }
+
 
     this.geometry.colorsNeedUpdate = true;
 

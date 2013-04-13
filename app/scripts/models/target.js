@@ -7,13 +7,14 @@ GLOBAL.Target = Klass({
 
   init: function(){
 
+
+    this.vectors = [];
+
     var material = new THREE.LineBasicMaterial({
       color: 0x00FF00
     }), vector;
 
     this.geometry = new THREE.Geometry();
-
-    this.vectors = [];
 
     for (var i = 0; i < this.LENGTH; i++){
       vector = new THREE.Vector3();
@@ -28,6 +29,10 @@ GLOBAL.Target = Klass({
     this.mesh.matrixAutoUpdate = true;
 
     app.scene.add( this.mesh );
+  },
+
+  initBrowser: function(){
+
   },
 
   render: function(){

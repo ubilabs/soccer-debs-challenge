@@ -73,7 +73,6 @@ GLOBAL.Sensor = Model({
     if (IS_BROWSER){
       this.renderInBrowser();
     }
-
   },
 
   renderInBrowser: function(){

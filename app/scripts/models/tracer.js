@@ -1,4 +1,4 @@
-Tracer = Model({
+GLOBAL.Tracer = Model({
 
   LENGTH: 10,
 
@@ -34,7 +34,7 @@ Tracer = Model({
     this.positions.push(position);
 
     this.positions = this.positions.slice(-this.LENGTH);
-    
+
     this.positions.forEach(function(position, index){
       this.vectors[index].set(
         position.x,

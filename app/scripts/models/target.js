@@ -1,4 +1,4 @@
-Target = Klass({
+GLOBAL.Target = Klass({
 
   LENGTH: 10,
   SECONDS: 1.5,

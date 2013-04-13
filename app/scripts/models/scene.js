@@ -1,4 +1,4 @@
-var Scene = Model({
+GLOBAL.Scene = Model({
   init: function(){
     this.scene = new THREE.Scene();
 

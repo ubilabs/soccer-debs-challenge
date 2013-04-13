@@ -1,4 +1,4 @@
-Cell = Klass({
+GLOBAL.Cell = Klass({
   init: function(){
 
   }

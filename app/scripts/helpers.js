@@ -1,8 +1,11 @@
-function $(id){
-  return document.getElementById(id);
-}
+GLOBAL.$ = function(id){
 
-function computeDistance(positionA, positionB){
+  if (!IS_BROWSER){ return; }
+
+  return document.getElementById(id);
+};
+
+GLOBAL.computeDistance = function(positionA, positionB){
 
   if (!positionA || !positionB){ return 0; }
 
@@ -11,12 +14,12 @@ function computeDistance(positionA, positionB){
     Math.pow(positionA.y - positionB.y, 2) +
     Math.pow(positionA.z - positionB.z, 2)
   );
-}
+};
 
-function computeSpeed(distance, time) {
+GLOBAL.computeSpeed = function(distance, time) {
   return (distance / 1000 / 1000) / (time / 1e12 / 60 / 60);
-}
+};
 
-function format(time){
+GLOBAL.format = function(time){
   return Math.round(time / 1e12);
-}
+};

@@ -1,4 +1,4 @@
-Game = Klass({
+GLOBAL.Game = Klass({
 
   goal: false,
   out: false,
@@ -22,23 +22,25 @@ Game = Klass({
 
     this.lines = lines;
 
-    window.GAME = this;
+    GLOBAL.GAME = this;
 
     this.players = new Players();
     this.teams = new Teams(this.players);
     this.target = new Target();
 
+    this.run();
+  },
+
+  initKeys: function(){
+
+    if (!IS_BROWSER){ return; }
+
     document.addEventListener("keydown", function(event){
-
-      console.log(event.keyCode);
-
       switch (event.keyCode){
         case 32: this.paused = !this.paused; this.run(); break;
         case 39: run(); break;
       }
     }.bind(this));
-
-    this.run();
   },
 
   checkHit: function(){
@@ -104,7 +106,16 @@ Game = Klass({
 
     this.target.render();
 
-    this.$goal.className = this.goal ? "active" : "";
+    if (IS_BROWSER){
+      this.renderBrowser();
+    }
+
+    this.players.render(this.time);
+    this.teams.render();
+  },
+
+  renderBrowser: function(){
+   this.$goal.className = this.goal ? "active" : "";
     this.$out.className = this.out ? "active" : "";
     this.$shot.className = this.shot ? "active" : "";
 
@@ -122,9 +133,6 @@ Game = Klass({
 
     this.$speedbar.style.width = speed + "px";
     this.$accelerationbar.style.width = this.ball.acceleration + "px";
-
-    this.players.render(this.time);
-    this.teams.render();
   },
 
   checkGoal: function(){

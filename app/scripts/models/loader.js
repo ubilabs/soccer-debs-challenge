@@ -1,8 +1,16 @@
-Loader = Model({
+GLOBAL.Loader = Model({
 
-  file: '/data/samples.csv',
+  file: './data/samples.csv',
 
   init: function(){
+    if (IS_BROWSER){
+      this.loadInBrowser();
+    } else {
+      this.loadInNode();
+    }
+  },
+
+  loadInBrowser: function(){
     this.xhr = new XMLHttpRequest();
     this.xhr.open('GET', this.file, true);
     this.xhr.onreadystatechange = this.ready;
@@ -14,5 +22,9 @@ Loader = Model({
       var data = this.xhr.responseText.split("\n");
       this.trigger("loaded", data);
     }
+  },
+
+  loadInNode: function(){
+
   }
 });

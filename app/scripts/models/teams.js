@@ -1,4 +1,4 @@
-Teams = Klass({
+GLOBAL.Teams = Klass({
 
   TEAM1: [],
   TEAM2: [],
@@ -14,11 +14,16 @@ Teams = Klass({
       this.players.push(player);
     }
 
+    if (IS_BROWSER){
+      this.initBrowser();
+    }
+  },
+
+  initBrowser: function(){
     this.$team1 = document.createElement("li");
     this.$team2 = document.createElement("li");
     $("TEAM1").appendChild(this.$team1);
     $("TEAM2").appendChild(this.$team2);
-
   },
 
   render: function(){
@@ -38,6 +43,13 @@ Teams = Klass({
     total = t1 + t2;
 
     percent = Math.round((t1/total || 0) * 100);
+
+    if (IS_BROWSER){
+      this.renderInBrowser(percent, t1, t2);
+    }
+  },
+
+  renderInBrowser: function(percent, t1, t2){
 
     this.$team1.innerHTML = "<span class='name'>= " + percent + "%</span><span>" + format(t1) + "s</span>";
     this.$team2.innerHTML = "<span class='name'>= " + (100-percent) + "%</span><span>" + format(t2) + "s</span>";

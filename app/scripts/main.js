@@ -1,13 +1,20 @@
-App = Model({
+GLOBAL.App = Model({
 
   $time: $("time"),
 
   init: function(){
-    this.stats = new FPSCounter();
-    this.scene = new Scene();
+
+    if (IS_BROWSER){
+      this.initBrowser();
+    }
 
     this.render();
     this.load();
+  },
+
+  initBrowser: function(){
+    this.stats = new FPSCounter();
+    this.scene = new Scene();
   },
 
   load: function(){
@@ -20,6 +27,9 @@ App = Model({
   },
 
   render: function(){
+
+    if (!IS_BROWSER){ return; }
+
     this.scene.update();
     this.stats.update();
 
@@ -36,7 +46,7 @@ App = Model({
         factor = (this.lastUpdate.stream - time) / (local - this.lastUpdate.local);
       }
 
-      this.$time.innerHTML = minutes + ":" + seconds + " " + Math.round(factor) + "x";
+      this.$time.innerText = minutes + ":" + seconds + " " + Math.round(factor) + "x";
 
       this.lastUpdate = {
         stream: time,

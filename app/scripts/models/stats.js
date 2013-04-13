@@ -1,4 +1,4 @@
-FPSCounter = Model({
+GLOBAL.FPSCounter = Model({
   init: function(){
     var stats = new Stats();
     stats.domElement.style.position = 'absolute';

@@ -1,16 +1,22 @@
-Sensor = Model({
-
-  geometry: new THREE.CubeGeometry(400, 400, 400),
-
-  scale: 1,
+GLOBAL.Sensor = Model({
 
   init: function(id){
-    this.scene = app.scene;
     this.id = id*1;
 
     this.initTypeAndColor();
-    this.initMesh();
 
+    if (IS_BROWSER){
+      this.initBrowser();
+    }
+  },
+
+  initBrowser: function(){
+    this.scene = app.scene;
+
+    this.geometry = new THREE.CubeGeometry(400, 400, 400);
+    this.scale = 1;
+   
+    this.initMesh();
     this.initTracer();
   },
 
@@ -46,7 +52,7 @@ Sensor = Model({
 
     this.mesh.matrixAutoUpdate = true;
 
-    this.scene.add( this.mesh );
+    app.scene.add( this.mesh );
   },
 
   initTracer: function(){
@@ -62,9 +68,15 @@ Sensor = Model({
   },
 
   update: function(){
-
     if (!this.position){ return; }
 
+    if (IS_BROWSER){
+      this.renderInBrowser();
+    }
+
+  },
+
+  renderInBrowser: function(){
     this.mesh.position.x = this.position.x;
     this.mesh.position.y = this.position.y;
     this.mesh.position.z = this.position.z;

@@ -1,6 +1,9 @@
 HHH = 0;
 
-Heatmap = Klass({
+GLOBAL.Heatmap = Klass({
+
+  cells: [],
+  count: 0,
 
   init: function(player, x, y){
 
@@ -14,19 +17,18 @@ Heatmap = Klass({
 
     this.size = this.height;
 
-    this.cells = [];
-    this.colors = [];
-
-    this.vertices = [];
-
-    this.count = 0;
+    if (IS_BROWSER){
+      this.vertices = [];
+      this.colors = [];
+    }
 
     this.initCells();
-
-    this.initGeometry();
+    this.initBrowserGeometry();
   },
 
-  initGeometry: function(){
+  initBrowserGeometry: function(){
+
+    if (!IS_BROWSER){ return; }
 
     this.geometry = new THREE.Geometry();
     this.material =  new THREE.ParticleBasicMaterial({
@@ -41,7 +43,10 @@ Heatmap = Klass({
 
     this.geometry.colors = this.colors;
 
-    this.particles = new THREE.ParticleSystem(this.geometry, this.material);
+    this.particles = new THREE.ParticleSystem(
+      this.geometry,
+      this.material
+    );
 
     app.scene.add( this.particles );
   },
@@ -57,26 +62,32 @@ Heatmap = Klass({
   },
 
   addCell: function(x, y){
-    var color = new THREE.Color(),
-      vertex = new THREE.Vector3();
 
     x = x / this.x * HEIGHT;
     y = y / this.y * WIDTH + MINY;
+
+    var cell = {
+      x: { min: x, max: x + this.height },
+      y: { min: y, max: y + this.width },
+      count: 0
+    };
+
+    this.cells.push(cell);
+    this.addBrowserCell(x, y, cell);
+  },
+
+  addBrowserCell: function(x, y, cell){
+    var color = new THREE.Color(),
+      vertex = new THREE.Vector3();
 
     vertex.x = x + this.height/2;
     vertex.y = y + this.width/2;
     vertex.z = -this.size;
 
     this.colors.push(color);
-
-    this.cells.push({
-      x: { min: x, max: x + this.height },
-      y: { min: y, max: y + this.width },
-      color: color,
-      count: 0
-    });
-
     this.vertices.push(vertex);
+
+    cell.color = color;
   },
 
   render: function(time){
@@ -87,13 +98,10 @@ Heatmap = Klass({
 
     this.lastUpdate = time;
 
-    var position = this.player.position;
-
     this.count++;
 
-    var count = this.count;
-
-    var max = 0,
+    var position = this.player.position,
+      max = 0,
       i,
       value,
       cell;
@@ -111,16 +119,26 @@ Heatmap = Klass({
       max = Math.max(cell.count, max);
     }
 
+    this.renderBrowser(max);
+  },
+
+  renderBrowser: function(max){
+    if (!IS_BROWSER){ return; }
+
+    var i, cell, value;
+
     for (i=0; i<this.cells.length; i++){
       cell = this.cells[i];
       value = (cell.count / max) || 0;
 
       value = Math.max(value, 0.1);
+
       cell.color.r = value;
       cell.color.g = value;
       cell.color.b = 0;
     }
 
     this.geometry.colorsNeedUpdate = true;
+
   }
 });

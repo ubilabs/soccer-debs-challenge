@@ -1,4 +1,4 @@
-Players = Model({
+GLOBAL.Players = Model({
 
   init: function(){
     this.players = {};

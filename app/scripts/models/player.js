@@ -1,4 +1,4 @@
-Player = Klass({
+GLOBAL.Player = Klass({
 
   init: function(name){
     this.sensors = [];
@@ -14,10 +14,13 @@ Player = Klass({
 
     this.heatmap = new Heatmap(this, 64, 100);
 
-    this.initDisplay();
+    this.initBrowser();
   },
 
-  initDisplay: function(){
+  initBrowser: function(){
+
+    if (!IS_BROWSER) { return; }
+
     this.$li = document.createElement("li");
     $(this.team).appendChild(this.$li);
 
@@ -100,12 +103,17 @@ Player = Klass({
       }
     }
 
-    this.renderSpeed(speed, type);
+    if (IS_BROWSER){
+      this.renderSpeedInBrowser(speed, type);
+    } else {
+      this.renderSpeedInNode(speed, type);
+    }
+
     this.speed = (speed + this.speed||0) / 2;
 
   },
 
-  renderSpeed: function(speed, type){
+  renderSpeedInBrowser: function(speed, type){
 
     var color = SPEED_COLOR[type];
 
@@ -124,6 +132,10 @@ Player = Klass({
     this.$speed.innerText = Math.round(this.speed) + "km/h";
   },
 
+  renderSpeedInNode: function(){
+
+  },
+
   calculatePosession: function(time){
 
     if (this.active){
@@ -131,10 +143,24 @@ Player = Klass({
       this.time = time;
     }
 
+    if (IS_BROWSER){
+      this.renderPosessionInBrowser();
+    } else {
+      this.renderPosessionInNode();
+    }
+
+  },
+
+  renderPosessionInBrowser: function(){
+
     this.$time.innerText = Math.round(this.possesionTime / 1e12) + "s";
     this.$hits.innerText = this.hitCount + "x";
 
     this.$li.className = this.active ? "active" : "";
+  },
+
+  renderPosessionInNode: function(){
+
   },
 
   select: function(active, time){

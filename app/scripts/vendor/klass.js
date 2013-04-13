@@ -1,4 +1,4 @@
-function Klass(options){
+GLOBAL.Klass = function(options){
   function konstructor(){
     if (this.init){
       this.init.apply(this, arguments);
@@ -10,4 +10,4 @@ function Klass(options){
   }
 
   return konstructor;
-}
+};

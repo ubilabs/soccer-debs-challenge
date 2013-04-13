@@ -77,6 +77,9 @@ GLOBAL.Heatmap = Klass({
   },
 
   addBrowserCell: function(x, y, cell){
+
+    if (!IS_BROWSER){ return; }
+
     var color = new THREE.Color(),
       vertex = new THREE.Vector3();
 

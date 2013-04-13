@@ -54,6 +54,10 @@ GLOBAL.App = Model({
       };
     }
     requestAnimationFrame( this.render );
+  },
+
+  renderInBrowser: function(){
+    
   }
 });
 

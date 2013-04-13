@@ -107,15 +107,17 @@ GLOBAL.Game = Klass({
     this.target.render();
 
     if (IS_BROWSER){
-      this.renderBrowser();
+      this.renderInBrowser();
+    } else {
+      this.renderInNode();
     }
 
     this.players.render(this.time);
     this.teams.render();
   },
 
-  renderBrowser: function(){
-   this.$goal.className = this.goal ? "active" : "";
+  renderInBrowser: function(){
+    this.$goal.className = this.goal ? "active" : "";
     this.$out.className = this.out ? "active" : "";
     this.$shot.className = this.shot ? "active" : "";
 
@@ -133,6 +135,10 @@ GLOBAL.Game = Klass({
 
     this.$speedbar.style.width = speed + "px";
     this.$accelerationbar.style.width = this.ball.acceleration + "px";
+  },
+
+  renderInNode: function(){
+    console.log(this.index, this.lines.length);
   },
 
   checkGoal: function(){

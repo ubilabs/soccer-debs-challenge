@@ -6,7 +6,7 @@
 // Author: Martin Kleppe <kleppe@ubilabs.net>
 // License: WTFPL
 
-Model =
+GLOBAL.Model =
 
 function _(
   object, // module definition
@@ -104,8 +104,3 @@ function _(
 
   return Klass;
 };
-
-// make module Node.js compatible
-if (typeof module == "object") {
-  module.exports = Model;
-}

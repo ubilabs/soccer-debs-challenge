@@ -5,6 +5,6 @@ if (typeof GLOBAL == "undefined"){
   GLOBAL.IS_BROWSER = false;
 
   GLOBAL.requestAnimationFrame = function(callback){
-    process.process.nextTick(callback);
+    setImmediate(callback);
   };
 }

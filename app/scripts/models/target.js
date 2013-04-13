@@ -3,13 +3,17 @@ GLOBAL.Target = Klass({
   LENGTH: 10,
   SECONDS: 1.5,
 
-  box: new THREE.CubeGeometry(400, 400, 400),
 
   init: function(){
 
-
     this.vectors = [];
 
+    if (IS_BROWSER){
+      this.initBrowser();
+    }
+  },
+
+  initBrowser: function(){
     var material = new THREE.LineBasicMaterial({
       color: 0x00FF00
     }), vector;
@@ -25,14 +29,12 @@ GLOBAL.Target = Klass({
     this.line = new THREE.Line(this.geometry, material);
     app.scene.add(this.line);
 
+    this.box = new THREE.CubeGeometry(400, 400, 400);
+
     this.mesh = new THREE.Mesh( this.box, material );
     this.mesh.matrixAutoUpdate = true;
 
     app.scene.add( this.mesh );
-  },
-
-  initBrowser: function(){
-
   },
 
   render: function(){
@@ -60,7 +62,9 @@ GLOBAL.Target = Klass({
       y = vy * time + ball.position.y;
       z = vz*time + ball.position.z - (0.5 * GRAVITY * time * time);
       z = Math.max(z, 0);
-      vector.set(x,y,z);
+      if (vector){
+        vector.set(x,y,z);
+      }
     }
 
     ratio = (ball.position.y - min) / (ball.position.y - y);
@@ -70,11 +74,6 @@ GLOBAL.Target = Klass({
     z = ball.position.z + (z - ball.position.z) * ratio;
 
     z = Math.max(z, 0);
-
-    this.mesh.position.y = y;
-    this.mesh.position.x = x;
-    this.mesh.position.z = z;
-
 
       GAME.shot = false;
 
@@ -90,7 +89,12 @@ GLOBAL.Target = Klass({
       GAME.shot = true;
     }
 
+    if (IS_BROWSER){
+      this.mesh.position.y = y;
+      this.mesh.position.x = x;
+      this.mesh.position.z = z;
 
-    this.geometry.verticesNeedUpdate = true;
+      this.geometry.verticesNeedUpdate = true;
+    }
   }
 });

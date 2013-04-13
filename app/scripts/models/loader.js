@@ -25,6 +25,10 @@ GLOBAL.Loader = Model({
   },
 
   loadInNode: function(){
-
+    var fs = require('fs');
+    fs.readFile(this.file, function (err, data) {
+      if (err) { throw err; }
+      this.trigger("loaded", data.toString().split("\n"));
+    }.bind(this));
   }
 });

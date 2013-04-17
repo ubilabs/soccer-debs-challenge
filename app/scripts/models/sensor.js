@@ -15,7 +15,7 @@ GLOBAL.Sensor = Model({
 
     this.geometry = new THREE.CubeGeometry(400, 400, 400);
     this.scale = 1;
-   
+
     this.initMesh();
     this.initTracer();
   },
@@ -30,7 +30,7 @@ GLOBAL.Sensor = Model({
 
     this.color = COLORS[this.type] || "#0F0";
 
-    this.IS_BALL = this.id == 8;
+    this.IS_BALL = this.type == "BALL";
     this.IS_PLAYER = (this.type == "TEAM1" || this.type == "TEAM2");
 
     if (this.IS_PLAYER){
@@ -84,7 +84,7 @@ GLOBAL.Sensor = Model({
 
     scale.x = scale.y = scale.z = this.scale;
 
-    if (this.tracer){
+    if (this.tracer && this.active){
       this.tracer.update(this.position);
     }
   }

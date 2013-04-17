@@ -33,7 +33,7 @@ GLOBAL.App = Model({
     this.scene.update();
     this.stats.update();
 
-    if (this.game){
+    if (this.game && this.game.ball){
       var haltime = this.game.time > TIMES.SECOND.START ? "SECOND" : "FIRST",
         time = (TIMES[haltime].START - this.game.time) / 1e12,
         local = new Date() / 1000,
@@ -47,7 +47,7 @@ GLOBAL.App = Model({
         factor = (this.lastUpdate.stream - time) / (local - this.lastUpdate.local);
       }
 
-      this.$time.innerText = haltime + " HALF - " + minutes + ":" + seconds + " " + Math.round(factor) + "x";
+      this.$time.innerText = Math.round(factor) + "x " + haltime + " HALF - " + minutes + ":" + seconds;
 
       this.lastUpdate = {
         stream: time,

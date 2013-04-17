@@ -1,4 +1,4 @@
-var SETTINGS = {
+var settings = {
   ITERATIONS: 1000, // set to 600 to slow down
   MINX:  0,
   MAXX:  52483,
@@ -87,6 +87,6 @@ var SETTINGS = {
   ]
 };
 
-for (var all in SETTINGS){
-  GLOBAL[all] = SETTINGS[all];
+for (var all in settings){
+  GLOBAL[all] = settings[all];
 }

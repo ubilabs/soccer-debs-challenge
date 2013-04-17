@@ -103,6 +103,9 @@ GLOBAL.Game = Klass({
   },
 
   render: function(){
+
+    if (!this.ball){ return; }
+
     for (var all in this.sensors){
       this.sensors[all].update();
     }
@@ -124,6 +127,8 @@ GLOBAL.Game = Klass({
     this.$out.className = this.out ? "active" : "";
     this.$shot.className = this.shot ? "active" : "";
 
+    this.goal = false;
+
     var speed = Math.round(
       this.ball.data[5] / // |v|
       1e6 / // µm
@@ -144,19 +149,24 @@ GLOBAL.Game = Klass({
     //console.log(this.index, this.lines.length);
   },
 
+  isInField: function(sensor){
+    return (
+      sensor.position.y > MINY &&
+      sensor.position.y < MAXY &&
+      sensor.position.x > MINX &&
+      sensor.position.x < MAXX
+    );
+  },
+
   checkGoal: function(){
 
     this.out = false;
-    this.goal = false;
 
     if (!this.ball.last){
       return;
     }
 
-    var x = this.ball.position.x,
-      y = Math.abs(this.ball.position.y),
-      z = this.ball.position.z,
-      goal = goalTarget(this.ball.last, this.ball.position);
+    var goal = goalTarget(this.ball.last, this.ball.position);
 
     if (
       goal.hit
@@ -165,10 +175,7 @@ GLOBAL.Game = Klass({
       this.inField = false;
       console.log("goal");
     } else if (
-      y > MAXY ||
-      y < MINY ||
-      x > MAXX ||
-      x < MINX
+      !this.isInField(this.ball)
     ) {
       this.out = true;
       this.inField = false;
@@ -199,7 +206,6 @@ GLOBAL.Game = Klass({
     if (!sensor){
       sensor = new Sensor(id);
       this.sensors[id] = sensor;
-      if (sensor.IS_BALL){ this.ball = sensor; }
       this.players.add(sensor);
     }
 
@@ -213,8 +219,14 @@ GLOBAL.Game = Klass({
 
     sensor.data = data;
 
-    if (sensor == this.ball){
+    if (sensor.IS_BALL){
+      sensor.active = this.isInField(sensor);
+      if (sensor.active){
+        this.ball = sensor;
+      }
+    }
 
+    if (this.ball){
       this.time = this.ball.data[1];
 
       if (this.time > TIMES.SECOND.END){
@@ -229,7 +241,6 @@ GLOBAL.Game = Klass({
         this.checkGoal();
         this.checkHit();
       }
-
     }
 
     if (++this.count < ITERATIONS){

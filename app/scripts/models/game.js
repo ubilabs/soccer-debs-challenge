@@ -132,9 +132,9 @@ GLOBAL.Game = Klass({
       60 // secods
     );
 
-    this.$speed.innerText = speed;
+    this.$speed.innerText = speed + " m/s";
 
-    this.$acceleration.innerText = Math.round(this.ball.acceleration);
+    this.$acceleration.innerText = Math.round(this.ball.acceleration) + " m/s²";
 
     this.$speedbar.style.width = speed + "px";
     this.$accelerationbar.style.width = this.ball.acceleration + "px";
@@ -179,11 +179,12 @@ GLOBAL.Game = Klass({
   },
 
   end: function(){
+
+    if (this.paused){ return; }
+
     var duration = new Date() - this.startTime;
     this.paused = true;
-    END = Infinity;
-
-    console.log(duration/1000 + " secods");
+    console.log("Parsing time: " + duration/1000 + " seconds");
   },
 
   run: function(){
@@ -216,16 +217,19 @@ GLOBAL.Game = Klass({
 
       this.time = this.ball.data[1];
 
-      if (this.time > END){
+      if (this.time > TIMES.SECOND.END){
         this.end();
       }
 
-      this.ball.acceleration = data[6] / 1e6;
+      if (
+        (this.time > TIMES.FIRST.START && this.time < TIMES.FIRST.END) ||
+        (this.time > TIMES.SECOND.START && this.time < TIMES.SECOND.END)
+      ) {
+        this.ball.acceleration = data[6] / 1e6;
+        this.checkGoal();
+        this.checkHit();
+      }
 
-      // if (ball.acceleration > 55){ console.log(this.time)}
-
-      this.checkGoal();
-      this.checkHit();
     }
 
     if (++this.count < ITERATIONS){

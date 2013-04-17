@@ -24,11 +24,11 @@ body, html {
 }
 
 #acceleration, #accelerationbar {
-  right: 250px;
+  right: 350px;
 }
 
 #speed, #speedbar {
-  right: 100px;
+  right: 200px;
 }
 
 #goal, #out, #shot {

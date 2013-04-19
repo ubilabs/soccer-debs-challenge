@@ -12,6 +12,8 @@ GLOBAL.Player = Klass({
     var isTeam1 = MAPPING.TEAM1.indexOf(PLAYERS[name][0]) > -1;
     this.team = isTeam1 ? TYPES.TEAM1 : TYPES.TEAM2;
 
+    this.running = new Running(this);
+
     this.heatmap = new Heatmap(this, 32, 50);
 
     this.initBrowser();
@@ -102,6 +104,8 @@ GLOBAL.Player = Klass({
         type = i;
       }
     }
+
+    this.running.update(time, type, distance);
 
     if (IS_BROWSER){
       this.renderSpeedInBrowser(speed, type);

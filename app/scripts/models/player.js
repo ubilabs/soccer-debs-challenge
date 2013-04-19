@@ -100,7 +100,7 @@ GLOBAL.Player = Klass({
     speed = computeSpeed(distance, diff);
 
     for (var i in SPEED){
-      if ((1*i) < this.speed){
+      if ((1*i) < speed){
         type = i;
       }
     }

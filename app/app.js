@@ -7,6 +7,8 @@ var scripts = [
   "settings",
   "helpers",
 
+  "models/writer",
+
   "models/stats",
   "models/loader",
   "models/game",

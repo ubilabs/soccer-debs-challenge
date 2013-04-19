@@ -2,8 +2,8 @@ GLOBAL.Player = Klass({
 
   init: function(name){
     this.sensors = [];
-    this.possesionTime = 0;
-    this.possesions = [];
+    this.possessionTime = 0;
+    this.possessions = [];
     this.hitCount = 0;
     this.active = false;
     this.name = name;
@@ -140,21 +140,21 @@ GLOBAL.Player = Klass({
 
   },
 
-  possesionTimeframe: function(timeframe){
+  possessionTimeframe: function(timeframe){
     var total = 0,
       min = GAME.time - timeframe,
-      possesion,
+      possession,
       diff,
       start,
       end,
       i;
 
-    for (i=0; i<this.possesions.length; i++){
+    for (i=0; i<this.possessions.length; i++){
 
-      possesion = this.possesions[i];
+      possession = this.possessions[i];
 
-      start = Math.max(possesion.start, min);
-      end = possesion.end || GAME.time;
+      start = Math.max(possession.start, min);
+      end = possession.end || GAME.time;
 
       if (end > min){
         diff = end - start;
@@ -168,7 +168,7 @@ GLOBAL.Player = Klass({
   calculatePosession: function(time){
 
     if (this.active){
-      this.possesionTime += time - this.time;
+      this.possessionTime += time - this.time;
       this.time = time;
     }
 
@@ -181,7 +181,7 @@ GLOBAL.Player = Klass({
 
   renderPosessionInBrowser: function(){
 
-    this.$time.innerText = Math.round(this.possesionTime / 1e12) + "s";
+    this.$time.innerText = Math.round(this.possessionTime / 1e12) + "s";
     this.$hits.innerText = this.hitCount + "x";
 
     this.$li.className = this.active ? "active" : "";
@@ -196,16 +196,16 @@ GLOBAL.Player = Klass({
     if (active){
 
       if (!this.active){
-        this.possesion = { start: time };
-        this.possesions.push(this.possesion);
+        this.possession = { start: time };
+        this.possessions.push(this.possession);
 
         this.time = time;
         this.hitCount++;
       }
 
     } else {
-      this.possesion.end = time;
-      this.possesionTime += time - this.time;
+      this.possession.end = time;
+      this.possessionTime += time - this.time;
     }
 
     this.active = active;

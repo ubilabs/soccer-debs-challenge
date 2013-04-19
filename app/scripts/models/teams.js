@@ -30,16 +30,16 @@ GLOBAL.Teams = Klass({
 
     TIME_WINDOWS.forEach(function(timeframe){
       var total, percent,
-        stream = "team_ball_possesion_t",
+        stream = "team_ball_possession_t",
         t1 = 0,
         t2 = 0;
 
       this.TEAM1.forEach(function(player){
-        t1 += player.possesionTimeframe(timeframe * 1e12 * 60);
+        t1 += player.possessionTimeframe(timeframe * 1e12 * 60);
       });
 
       this.TEAM2.forEach(function(player){
-        t2 += player.possesionTimeframe(timeframe * 1e12 * 60);
+        t2 += player.possessionTimeframe(timeframe * 1e12 * 60);
       });
 
       total = t1 + t2;

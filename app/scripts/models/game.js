@@ -32,8 +32,14 @@ GLOBAL.Game = Klass({
   },
 
   push: function(lines){
-    this.lines = lines;
-    this.run();
+
+    if (IS_BROWSER){
+      this.lines = lines;
+      this.runInBrowser();
+    } else {
+      lines.forEach(this.parse.bind(this));
+    }
+
   },
 
   initKeys: function(){
@@ -42,8 +48,8 @@ GLOBAL.Game = Klass({
 
     document.addEventListener("keydown", function(event){
       switch (event.keyCode){
-        case 32: this.paused = !this.paused; this.run(); break;
-        case 39: run(); break;
+        case 32: this.paused = !this.paused; this.runInBrowser(); break;
+        case 39: runInBrowser(); break;
       }
     }.bind(this));
   },
@@ -191,29 +197,29 @@ GLOBAL.Game = Klass({
 
     var duration = new Date() - this.startTime;
     this.paused = true;
-    console.log("Parsing time: " + duration/1000 + " seconds", this.count);
+    console.log("Parsing time: " + duration/1000 + " seconds");
   },
 
-  run: function(){
+  runInBrowser: function(){
     if (this.index >= this.lines.length){ return; }
 
     this.parse(this.lines[this.index]);
     this.index++;
-    this.count++;
 
     if (++this.iteration < ITERATIONS){
-      this.run();
+      this.runInBrowser();
     } else {
       this.iteration = 0;
-      this.time = this.time;
       this.render();
       if (this.paused) { return; }
-      requestAnimationFrame(this.run.bind(this));
+      requestAnimationFrame(this.runInBrowser.bind(this));
     }
 
   },
 
   parse: function(line){
+
+    this.count++;
 
     var data = line.split(","),
       id = data[0],

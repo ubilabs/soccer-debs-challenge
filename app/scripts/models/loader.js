@@ -25,13 +25,22 @@ GLOBAL.Loader = Model({
   },
 
   loadInNode: function(){
-    var fs = require('fs');
-    console.log("Load file …");
+    var fs = require('fs'),
+      input = fs.createReadStream(this.file),
+      callback = function(data){
+        this.trigger("data", data);
+      }.bind(this),
+      last;
 
-    fs.readFile(this.file, function (err, data) {
-      if (err) { throw err; }
-      console.log("File loaded.");
-      this.trigger("data", data.toString().split("\n"));
-    }.bind(this));
+    input.on('data', function(data, lines) {
+      lines = (data + "").split("\n");
+      if (last){ lines[0] = last + lines[0]; }
+      last = lines.pop();
+      callback(lines);
+    });
+
+    input.on("end", function(){
+      console.log(GAME.count);
+    });
   }
 });

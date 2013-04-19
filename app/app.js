@@ -14,6 +14,7 @@ var scripts = [
   "models/tracer",
   "models/player",
   "models/teams",
+  "models/running",
   "models/players",
   "models/cell",
   "models/heatmap",

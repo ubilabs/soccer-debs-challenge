@@ -30,6 +30,7 @@ GLOBAL.Teams = Klass({
 
     TIME_WINDOWS.forEach(function(timeframe){
       var total, percent,
+        stream = "team_ball_possesion_t",
         t1 = 0,
         t2 = 0;
 
@@ -45,8 +46,13 @@ GLOBAL.Teams = Klass({
 
       percent = Math.round((t1/total || 0) * 100);
 
-      if (IS_BROWSER && timeframe == 5){
-        this.renderInBrowser(percent, t1, t2);
+      if (IS_BROWSER){
+        if (timeframe == 5){
+          this.renderInBrowser(percent, t1, t2);
+        }
+      } else {
+        write(stream + timeframe, [GAME.time, 1, t1, percent]);
+        write(stream + timeframe, [GAME.time, 2, t2, 100-percent]);
       }
 
     }.bind(this));

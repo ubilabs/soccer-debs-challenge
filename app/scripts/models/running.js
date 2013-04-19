@@ -1,67 +1,66 @@
 GLOBAL.Running = Klass({
   init: function(player){
     this.player = player;
-    this.last = {
-      time: 0,
-      type: "initial",
-      distance: 0
-    };
     this.cache = [];
   },
 
   update: function(time, type, distance){
 
-
-    if (type == this.last.type){
-      this.last.distance += distance;
-      return; 
-    }
-
-    if (!this.last.time){
-      console.log(time);
-      this.last.time = time;
-    }
-
-    if ((time - this.last.time) > 1e12){
-
-      this.cache.push(this.last);
-
-      this.last = {
+    if (!this.current){
+      this.current = {
         time: time,
         type: type,
         distance: distance
       };
 
-      this.render();
+      this.cache.push(this.current);
+      return;
+    }   
+
+    if (type == this.current.type){
+      this.current.distance += distance;
+      return; 
+    }
+
+    if ((time - this.current.time) > 1e12){
+      this.cache.push(this.current);
+
+      this.current = {
+        time: time,
+        type: type,
+        distance: distance
+      };
+
+      this.render(1 * 1e12 * 60);
     }
   },
 
-  render: function(){
+  render: function(timeframe){
 
     if (this.player.name != "Philipp Harlass"){ return; }
 
-    console.log(SPEED[this.last.type], this.last.distance);
-
-    var i, types = {}, type, entry, time;
+    var types = {}, 
+      type, time, i, entry, next;
 
     for (i in SPEED){
-      types[i] = {
-        time: 0,
-        distance: 0
+      types[i] = { 
+        time: 0, 
+        distance: 0 
       };
     }
 
-    for (i=0; i<this.cache.length; i++){
+    for (i=0; i<this.cache.length;i++){
       entry = this.cache[i];
-      type = types[entry.type];
+      next = this.cache[i+1];
+      
 
-      if (entry.type != "initial"){
+      if (next){
+        type = types[entry.type];
+        type.time += next.time - entry.time;
         type.distance += entry.distance;
-        type.time += entry.time - time;
       }
-
-      time = entry.time;
     }
+
 
     var output = [];
     time = 0;
@@ -78,6 +77,7 @@ GLOBAL.Running = Klass({
       );
     }
 
-    console.log(time/1e12, output.join("\n"));
+    console.log(timeframe/1e12, time/1e12);
+    console.log(output.join("\n"));
   }
 });

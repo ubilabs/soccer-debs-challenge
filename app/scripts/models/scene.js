@@ -28,7 +28,7 @@ GLOBAL.Scene = Model({
 
   initRenderer: function(){
     this.renderer = new THREE.WebGLRenderer( { antialias: false } );
-    this.renderer.setSize( window.innerWidth, window.innerHeight );
+    this.renderer.setSize( window.innerWidth, window.innerHeight-200 );
 
     document.body.appendChild( this.renderer.domElement );
   },

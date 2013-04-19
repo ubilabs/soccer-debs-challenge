@@ -18,7 +18,7 @@ GLOBAL.Game = Klass({
   $speedbar: $("speedbar"),
   $accelerationbar: $("accelerationbar"),
 
-  init: function(lines, scene){
+  init: function(lines){
 
     this.lines = lines;
 
@@ -110,8 +110,6 @@ GLOBAL.Game = Klass({
       this.sensors[all].update();
     }
 
-    this.target.render();
-
     if (IS_BROWSER){
       this.renderInBrowser();
     } else {
@@ -195,11 +193,27 @@ GLOBAL.Game = Klass({
   },
 
   run: function(){
-
     if (++this.index >= this.lines.length){ return; }
 
-    var data = this.lines[this.index].split(","),
-      id = data[0],
+    var data = this.lines[this.index].split(",");
+
+    this.onData(data);
+
+    if (++this.count < ITERATIONS){
+      this.run();
+    } else {
+      this.count = 0;
+      this.time = this.time;
+      this.render();
+      if (this.paused) { return; }
+      requestAnimationFrame(this.run.bind(this));
+    }
+
+  },
+
+  onData: function(data){
+
+    var id = data[0],
       sensor = this.sensors[id];
 
     // create a new sensor
@@ -241,17 +255,11 @@ GLOBAL.Game = Klass({
         this.checkGoal();
         this.checkHit();
       }
+
+      this.target.render();
+
     }
 
-    if (++this.count < ITERATIONS){
-      this.run();
-    } else {
-      this.count = 0;
-      this.time = this.time;
-      this.render();
-      if (this.paused) { return; }
-      requestAnimationFrame(this.run.bind(this));
-    }
   }
 
 });

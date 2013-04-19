@@ -3,7 +3,6 @@ GLOBAL.Target = Klass({
   LENGTH: 10,
   SECONDS: 1.5,
 
-
   init: function(){
 
     this.vectors = [];
@@ -71,15 +70,14 @@ GLOBAL.Target = Klass({
       { x: x, y: y, z: z }
     );
 
-    GAME.shot = false;
-
-    // TODO: CHECK EVERY TIME
-    if (
+    GAME.shot = (
       ball.hit &&
       ball.acceleration > 55 &&
       goal.hit
-    ) {
-      GAME.shot = true;
+    );
+
+    if (GAME.shot){
+      console.log("shot");
     }
 
     if (IS_BROWSER){

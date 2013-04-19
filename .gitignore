@@ -3,4 +3,6 @@ dist
 .DS_Store
 app/data/full-game
 app/data/*.csv
+app/output/
 node_modules/
+app/output/shot_on_goal.stream.csv

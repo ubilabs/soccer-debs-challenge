@@ -67,15 +67,9 @@ GLOBAL.Sensor = Model({
     });
   },
 
-  update: function(){
+  renderInBrowser: function(){
     if (!this.position){ return; }
 
-    if (IS_BROWSER){
-      this.renderInBrowser();
-    }
-  },
-
-  renderInBrowser: function(){
     this.mesh.position.x = this.position.x;
     this.mesh.position.y = this.position.y;
     this.mesh.position.z = this.position.z;

@@ -114,10 +114,6 @@ GLOBAL.Game = Klass({
 
     if (!this.ball){ return; }
 
-    for (var all in this.sensors){
-      this.sensors[all].update();
-    }
-
     if (IS_BROWSER){
       this.renderInBrowser();
     } else {
@@ -129,6 +125,11 @@ GLOBAL.Game = Klass({
   },
 
   renderInBrowser: function(){
+
+    for (var all in this.sensors){
+      this.sensors[all].renderInBrowser();
+    }
+
     this.$goal.className = this.goal ? "active" : "";
     this.$out.className = this.out ? "active" : "";
     this.$shot.className = this.shot ? "active" : "";

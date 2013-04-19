@@ -226,7 +226,7 @@ GLOBAL.Game = Klass({
       }
     }
 
-    if (this.ball){
+    if (sensor.active){
       this.time = this.ball.data[1];
 
       if (this.time > TIMES.SECOND.END){

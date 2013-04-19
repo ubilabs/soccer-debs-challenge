@@ -26,8 +26,11 @@ GLOBAL.Loader = Model({
 
   loadInNode: function(){
     var fs = require('fs');
+    console.log("Load file …");
+
     fs.readFile(this.file, function (err, data) {
       if (err) { throw err; }
+      console.log("File loaded.");
       this.trigger("loaded", data.toString().split("\n"));
     }.bind(this));
   }

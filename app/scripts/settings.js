@@ -1,5 +1,5 @@
 var settings = {
-  ITERATIONS: 1000, // set to 600 to slow down
+  ITERATIONS: 2000, // set to 600 to slow down
   MINX:  0,
   MAXX:  52483,
   MINY: -33960,
@@ -62,21 +62,21 @@ var settings = {
   },
 
   SPEED: {
-    "1": "standing",
-    "11": "trot",
-    "14": "low speed run",
-    "17": "medium speed run",
-    "24": "high speed run",
-    "9999": "sprint"
+    "0":  "standing",
+    "1": "trot",
+    "11": "low",
+    "14": "medium",
+    "17": "high",
+    "24": "sprint"
   },
 
   SPEED_COLOR: {
-    "1":  "green",
-    "11": "blue",
-    "14": "purple",
-    "17": "red",
-    "24": "orange",
-    "9999": "yellow"
+    "0":  "green",
+    "1":  "blue",
+    "11": "purple",
+    "14": "red",
+    "17": "orange",
+    "24": "yellow"
   },
 
   HEATMAPS: [
@@ -84,7 +84,9 @@ var settings = {
     { x: 16, y: 25 },
     { x: 32, y: 50 },
     { x: 64, y: 100 }
-  ]
+  ],
+
+  WINDOWS: [1, 5, 20, 1000]
 };
 
 for (var all in settings){

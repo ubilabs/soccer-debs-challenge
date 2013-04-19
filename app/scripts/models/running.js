@@ -35,15 +35,16 @@ GLOBAL.Running = Klass({
 
       this.cache.push(this.current);
 
-      this.render(1 * 1e12 * 10);
+      for (var all in WINDOWS){
+        this.render(WINDOWS[all] * 1e12 * 60);
+      }
     }
   },
 
   render: function(timeframe){
 
-    if (this.player.name != "Philipp Harlass"){ return; }
-
     var types = {}, 
+      output = [],
       minTime = this.time - timeframe,
       timeDiff,
       type, time, distance, i, entry, next;
@@ -60,7 +61,6 @@ GLOBAL.Running = Klass({
       next = this.cache[i+1];
 
       if (next.time > minTime){
-
         type = types[entry.type];
 
         timeDiff = next.time - entry.time;
@@ -78,23 +78,13 @@ GLOBAL.Running = Klass({
       }
     }
 
-
-    var output = [];
-    time = 0;
-
     for (i in types){
       type = types[i];
-      time += type.time;
-      output.push(
-        [
-          SPEED[i], 
-          Math.round(type.time / 1e12), 
-          Math.round(type.distance)
-        ].join(", ")
-      );
+      output.push([
+        SPEED[i], 
+        Math.round(type.time / 1e12), 
+        Math.round(type.distance)
+      ].join(", "));
     }
-
-    console.log(timeframe/1e12, time/1e12);
-    console.log(output.join("\n"));
   }
 });

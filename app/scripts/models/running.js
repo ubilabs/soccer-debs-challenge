@@ -6,6 +6,8 @@ GLOBAL.Running = Klass({
 
   update: function(time, type, distance){
 
+    this.time = time;
+
     if (!this.current){
       this.current = {
         time: time,
@@ -23,7 +25,7 @@ GLOBAL.Running = Klass({
     }
 
     if ((time - this.current.time) > 1e12){
-      this.cache.push(this.current);
+      
 
       this.current = {
         time: time,
@@ -31,7 +33,9 @@ GLOBAL.Running = Klass({
         distance: distance
       };
 
-      this.render(1 * 1e12 * 60);
+      this.cache.push(this.current);
+
+      this.render(1 * 1e12 * 10);
     }
   },
 
@@ -40,7 +44,9 @@ GLOBAL.Running = Klass({
     if (this.player.name != "Philipp Harlass"){ return; }
 
     var types = {}, 
-      type, time, i, entry, next;
+      minTime = this.time - timeframe,
+      timeDiff,
+      type, time, distance, i, entry, next;
 
     for (i in SPEED){
       types[i] = { 
@@ -49,15 +55,26 @@ GLOBAL.Running = Klass({
       };
     }
 
-    for (i=0; i<this.cache.length;i++){
+    for (i=0; i<this.cache.length-1;i++){
       entry = this.cache[i];
       next = this.cache[i+1];
-      
 
-      if (next){
+      if (next.time > minTime){
+
         type = types[entry.type];
-        type.time += next.time - entry.time;
-        type.distance += entry.distance;
+
+        timeDiff = next.time - entry.time;
+
+        if (entry.time > minTime){
+          time = timeDiff;
+          distance = entry.distance;
+        } else {
+          time = next.time - minTime;
+          distance = time / timeDiff * entry.distance;
+        }
+
+        type.time += time;
+        type.distance += distance;          
       }
     }
 

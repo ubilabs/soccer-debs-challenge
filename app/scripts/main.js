@@ -4,9 +4,13 @@ GLOBAL.App = Model({
 
   init: function(){
 
+    GLOBAL.app = this;
+
     if (IS_BROWSER){
       this.initBrowser();
     }
+
+    this.game = new Game();
 
     this.render();
     this.load();
@@ -19,11 +23,11 @@ GLOBAL.App = Model({
 
   load: function(){
     var loader = new Loader();
-    loader.on("loaded", this.loaded);
+    loader.on("data", this.onData);
   },
 
-  loaded: function(data){
-    this.game = new Game(data, this.scene);
+  onData: function(data){
+    this.game.push(data);
   },
 
   render: function(){
@@ -32,8 +36,6 @@ GLOBAL.App = Model({
 
     this.scene.update();
     this.stats.update();
-
-
 
     if (
       this.game &&
@@ -73,4 +75,4 @@ GLOBAL.App = Model({
   }
 });
 
-app = new App();
+new App();

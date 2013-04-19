@@ -20,7 +20,7 @@ GLOBAL.Loader = Model({
   ready: function(){
     if (this.xhr.readyState == 4){
       var data = this.xhr.responseText.split("\n");
-      this.trigger("loaded", data);
+      this.trigger("data", data);
     }
   },
 
@@ -31,7 +31,7 @@ GLOBAL.Loader = Model({
     fs.readFile(this.file, function (err, data) {
       if (err) { throw err; }
       console.log("File loaded.");
-      this.trigger("loaded", data.toString().split("\n"));
+      this.trigger("data", data.toString().split("\n"));
     }.bind(this));
   }
 });

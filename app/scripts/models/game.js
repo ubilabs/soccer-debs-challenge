@@ -7,6 +7,7 @@ GLOBAL.Game = Klass({
   paused: false,
 
   sensors: {},
+  iteration: 0,
   count: 0,
   index: 0,
 
@@ -18,9 +19,7 @@ GLOBAL.Game = Klass({
   $speedbar: $("speedbar"),
   $accelerationbar: $("accelerationbar"),
 
-  init: function(lines){
-
-    this.lines = lines;
+  init: function(){
 
     GLOBAL.GAME = this;
 
@@ -30,7 +29,10 @@ GLOBAL.Game = Klass({
 
     this.startTime = new Date();
     this.initKeys();
+  },
 
+  push: function(lines){
+    this.lines = lines;
     this.run();
   },
 
@@ -189,20 +191,20 @@ GLOBAL.Game = Klass({
 
     var duration = new Date() - this.startTime;
     this.paused = true;
-    console.log("Parsing time: " + duration/1000 + " seconds");
+    console.log("Parsing time: " + duration/1000 + " seconds", this.count);
   },
 
   run: function(){
-    if (++this.index >= this.lines.length){ return; }
+    if (this.index >= this.lines.length){ return; }
 
-    var data = this.lines[this.index].split(",");
+    this.parse(this.lines[this.index]);
+    this.index++;
+    this.count++;
 
-    this.onData(data);
-
-    if (++this.count < ITERATIONS){
+    if (++this.iteration < ITERATIONS){
       this.run();
     } else {
-      this.count = 0;
+      this.iteration = 0;
       this.time = this.time;
       this.render();
       if (this.paused) { return; }
@@ -211,9 +213,10 @@ GLOBAL.Game = Klass({
 
   },
 
-  onData: function(data){
+  parse: function(line){
 
-    var id = data[0],
+    var data = line.split(","),
+      id = data[0],
       sensor = this.sensors[id];
 
     // create a new sensor

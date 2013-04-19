@@ -70,7 +70,7 @@ GLOBAL.Game = Klass({
 
     for (all in this.sensors){
       sensor = this.sensors[all];
-      if (sensor != this.ball){
+      if (sensor.IS_PLAYER){
         distance = computeDistance(
           this.ball.position,
           sensor.position
@@ -104,6 +104,10 @@ GLOBAL.Game = Klass({
         this.current.player.select(false, this.time);
       }
 
+      if (!select.player){
+        console.log(this.time, select);
+      }
+
       select.player.select(true, this.time);
 
       this.current = select;
@@ -116,8 +120,6 @@ GLOBAL.Game = Klass({
 
     if (IS_BROWSER){
       this.renderInBrowser();
-    } else {
-      this.renderInNode();
     }
 
     this.players.render(this.time);
@@ -250,21 +252,41 @@ GLOBAL.Game = Klass({
       }
     }
 
-    if (sensor.active){
+    if (this.ball){
       this.time = this.ball.data[1];
+
+      if (this.time < TIMES.FIRST.START) {
+        return;
+      }
 
       if (this.time > TIMES.SECOND.END){
         this.end();
+        return;
+      }
+
+      if (this.time > TIMES.FIRST.END && this.time < TIMES.SECOND.START){
+        // todo: subtract half time fro player & game possession!
+        return;
       }
 
       if (
-        (this.time > TIMES.FIRST.START && this.time < TIMES.FIRST.END) ||
-        (this.time > TIMES.SECOND.START && this.time < TIMES.SECOND.END)
-      ) {
-        this.ball.acceleration = data[6] / 1e6;
-        this.checkGoal();
-        this.checkHit();
+        !IS_BROWSER &&
+        (
+          !this.lastUpdate ||
+          (this.time - this.lastUpdate) / 1e12 > 1/50
+        )
+      ){
+        this.lastUpdate = this.time;
+        this.players.render(this.time);
+        this.teams.render();
       }
+    }
+
+    if (sensor.active){
+
+      this.ball.acceleration = data[6] / 1e6;
+      this.checkGoal();
+      this.checkHit();
 
       this.target.render();
 

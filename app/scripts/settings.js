@@ -63,7 +63,7 @@ var settings = {
 
   SPEED: {
     "0":  "standing",
-    "1": "trot",
+    "1":  "trot",
     "11": "low",
     "14": "medium",
     "17": "high",

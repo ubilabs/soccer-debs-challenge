@@ -3,6 +3,7 @@ GLOBAL.Player = Klass({
   init: function(name){
     this.sensors = [];
     this.possesionTime = 0;
+    this.possesions = [];
     this.hitCount = 0;
     this.active = false;
     this.name = name;
@@ -139,6 +140,31 @@ GLOBAL.Player = Klass({
 
   },
 
+  possesionTimeframe: function(timeframe){
+    var total = 0,
+      min = GAME.time - timeframe,
+      possesion,
+      diff,
+      start,
+      end,
+      i;
+
+    for (i=0; i<this.possesions.length; i++){
+
+      possesion = this.possesions[i];
+
+      start = Math.max(possesion.start, min);
+      end = possesion.end || GAME.time;
+
+      if (end > min){
+        diff = end - start;
+        total += Math.max(diff, 0);
+      }
+    }
+
+    return total;
+  },
+
   calculatePosession: function(time){
 
     if (this.active){
@@ -170,11 +196,15 @@ GLOBAL.Player = Klass({
     if (active){
 
       if (!this.active){
+        this.possesion = { start: time };
+        this.possesions.push(this.possesion);
+
         this.time = time;
         this.hitCount++;
       }
 
     } else {
+      this.possesion.end = time;
       this.possesionTime += time - this.time;
     }
 

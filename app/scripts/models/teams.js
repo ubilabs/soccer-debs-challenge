@@ -28,25 +28,29 @@ GLOBAL.Teams = Klass({
 
   render: function(){
 
-    var total, percent,
-      t1 = 0,
-      t2 = 0;
+    TIME_WINDOWS.forEach(function(timeframe){
+      var total, percent,
+        t1 = 0,
+        t2 = 0;
 
-    this.TEAM1.forEach(function(player){
-      t1 += player.possesionTime;
-    });
+      this.TEAM1.forEach(function(player){
+        t1 += player.possesionTimeframe(timeframe * 1e12 * 60);
+      });
 
-    this.TEAM2.forEach(function(player){
-      t2 += player.possesionTime;
-    });
+      this.TEAM2.forEach(function(player){
+        t2 += player.possesionTimeframe(timeframe * 1e12 * 60);
+      });
 
-    total = t1 + t2;
+      total = t1 + t2;
 
-    percent = Math.round((t1/total || 0) * 100);
+      percent = Math.round((t1/total || 0) * 100);
 
-    if (IS_BROWSER){
-      this.renderInBrowser(percent, t1, t2);
-    }
+      if (IS_BROWSER && timeframe == 5){
+        this.renderInBrowser(percent, t1, t2);
+      }
+
+    }.bind(this));
+
   },
 
   renderInBrowser: function(percent, t1, t2){

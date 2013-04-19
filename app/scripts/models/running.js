@@ -26,7 +26,6 @@ GLOBAL.Running = Klass({
 
     if ((time - this.current.time) > 1e12){
       
-
       this.current = {
         time: time,
         type: type,
@@ -35,8 +34,10 @@ GLOBAL.Running = Klass({
 
       this.cache.push(this.current);
 
-      for (var all in WINDOWS){
-        this.render(WINDOWS[all] * 1e12 * 60);
+      for (var all in TIME_WINDOWS){
+        this.render(
+          TIME_WINDOWS[all] * 1e12 * 60
+        );
       }
     }
   },

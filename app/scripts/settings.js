@@ -86,7 +86,12 @@ var settings = {
     { x: 64, y: 100 }
   ],
 
-  WINDOWS: [1, 5, 20, 1000]
+  TIME_WINDOWS: [
+    1, // 1 minute
+    5, // 5 minutes
+    20, // 20 minutes
+    999 // full game
+  ]
 };
 
 for (var all in settings){

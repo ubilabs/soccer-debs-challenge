@@ -115,42 +115,52 @@ like running path visualizations, position heat maps, \emph{etc.}
 
 \section{Introduction}
 
-Detailed sports game analytics are of high interest and
+Detailed sports game analyses are of high interest and
 relevance in today’s professional sports leagues.
-Spectators are provided with additional statistics,
-such as the number of shots, movement analysis,
+Spectators are provided with additional statistics
+such as the number of shots on the goal, movement analyses,
 or percentage of ball possession per player or team.
-Furthermore, statistics provide useful information
-for coaches and team managers about a players' performance
-during the match or in certain situations,
-and give insights about opponents
+Furthermore, more detailed statistics provide useful information
+for coaches and team managers about players' performance
+during the match or in certain situations
+and also give insights about opponents,
 which could lead to modification in tactics.
-
 Although automated solutions
-such as high resolution video analysis are desirable,
-as they generate more detailed information more quickly,
-most sport game statistics are processed manually to date.
+such as high resolution video analyses are desirable
+as they generate the required detailed statistics quickly,
+at present, most sports game statistics are still processed manually.
 Unfortunately, insights gained through image-based solutions
-are limited due to the lack of higher image resolution
-and frame rate..
-
-For the ACM DEBS 2013 Grand Challenge the Fraunhofer IIS
-set up a real-time locating system on a soccer field
-in the Nuremberg Stadium (Germany).
+are limited by image resolution, frame rate, and last not least
+prohibitive costs.
+For The~ACM~DEBS~2013 Grand Challenge,%
+\footnote{\url{http://www.orgs.ttu.edu/debs2013/}}
+the Fraunhofer Institute for Integrated Circuits~(IIS)%
+\footnote{\url{http://www.iis.fraunhofer.de/en/profil.html}}
+have set up a realtime locating system on a soccer field
+in a~stadium in Nuremberg, Germany.
 Every player and the ball were equipped with wireless sensors
-that produce high velocity sensor data at a total rate
+that produce high velocity sensor data at a~total rate
 of about 15,000 position events per second.
 
-In the following I will outline my submission
+In the following, we will outline our submission to the challenge
 that uses continuous computation of statistics in JavaScript
-to generate real-time analytics and interactive visualizations
+to generate interactive visualizations and realtime analyses
 of the game such as ball possession, shots on goal,
-running analysis of all players and the two teams.
-This approach will be called “hybrid” because the same system
-is used to visualize the game in a web browser
-and to output multiple streams on the file system.
+running analyses of all players and the two teams.
+The chosen approach can be called \emph{hybrid},
+as the same system is used to visualize the game in a~Web browser
+and to output multiple event streams on the file system.
+
+The remainder of this paper is structured as follows.
+We briefly have a~look at related work in \autoref{sec:related-work}.
+In \autoref{sec:methodology}, we outline
+the methodology of the chosen approach.
+\autoref{sec:implementation-details}
+is dedicated to the implementation details.
+We conclude with an outlook on future work in \autoref{sec:conclusions-future-work}.
 
 \section{Related Work}
+\label{sec:related-work}
 
 Automated sport analyses heavily depend on video systems
 that capture the game, compute differences between images
@@ -188,6 +198,7 @@ efficient rendering of 3D models
 and interactive visualization of volumetric data.
 
 \section{Methodology}
+\label{sec:methodology}
 
 The following submission for the ACM DEBS 2013 Grand Challenge
 started with the question: ``Is it possible to read and analyze
@@ -231,6 +242,7 @@ visualize the match in a browser or share aggregated results
 via the network.
 
 \section{Implementation Details}
+\label{sec:implementation-details}
 
 Data: The original data-stream was captured during the game
 and results in a 4.62 GB CSV input file.
@@ -329,7 +341,8 @@ This results into a total of 12 files written to disk.
   \label{fig:screenshot}
 \end{figure*}
 
-\section{Conclusion and Future Work}
+\section{Conclusions and Future Work}
+\label{sec:conclusions-future-work}
 
 In the first evaluation phase it turned out
 that modern JavaScript engines such as V8

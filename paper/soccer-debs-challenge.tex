@@ -87,23 +87,31 @@ Martin Kleppe\\
 \maketitle
 
 \begin{abstract}
-This project demonstrates the applicability of JavaScript
-to provide complex analytics over high velocity sensor data
-along the example of analyzing a soccer match.
-Hybrid code---a program that runs at the command line
-or in the browser---is used to visualize results
-and stream aggregated statistics in real-time.
-During the game, the data is being collected
+In this paper, we report on a~Web application 
+with an additional command line interface
+capable of providing complex analyses
+over high velocity soccer match sensor data
+that was implemented in JavaScript
+and the Web Graphics Library~(WebGL).
+This application visualizes analysis results graphically
+in the Web browser and in parallel also
+streams aggregated statistics in realtime
+to a~command line interface.
+The data analyzed in this paper consists of raw sensor data
+that was recorded during an actual soccer match
 using wireless sensors embedded in the ball
 and the players' shoes.
-Real-time analytics include the continuous computation
-of statistics relevant to the audience
-(ball possession, shots on goal)
-as well as to the coaches and team managers
-(running analysis, position heat maps).
+The thereof generated realtime analyses are twofold:
+on the one hand, they focus on the continuous computation of statistics
+such as ball possession, shots on goal, or player of the match,
+which is relevant to passive spectators like fans in a~stadium
+or TV viewers at home.
+On the other hand, they focus on active observers of the match
+like team coaches or team managers that require more detailed analyses
+like running path visualizations, position heat maps, \emph{etc.}
 \end{abstract}
 
-\keywords{Real-Time, Complex Analytics, JavaScript, Data Streams, Sport}
+\keywords{Realtime Analyses, Sensor Data, Data Streams, JavaScript, WebGL, Command Line Interface, Sports, Soccer}
 
 \section{Introduction}
 

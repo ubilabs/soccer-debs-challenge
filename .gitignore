@@ -6,3 +6,9 @@ app/data/*.csv
 app/output/
 node_modules/
 app/output/shot_on_goal.stream.csv
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.gz

@@ -29,6 +29,7 @@ GLOBAL.Heatmap = Klass({
   initBrowserGeometry: function(){
 
     if (!IS_BROWSER){ return; }
+    if (++HHH != 9){ return; }
 
     this.geometry = new THREE.Geometry();
     this.material =  new THREE.ParticleBasicMaterial({
@@ -38,8 +39,6 @@ GLOBAL.Heatmap = Klass({
     });
 
     this.geometry.vertices = this.vertices;
-
-    if (++HHH != 8){ return; }
 
     this.geometry.colors = this.colors;
 
@@ -127,7 +126,7 @@ GLOBAL.Heatmap = Klass({
 
   renderBrowser: function(max){
 
-    if (!IS_BROWSER){ return; }
+    if (!this.geometry){ return; }
 
     var i, cell, value;
 

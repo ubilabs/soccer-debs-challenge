@@ -15,7 +15,7 @@ More info: [http://www.orgs.ttu.edu/debs2013/](http://www.orgs.ttu.edu/debs2013/
 
 ```sh
 cd ./app
-node server.js
+node browser.js
 ```
 
 This will start a server on [http://localhost:9000](http://localhost:9000).

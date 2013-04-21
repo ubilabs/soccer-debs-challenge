@@ -5,15 +5,18 @@ GLOBAL.Heatmap = Klass({
   cells: [],
   count: 0,
 
-  init: function(player, x, y){
+  init: function(player, xSize, ySize){
 
     this.player = player;
 
-    this.x = x;
-    this.y = y;
+    this.xSize = xSize;
+    this.ySize = ySize;
+    this.size = xSize * ySize;
 
-    this.height = 1/this.x * HEIGHT;
-    this.width = 1/this.y * WIDTH;
+    this.height = 1/this.xSize * HEIGHT;
+    this.width = 1/this.ySize * WIDTH;
+
+    this.cells = [];
 
     if (IS_BROWSER){
       this.vertices = [];
@@ -49,25 +52,33 @@ GLOBAL.Heatmap = Klass({
   },
 
   initCells: function(){
-    var x, y;
+    var x, y, index = 0;
 
-    for (x=0; x < this.x; x++){
-      for (y=0; y < this.y; y++){
-        this.addCell(x, y);
+    this.cellz = new Int32Array(this.size * 5);
+
+    for (x=0; x < this.xSize; x++){
+      for (y=0; y < this.ySize; y++){
+        this.addCell(x, y, index++);
       }
     }
   },
 
-  addCell: function(x, y){
+  addCell: function(x, y, index){
 
-    x = x / this.x * HEIGHT;
-    y = y / this.y * WIDTH + MINY;
+    x = x / this.xSize * HEIGHT;
+    y = y / this.ySize * WIDTH + MINY;
 
     var cell = {
-      x: { min: x, max: x + this.height },
-      y: { min: y, max: y + this.width },
       count: 0
     };
+
+    var i = index*5;
+
+    this.cellz[i+0] = x;
+    this.cellz[i+1] = x + this.height;
+    this.cellz[i+2] = y;
+    this.cellz[i+3] = y + this.width;
+    this.cellz[i+4] = 0;
 
     this.cells.push(cell);
     this.addBrowserCell(x, y, cell);
@@ -92,6 +103,8 @@ GLOBAL.Heatmap = Klass({
 
   render: function(time){
 
+    var t = new Date();
+
     if (this.lastUpdate){
       if ((time-this.lastUpdate) / 1e12 < 1){ return; }
     }
@@ -106,13 +119,13 @@ GLOBAL.Heatmap = Klass({
       value,
       cell;
 
-    for (i=0; i<this.cells.length; i++){
+    for (i=0; i<this.size; i++){
       cell = this.cells[i];
       if (
-        position.x >= cell.x.min &&
-        position.x <  cell.x.max &&
-        position.y >= cell.y.min &&
-        position.y <  cell.y.max
+        position.x >= this.cellz[i*5+0] &&
+        position.x <  this.cellz[i*5+1] &&
+        position.y >= this.cellz[i*5+2] &&
+        position.y <  this.cellz[i*5+3]
       ) {
         cell.count++;
       }
@@ -120,6 +133,10 @@ GLOBAL.Heatmap = Klass({
     }
 
     this.renderBrowser(max);
+
+    if (this.ySize === 100){
+      console.log(new Date()-t);
+    }
   },
 
   renderBrowser: function(max){
@@ -128,7 +145,7 @@ GLOBAL.Heatmap = Klass({
 
     var i, cell, value;
 
-    for (i=0; i<this.cells.length; i++){
+    for (i=0; i<this.size; i++){
       cell = this.cells[i];
       value = (cell.count / max) || 0;
 

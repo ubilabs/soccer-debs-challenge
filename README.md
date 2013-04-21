@@ -27,4 +27,4 @@ cd ./app
 node commandline.js
 ```
 
-This will create several file steams in [./output](./output).
+This will create several file steams in [./output](./app/output).

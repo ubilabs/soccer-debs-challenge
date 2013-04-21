@@ -1,1 +1,1 @@
-README.md
+Download the 2.6GB data file: [full-game.gz](http://lafayette.tosm.ttu.edu/debs2013/grandchallenge/full-game.gz) and extract it here.

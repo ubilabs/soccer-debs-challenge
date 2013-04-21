@@ -33,7 +33,9 @@ This will create several file steams in [./output](./app/output).
 
 ![Screenshot](https://raw.github.com/ubilabs/soccer-debs-challenge/master/paper/soccer.png)
 
-Watch the short intro on [YouTube](http://youtu.be/3SBIFFqjle4)!
+Watch a short intro on [YouTube](http://youtu.be/3SBIFFqjle4)!
+
+Read the paper on [EasyChair](https://www.easychair.org/conferences/submission.cgi?a=3869730;track=65072;submission=1305881).
 
 ### Author
 

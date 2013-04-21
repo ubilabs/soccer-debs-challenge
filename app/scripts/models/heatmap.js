@@ -16,8 +16,6 @@ GLOBAL.Heatmap = Klass({
     this.height = 1/this.xSize * HEIGHT;
     this.width = 1/this.ySize * WIDTH;
 
-    this.cells = [];
-
     if (IS_BROWSER){
       this.vertices = [];
       this.colors = [];
@@ -68,10 +66,6 @@ GLOBAL.Heatmap = Klass({
     x = x / this.xSize * HEIGHT;
     y = y / this.ySize * WIDTH + MINY;
 
-    var cell = {
-      count: 0
-    };
-
     var i = index*5;
 
     this.cellz[i+0] = x;
@@ -80,11 +74,10 @@ GLOBAL.Heatmap = Klass({
     this.cellz[i+3] = y + this.width;
     this.cellz[i+4] = 0;
 
-    this.cells.push(cell);
-    this.addBrowserCell(x, y, cell);
+    this.addBrowserCell(x, y);
   },
 
-  addBrowserCell: function(x, y, cell){
+  addBrowserCell: function(x, y){
 
     if (!IS_BROWSER){ return; }
 
@@ -97,8 +90,6 @@ GLOBAL.Heatmap = Klass({
 
     this.colors.push(color);
     this.vertices.push(vertex);
-
-    cell.color = color;
   },
 
   render: function(time){
@@ -114,48 +105,52 @@ GLOBAL.Heatmap = Klass({
     this.count++;
 
     var position = this.player.position,
+      cells = [],
       max = 0,
       i,
       value,
       cell;
 
+    this.cells = this.cells  || [];
+    cells = this.cells;
+
     for (i=0; i<this.size; i++){
-      cell = this.cells[i];
+      cell = cells[i] || 0;
       if (
         position.x >= this.cellz[i*5+0] &&
         position.x <  this.cellz[i*5+1] &&
         position.y >= this.cellz[i*5+2] &&
         position.y <  this.cellz[i*5+3]
       ) {
-        cell.count++;
+        cells[i] = cell + 1;
       }
-      max = Math.max(cell.count, max);
+      max = Math.max(cell, max);
     }
 
-    this.renderBrowser(max);
+    this.renderBrowser(cells, max);
 
     if (this.ySize === 100){
       console.log(new Date()-t);
     }
   },
 
-  renderBrowser: function(max){
+  renderBrowser: function(cells, max){
 
     if (!this.geometry){ return; }
 
     var i, cell, value;
 
     for (i=0; i<this.size; i++){
-      cell = this.cells[i];
-      value = (cell.count / max) || 0;
+      count = cells[i];
+      color = this.colors[i];
+      value = ((count || 0) / max) || 0;
 
       value = Math.max(value, 0.1);
 
-      cell.color.r = value;
-      cell.color.g = value;
-      cell.color.b = 0;
+      color.r = value;
+      color.g = value;
+      color.b = 0;
     }
-
 
     this.geometry.colorsNeedUpdate = true;
 

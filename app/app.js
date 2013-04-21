@@ -12,6 +12,7 @@ var scripts = [
   "models/stats",
   "models/loader",
   "models/game",
+  "models/cache",
   "models/scene",
   "models/tracer",
   "models/player",

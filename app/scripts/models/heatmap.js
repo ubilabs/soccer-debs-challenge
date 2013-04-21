@@ -25,12 +25,12 @@ GLOBAL.Heatmap = Klass({
   initBrowserGeometry: function(){
 
     if (!IS_BROWSER){ return; }
-    if (++HHH != 9){ return; }
+    if (++HHH != 10){ return; }
 
     this.geometry = new THREE.Geometry();
     this.material =  new THREE.ParticleBasicMaterial({
       size: this.height,
-      color: 0x333300,
+      color: 0xFFFFFF,
       vertexColors: true
     });
 
@@ -51,8 +51,8 @@ GLOBAL.Heatmap = Klass({
 
     this.cellz = new Int32Array(this.size * 5);
 
-    for (x=0; x < this.xSize; x++){
-      for (y=0; y < this.ySize; y++){
+    for (y=0; y < this.ySize; y++){
+      for (x=0; x < this.xSize; x++){
         this.addCell(x, y, index++);
       }
     }
@@ -60,7 +60,7 @@ GLOBAL.Heatmap = Klass({
 
   addCell: function(x, y, index){
 
-    x = x / this.xSize * HEIGHT;
+    x = x / this.xSize * HEIGHT + MINX;
     y = y / this.ySize * WIDTH + MINY;
 
     var i = index*5;
@@ -91,22 +91,23 @@ GLOBAL.Heatmap = Klass({
 
   render: function(time){
 
-    if (this.lastUpdate){
-      if ((time-this.lastUpdate) / 1e12 < 1){ return; }
+    if (
+      this.lastUpdate &&
+      ((time-this.lastUpdate) / 1e12 < 1)
+    ){
+      return;
     }
 
     this.lastUpdate = time;
 
     var position = this.player.position,
       cells = [],
-      i;
+      x = -1,
+      y = -1,
+      index = -1;
 
     this.cells = this.cells  || [];
     cells = this.cells;
-
-    var x = -1,
-      y = -1,
-      index = -1;
 
     if (
       position.x > MINX &&
@@ -114,8 +115,8 @@ GLOBAL.Heatmap = Klass({
       position.y > MINY &&
       position.y < MAXY
     ) {
-      x = Math.floor((position.x - MINX) / WIDTH * this.xSize);
-      y = Math.floor((position.y - MINY) / HEIGHT * this.ySize);
+      x = Math.floor((position.x - MINX) / HEIGHT * this.xSize);
+      y = Math.floor((position.y - MINY) / WIDTH * this.ySize);
       index = (y * this.xSize) + x;
       cells[index] = (cells[index] || 0) + 1;
     }

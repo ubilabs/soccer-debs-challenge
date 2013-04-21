@@ -25,9 +25,10 @@ GLOBAL.Loader = Model({
   },
 
   loadInNode: function(){
+
     var fs = require('fs'),
       sys = require('sys'),
-      input = fs.createReadStream(this.file),
+      input,
       callback = function(data){
         this.trigger("data", data);
       }.bind(this),
@@ -36,6 +37,16 @@ GLOBAL.Loader = Model({
       time = 0,
       lastGameTime = 0,
       start = new Date();
+
+    if (!fs.existsSync(this.file)){
+      console.error("ERROR!\n");
+      console.error("Input file '" + this.file + "' not found.");
+      console.error("Please download and extract to '/data' directory.");
+      console.error("http://lafayette.tosm.ttu.edu/debs2013/grandchallenge/full-game.gz\n");
+      return;
+    }
+
+    input = fs.createReadStream(this.file),
 
     input.on('data', function(data, lines) {
       lines = (data + "").split("\n");

@@ -184,7 +184,7 @@ GLOBAL.Game = Klass({
     ){
       this.goal = true;
       this.inField = false;
-      console.log("goal");
+      console.log("\nGOOAAAL !!!!");
     } else if (
       !this.isInField(this.ball)
     ) {

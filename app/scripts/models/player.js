@@ -15,9 +15,22 @@ GLOBAL.Player = Klass({
 
     this.running = new Running(this);
 
-    this.heatmap = new Heatmap(this, 32, 50);
+    this.initHeatmaps();
 
     this.initBrowser();
+  },
+
+  initHeatmaps: function(){
+    var resolution;
+
+    this.heatmaps = [];
+
+    for (var all in HEATMAPS){
+      resolution = HEATMAPS[all];
+      this.heatmaps.push(
+        new Heatmap(this, resolution.x, resolution.y)
+      );
+    }
   },
 
   initBrowser: function(){
@@ -59,7 +72,9 @@ GLOBAL.Player = Klass({
     this.calculatePosession(time);
     this.calcualteSpeed(time);
 
-    this.heatmap.render(time);
+    this.heatmaps.forEach(function(heatmap){
+      heatmap.render(time);
+    });
   },
 
   calcualteSpeed: function(time){

@@ -111,7 +111,6 @@ GLOBAL.Player = Klass({
 
     if (diff/1e12 < 1/50) { return; }
 
-
     speed = computeSpeed(distance, diff);
 
     for (var i in SPEED){
@@ -201,7 +200,7 @@ GLOBAL.Player = Klass({
     if (IS_BROWSER){
       this.renderPosessionInBrowser();
     } else {
-      this.renderPosessionInNode();
+      this.renderPosessionInNode(time);
     }
   },
 
@@ -213,8 +212,13 @@ GLOBAL.Player = Klass({
     this.$li.className = this.active ? "active" : "";
   },
 
-  renderPosessionInNode: function(){
-
+  renderPosessionInNode: function(time){
+    write("player_ball_possession", [
+      time,
+      this.name,
+      this.possessionTime,
+      this.hitCount
+    ]);
   },
 
   select: function(active, time){

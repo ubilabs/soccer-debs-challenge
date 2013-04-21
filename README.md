@@ -8,7 +8,7 @@ More info: [http://www.orgs.ttu.edu/debs2013/](http://www.orgs.ttu.edu/debs2013/
 
 1. Clone this repo.
 2. Download the 2.6GB data file: [full-game.gz](http://lafayette.tosm.ttu.edu/debs2013/grandchallenge/full-game.gz)
-3. Extract to _app/data_
+3. Extract to [./app/data](./app/data)
 4. Download [Node.js](http://nodejs.org/download/)
 
 ### Visualize Output in Browser

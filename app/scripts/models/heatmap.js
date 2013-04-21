@@ -2,9 +2,6 @@ HHH = 0;
 
 GLOBAL.Heatmap = Klass({
 
-  cells: [],
-  count: 0,
-
   init: function(player, xSize, ySize){
 
     this.player = player;
@@ -74,10 +71,10 @@ GLOBAL.Heatmap = Klass({
     this.cellz[i+3] = y + this.width;
     this.cellz[i+4] = 0;
 
-    this.addBrowserCell(x, y);
+    this.addCellInBrowser(x, y);
   },
 
-  addBrowserCell: function(x, y){
+  addCellInBrowser: function(x, y){
 
     if (!IS_BROWSER){ return; }
 
@@ -94,59 +91,54 @@ GLOBAL.Heatmap = Klass({
 
   render: function(time){
 
-    var t = new Date();
-
     if (this.lastUpdate){
       if ((time-this.lastUpdate) / 1e12 < 1){ return; }
     }
 
     this.lastUpdate = time;
 
-    this.count++;
-
     var position = this.player.position,
       cells = [],
-      max = 0,
-      i,
-      value,
-      cell;
+      i;
 
     this.cells = this.cells  || [];
     cells = this.cells;
 
-    for (i=0; i<this.size; i++){
-      cell = cells[i] || 0;
-      if (
-        position.x >= this.cellz[i*5+0] &&
-        position.x <  this.cellz[i*5+1] &&
-        position.y >= this.cellz[i*5+2] &&
-        position.y <  this.cellz[i*5+3]
-      ) {
-        cells[i] = cell + 1;
-      }
-      max = Math.max(cell, max);
+    var x = -1,
+      y = -1,
+      index = -1;
+
+    if (
+      position.x > MINX &&
+      position.x < MAXX &&
+      position.y > MINY &&
+      position.y < MAXY
+    ) {
+      x = Math.floor((position.x - MINX) / WIDTH * this.xSize);
+      y = Math.floor((position.y - MINY) / HEIGHT * this.ySize);
+      index = (y * this.xSize) + x;
+      cells[index] = (cells[index] || 0) + 1;
     }
 
-    this.renderBrowser(cells, max);
-
-    if (this.ySize === 100){
-      console.log(new Date()-t);
-    }
+    this.renderBrowser(cells);
   },
 
-  renderBrowser: function(cells, max){
+  renderBrowser: function(cells){
 
     if (!this.geometry){ return; }
 
-    var i, cell, value;
+    var i, value, count,
+      max = 0;
 
     for (i=0; i<this.size; i++){
-      count = cells[i];
+      max = Math.max(max, cells[i] || 0);
+    }
+
+    for (i=0; i<this.size; i++){
+      count = cells[i] || 0;
+      value = count / max || 0;
+
       color = this.colors[i];
-      value = ((count || 0) / max) || 0;
-
-      value = Math.max(value, 0.1);
-
       color.r = value;
       color.g = value;
       color.b = 0;

@@ -47,13 +47,18 @@ GLOBAL.Loader = Model({
         time = new Date();
 
         var seconds = (new Date() - start) / 1000,
-          portion = count / 49576080;
+          portion = count / 49576080,
+          minutes = Math.floor(seconds/60);
+
+        seconds = Math.abs(Math.round(seconds % 60));
+        if (seconds < 10) { seconds = "0" + seconds; }
 
         sys.print(
           "\r" +
           (portion * 100).toFixed(1) + "% - " +
-          Math.round(seconds) + "s - ETA: " +
-          Math.round(seconds * 1 / portion) + "s"
+          minutes + ":" + seconds + " - ETA: " +
+          Math.round(seconds * 1 / portion) + "s - " +
+          Math.round(process.memoryUsage().heapUsed / 1024 / 1024) + "MB Memory"
         );
       }
 

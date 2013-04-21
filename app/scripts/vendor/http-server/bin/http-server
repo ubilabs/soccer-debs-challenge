@@ -1,0 +1,62 @@
+#!/usr/bin/env node
+
+var colors = require('colors'),
+    httpServer = require('../lib/http-server'),
+    argv = require('optimist').argv,
+    portfinder = require('portfinder')
+
+if (argv.h || argv.help) {
+  console.log([
+    "usage: http-server [path] [options]",
+    "",
+    "options:",
+    "  -p                 Port to use [8080]",
+    "  -a                 Address to use [0.0.0.0]",
+    "  -i                 Display autoIndex [true]",
+    "  -e --ext           Default file extension if none supplied [none]",
+    "  -s --silent        Suppress log messages from output",
+    "  -h --help          Print this list and exit.",
+  ].join('\n'));
+  process.exit();
+}
+
+var port = argv.p,
+    host = argv.a || '0.0.0.0',
+    log = (argv.s || argv.silent) ? (function () {}) : console.log;
+
+if (!argv.p) {
+  portfinder.basePort = 8080;
+  portfinder.getPort(function (err, port) {
+    if (err) throw err;
+    listen(port);
+  })
+} else {
+  listen(port);
+}
+
+function listen(port) {
+  var server = httpServer.createServer({
+    root: argv._[0],
+    autoIndex: argv.i,
+    cache: argv.c,
+    ext: argv.e || argv.ext
+  });
+
+  server.listen(port, host, function() {
+    log('Starting up http-server, serving '.yellow
+      + server.root.cyan
+      + ' on port: '.yellow
+      + port.toString().cyan);
+    log('Hit CTRL-C to stop the server');
+  });
+}
+
+if (process.platform !== 'win32') {
+  //
+  // Signal handlers don't work on Windows.
+  //
+  process.on('SIGINT', function () {
+    log('http-server stopped.'.red);
+    process.exit();
+  });
+}

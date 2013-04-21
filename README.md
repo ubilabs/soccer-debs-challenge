@@ -6,7 +6,7 @@ More info: [http://www.orgs.ttu.edu/debs2013/](http://www.orgs.ttu.edu/debs2013/
 
 ### Install
 
-1. Clone this repo.
+1. Clone this repo or [download as .ZIP](https://github.com/ubilabs/soccer-debs-challenge/archive/master.zip).
 2. Download the 2.6GB data file: [full-game.gz](http://lafayette.tosm.ttu.edu/debs2013/grandchallenge/full-game.gz)
 3. Extract to [./app/data](./app/data)
 4. Download [Node.js](http://nodejs.org/download/)

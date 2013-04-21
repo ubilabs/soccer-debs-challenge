@@ -53,7 +53,7 @@ GLOBAL.Running = Klass({
   render: function(timeframe){
 
     var types = {},
-      output = [],
+      output = [this.time, this.player.name],
       minTime = this.time - timeframe * 1e12 * 60,
       timeDiff,
       type, time, distance, i, entry, next,
@@ -103,11 +103,14 @@ GLOBAL.Running = Klass({
 
     for (i in types){
       type = types[i];
-      output.push([
-        SPEED[i],
+      output.push(
         Math.round(type.time / 1e12),
         Math.round(type.distance)
-      ].join(", "));
+      );
+    }
+
+    if (!IS_BROWSER){
+      write("running_aggregate" + timeframe, output);
     }
 
   }

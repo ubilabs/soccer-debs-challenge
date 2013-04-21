@@ -5,10 +5,14 @@ GLOBAL.Heatmap = Klass({
   init: function(player, xSize, ySize){
 
     this.player = player;
+    this.cache = new Cache(1);
 
     this.xSize = xSize;
     this.ySize = ySize;
     this.size = xSize * ySize;
+
+    this.output = [];
+    this.output[1] = this.player.name;
 
     this.height = 1/this.xSize * HEIGHT;
     this.width = 1/this.ySize * WIDTH;
@@ -25,12 +29,14 @@ GLOBAL.Heatmap = Klass({
   initBrowserGeometry: function(){
 
     if (!IS_BROWSER){ return; }
-    if (++HHH != 10){ return; }
+    if (++HHH != 9){ return; }
 
     this.geometry = new THREE.Geometry();
     this.material =  new THREE.ParticleBasicMaterial({
       size: this.height,
       color: 0xFFFFFF,
+      blending: THREE.AdditiveBlending,
+      transparent: true,
       vertexColors: true
     });
 
@@ -49,8 +55,6 @@ GLOBAL.Heatmap = Klass({
   initCells: function(){
     var x, y, index = 0;
 
-    this.cellz = new Int32Array(this.size * 5);
-
     for (y=0; y < this.ySize; y++){
       for (x=0; x < this.xSize; x++){
         this.addCell(x, y, index++);
@@ -63,13 +67,12 @@ GLOBAL.Heatmap = Klass({
     x = x / this.xSize * HEIGHT + MINX;
     y = y / this.ySize * WIDTH + MINY;
 
-    var i = index*5;
+    var i = index * 5 + 2;
 
-    this.cellz[i+0] = x;
-    this.cellz[i+1] = x + this.height;
-    this.cellz[i+2] = y;
-    this.cellz[i+3] = y + this.width;
-    this.cellz[i+4] = 0;
+    this.output[i+0] = Math.round(x);
+    this.output[i+1] = Math.round(x + this.height);
+    this.output[i+2] = Math.round(y);
+    this.output[i+3] = Math.round(y + this.width);
 
     this.addCellInBrowser(x, y);
   },
@@ -101,13 +104,10 @@ GLOBAL.Heatmap = Klass({
     this.lastUpdate = time;
 
     var position = this.player.position,
-      cells = [],
       x = -1,
       y = -1,
       index = -1;
 
-    this.cells = this.cells  || [];
-    cells = this.cells;
 
     if (
       position.x > MINX &&
@@ -118,10 +118,49 @@ GLOBAL.Heatmap = Klass({
       x = Math.floor((position.x - MINX) / HEIGHT * this.xSize);
       y = Math.floor((position.y - MINY) / WIDTH * this.ySize);
       index = (y * this.xSize) + x;
-      cells[index] = (cells[index] || 0) + 1;
     }
 
-    this.renderBrowser(cells);
+    this.cache.set(time, index);
+    this.renderTimeframe(time);
+  },
+
+  renderTimeframe: function(time){
+
+    if (IS_BROWSER && !this.geometry){ return; }
+
+    var t = new Date();
+
+    this.output[0] = time;
+
+    var values, minutes, i, count, output, j;
+
+    function callback(index){
+      count++;
+      values[index] = (values[index] || 0) + 1;
+    }
+
+    for (j = 0; j < TIME_WINDOWS.length; j++){
+      minutes = TIME_WINDOWS[j];
+      values = [];
+      count = 0;
+      this.cache.last(minutes*60, callback);
+
+      for (i = 0; i<this.size; i++){
+        this.output[i*5 + 4 + 2] = 100 * (values[i] || 0) / count;
+      }
+
+      output = this.output.join(",");
+
+      if (IS_BROWSER){ break; }
+    }
+
+    if (!this.geometry){ return; }
+
+
+
+    console.log(minutes, new Date() - t);
+
+    this.renderBrowser(values);
   },
 
   renderBrowser: function(cells){
@@ -136,7 +175,7 @@ GLOBAL.Heatmap = Klass({
     }
 
     for (i=0; i<this.size; i++){
-      count = cells[i] || 0;
+      count = cells[i];
       value = count / max || 0;
 
       color = this.colors[i];

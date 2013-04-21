@@ -11,7 +11,6 @@
 \def\subfigureautorefname{Subfigure}
 
 \usepackage{setspace}
-\usepackage{siunitx}
 
 % Graphics
 \usepackage{graphicx}
@@ -132,7 +131,7 @@ at present, most sports game statistics are still processed manually.
 Unfortunately, insights gained through image-based solutions
 are limited by image resolution, frame rate, and last not least
 prohibitive costs.
-For The~ACM~DEBS~2013 Grand Challenge,%
+For The ACM DEBS~2013 Grand Challenge,%
 \footnote{\url{http://www.orgs.ttu.edu/debs2013/}}
 the Fraunhofer Institute for Integrated Circuits~(IIS)%
 \footnote{\url{http://www.iis.fraunhofer.de/en/profil.html}}
@@ -165,21 +164,23 @@ We conclude with an outlook on future work in \autoref{sec:conclusions-future-wo
 Automated sport analyses heavily depend on video systems
 that capture the game, compute differences between images
 and then use the remaining color information
-to track players and ball.
+to track players and ball%
+~\cite{Huang:2007:PBD:1776594.1776646,Liang:2005:SBD:2163110.2163186}.
 Another approach is to equip the players with sensors
 that collect position data over time.
 That data can be combined with video processing for instance,
 to select and zoom in on a situation where a certain player
-is within the opponent’s penalty area.
+is within the opponent's penalty area~\cite{ragnar2012football}.
 Additionally, biometric sensors that collect information
 about the players condition---such as heartbeat
 and body temperature---provide data that is used
-to analyze the performance during the game.
+to analyze the performance during the game~%
+\cite{alonso2010sportstelemetry}.
 Spatial game analytics (\emph{e.g.}, heat maps
 that display the players’ distribution over time)
 are one of the most useful applications,
 because they can be used to optimize the team distribution
-for a specific game.
+for a specific game~\cite{elnasr2013spatialgame}.
 
 Using JavaScript to analyze that amount of data in real-time
 was not possible until Node.js,
@@ -241,10 +242,19 @@ The result is a hybrid application that does both:
 visualize the match in a browser or share aggregated results
 via the network.
 
+\begin{figure*}[t!]
+  \centering
+  \includegraphics[width=\linewidth]{soccer.png}
+  \caption{Screenshot of the application with detailed statistics}
+  \label{fig:screenshot}
+\end{figure*}
+
 \section{Implementation Details}
 \label{sec:implementation-details}
 
-Data: The original data-stream was captured during the game
+\subsection{Data}
+
+The original data-stream was captured during the game
 and results in a 4.62 GB CSV input file.
 Position updates for sensors in players’ shoes
 and goalkeepers’ hands are provided with a frequency of 200Hz.
@@ -252,17 +262,21 @@ The sensors in all balls update with 2000Hz.
 A record contains the following data:
 sensor id, timestamp in picoseconds, position
 (in a three-dimensional coordinate system) of the sensor
-in mm, |v| (in \SI{}{\micro\metre}/s), vx, vy, vz
+in mm, |v| (in $\mu$m/s), vx, vy, vz
 describe direction by a vector,
-and |a| (in \SI{}{\micro\metre}/s$\square$), ax, ay, az describe the absolute acceleration
+and |a| (in $\mu$m/s$^{2}$), ax, ay, az describe the absolute acceleration
 and its constituents in three dimensions.
 
-Queries: Based on this data, the following queries are required
+\subsection{Queries}
+
+Based on this data, the following queries are required
 for the ACM DEBS 2013 Grand Challenge:
 Running analysis, ball possession, heat maps and shots on goal.
 Furthermore, goal detection and when the ball is out were included.
 
-Analysis: All entries of the original data stream are distributed
+\subsection{Analysis}
+
+All entries of the original data stream are distributed
 to several JavaScript objects based on a mapping table
 that includes more information about the sensor type.
 Whenever a ball position update was detected,
@@ -274,7 +288,9 @@ based on the current speed vector and gravity.
 Position updates for all players are collected
 to result into running statistics and heat map calculations.
 
-Performance: To optimize performance
+\subsection{Performance}
+
+To optimize performance
 and to avoid long running scripts,
 plain JavaScript with almost zero dependencies was used.
 The only exceptions are the library fishbone.js
@@ -291,7 +307,9 @@ to avoid nested function and variable lookups.
 This was especially critical for large loops
 that occur when the input stream emits new records.
 
-Aggregations: Whenever an update of one of the balls is detected,
+\subsection{Aggregations}
+
+Whenever an update of one of the balls is detected,
 the program evaluates if this ball is active
 by comparing the position with the field’s bounds.
 Then the nearest player is selected
@@ -306,7 +324,9 @@ This is done by looping through the records
 multiple times per interval
 and comparing all dimensions to create aggregated values.
 
-Visualization: To visualize the results in the browser,
+\subsection{Visualization}
+
+To visualize the results in the browser,
 position properties of JavaScript objects are updated
 as new data arrives---and because WebGL is a state machine,
 it handles these updates very fast.
@@ -322,7 +342,9 @@ is drawn using HTML5 Canvas,
 which results in a better performance than plain HTML,
 SVG and WebGL, as it generates stateless bitmaps.
 
-Streams: Output for the command-line version was implemented
+\subsection{Streams}
+
+Output for the command-line version was implemented
 using file streams: For every calculation that emits events,
 a writable stream is created in Node.js.
 The current implementation pipes the output to multiple files
@@ -333,13 +355,6 @@ player ball possession (1 stream),
 team ball possession (1 stream),
 heatmaps (4 time frames) and shot on goals (1 stream).
 This results into a total of 12 files written to disk.
-
-\begin{figure*}[t!]
-  \centering
-  \includegraphics[width=\linewidth]{soccer.png}
-  \caption{Screenshot}
-  \label{fig:screenshot}
-\end{figure*}
 
 \section{Conclusions and Future Work}
 \label{sec:conclusions-future-work}
@@ -376,7 +391,7 @@ it will give insights to the current player’s condition
 or even his progress during a whole season.
 
 \section*{Acknowledgments}
-Ubilabs? Thomas Steiner, Klaus Trainer, Michael Pletziger, Jens Wille, Samuel Oey, Robert Katzki
+We would like to thank the following persons for their valuable comments: Klaus Trainer, Michael Pletziger, Jens Wille, Samuel Oey, Robert Katzki, Thomas Steiner.
 
 \bibliographystyle{abbrv}
 \bibliography{soccer-debs-challenge}

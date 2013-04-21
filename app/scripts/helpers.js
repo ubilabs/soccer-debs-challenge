@@ -24,6 +24,16 @@ GLOBAL.format = function(time){
   return Math.round(time / 1e12);
 };
 
+GLOBAL.formatTime = function(time){
+
+  var minutes = Math.floor(time/60);
+    seconds = Math.abs(Math.round(time % 60));
+
+  if (seconds < 10){ seconds = "0" + seconds; }
+
+  return minutes + ":" + seconds;
+};
+
 GLOBAL.goalTarget = function(p1, p2){
   var min = p1.y > p2.y ? MINY : -MINY,
     ratio = (p1.y - min) / (p1.y - p2.y),

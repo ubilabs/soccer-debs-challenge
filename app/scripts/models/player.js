@@ -111,8 +111,6 @@ GLOBAL.Player = Klass({
 
     if (diff/1e12 < 1/50) { return; }
 
-    this.timeStamp = time;
-
     speed = computeSpeed(distance, diff);
 
     for (var i in SPEED){
@@ -126,9 +124,18 @@ GLOBAL.Player = Klass({
     if (IS_BROWSER){
       this.renderSpeedInBrowser(speed, type);
     } else {
-      this.renderSpeedInNode(speed, type);
+
+      write("running", [
+        this.timeStamp,
+        time,
+        this.name,
+        type,
+        ~~distance,
+        ~~speed
+      ]);
     }
 
+    this.timeStamp = time;
     this.speed = (speed + this.speed||0) / 2;
   },
 
@@ -157,9 +164,6 @@ GLOBAL.Player = Klass({
     this.$speed.innerText = Math.round(this.speed) + "km/h";
   },
 
-  renderSpeedInNode: function(){
-
-  },
 
   possessionTimeframe: function(timeframe){
     var total = 0,
@@ -196,7 +200,7 @@ GLOBAL.Player = Klass({
     if (IS_BROWSER){
       this.renderPosessionInBrowser();
     } else {
-      this.renderPosessionInNode();
+      this.renderPosessionInNode(time);
     }
   },
 
@@ -208,8 +212,13 @@ GLOBAL.Player = Klass({
     this.$li.className = this.active ? "active" : "";
   },
 
-  renderPosessionInNode: function(){
-
+  renderPosessionInNode: function(time){
+    write("player_ball_possession", [
+      time,
+      this.name,
+      this.possessionTime,
+      this.hitCount
+    ]);
   },
 
   select: function(active, time){

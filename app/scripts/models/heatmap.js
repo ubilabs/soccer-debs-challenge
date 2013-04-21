@@ -31,7 +31,7 @@ GLOBAL.Heatmap = Klass({
   initBrowserGeometry: function(){
 
     if (!IS_BROWSER){ return; }
-    if (++HHH != 9){ return; }
+    if (++HHH != 11){ return; }
 
     this.geometry = new THREE.Geometry();
     this.material =  new THREE.ParticleBasicMaterial({
@@ -110,7 +110,6 @@ GLOBAL.Heatmap = Klass({
       y = -1,
       index = -1;
 
-
     if (
       position.x > MINX &&
       position.x < MAXX &&
@@ -123,14 +122,11 @@ GLOBAL.Heatmap = Klass({
     }
 
     this.cache.set(time, index);
+
     this.renderTimeframe(time);
   },
 
   renderTimeframe: function(time){
-
-    if (IS_BROWSER && !this.geometry){ return; }
-
-    var t = new Date();
 
     this.output[0] = time;
 
@@ -151,19 +147,16 @@ GLOBAL.Heatmap = Klass({
         this.output[i*5 + 4 + 2] = 100 * (values[i] || 0) / count;
       }
 
-      write(this.streamName + "_" + minutes, this.output);
-
-      if (IS_BROWSER){ break; }
+      if (!IS_BROWSER){
+        write(this.streamName + "_" + minutes, this.output);
+      } else {
+        this.renderInBrowser(values);
+        return;
+      }
     }
-
-    if (!this.geometry){ return; }
-
-    console.log(minutes, new Date() - t);
-
-    this.renderBrowser(values);
   },
 
-  renderBrowser: function(cells){
+  renderInBrowser: function(cells){
 
     if (!this.geometry){ return; }
 

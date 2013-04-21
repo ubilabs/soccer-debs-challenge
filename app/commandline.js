@@ -29,6 +29,5 @@ var scripts = [
 
 for (var all in scripts){
   var script = "./scripts/" + scripts[all] + ".js";
-  console.log("Loading " + script);
   require(script);
 }

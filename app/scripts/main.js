@@ -51,16 +51,13 @@ GLOBAL.App = Model({
 
       time /= 1e12;
 
-      minutes = Math.floor(time/60);
-      seconds = Math.abs(Math.round(time % 60));
-
       if (seconds < 10) { seconds = "0" + seconds; }
 
       if (this.lastUpdate){
         factor = (time - this.lastUpdate.stream) / (local - this.lastUpdate.local);
       }
 
-      this.$time.innerText = Math.round(factor) + "x " + haltime + " HALF - " + minutes + ":" + seconds;
+      this.$time.innerText = Math.round(factor) + "x " + haltime + " HALF - " + formatTime(time);
 
       this.lastUpdate = {
         stream: time,

@@ -1,0 +1,29 @@
+The following file stream will be created here:
+ 
+* heatmap_16x25_1.stream.csv
+* heatmap_16x25_20.stream.csv
+* heatmap_16x25_5.stream.csv
+* heatmap_16x25_999.stream.csv
+* heatmap_32x50_1.stream.csv
+* heatmap_32x50_20.stream.csv
+* heatmap_32x50_5.stream.csv
+* heatmap_32x50_999.stream.csv
+* heatmap_64x100_1.stream.csv
+* heatmap_64x100_20.stream.csv
+* heatmap_64x100_5.stream.csv
+* heatmap_64x100_999.stream.csv
+* heatmap_8x13_1.stream.csv
+* heatmap_8x13_20.stream.csv
+* heatmap_8x13_5.stream.csv
+* heatmap_8x13_999.stream.csv
+* player_ball_possession.stream.csv
+* running.stream.csv
+* running_aggregate1.stream.csv
+* running_aggregate20.stream.csv
+* running_aggregate5.stream.csv
+* running_aggregate999.stream.csv
+* shot_on_goal.stream.csv
+* team_ball_possession_t1.stream.csv
+* team_ball_possession_t20.stream.csv
+* team_ball_possession_t5.stream.csv
+* team_ball_possession_t999.stream.csv

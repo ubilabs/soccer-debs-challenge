@@ -147,7 +147,8 @@ to generate interactive visualizations and realtime analyses
 of the game such as ball possession, shots on goal,
 running analyses of all players and the two teams.
 The chosen approach can be called \emph{hybrid},
-as the same system is used to visualize the game in a~Web browser
+as the same system is used to visualize the game in a~Web browser%
+\footnote{We use Google Chrome v26 on Mac OS X: \url{https://www.google.com/chrome}}
 and to output multiple event streams on the file system.
 
 The remainder of this paper is structured as follows.
@@ -183,20 +184,32 @@ because they can be used to optimize the team distribution
 for a specific game~\cite{elnasr2013spatialgame}.
 
 Using JavaScript to analyze that amount of data in real-time
-was not possible until Node.js,
-which is built on top of Google's open source JavaScript engine V8
+was not possible until Node.js,%
+\footnote{\url{http://nodejs.org/}}
+which is built on top of Google's open source JavaScript engine V8%
+\footnote{\url{https://code.google.com/p/v8/}}
 has proven that it is suitable to build
-high-performance network programs
+high-performance network programs%
+~\cite{tilkov2010node}
 because of its event-driven and non-blocking nature.
 Furthermore, HTML5 features, such as Canvas and WebSockets
-are used for tools like real-time monitoring systems.
+are used for tools like real-time monitoring systems.%
+~\cite{cha2013developing}
+
 When visualizing three dimensional content,
-WebGL---a web standard for a low-level 3D graphics API
-based on OpenGL ES 2.0---is ideal to render the objects
+WebGL%
+\footnote{\url{http://webgl.org/}}
+---a web standard for a low-level 3D graphics API
+based on OpenGL ES 2.0%
+\footnote{\url{http://www.khronos.org/opengles/2_X/}}
+---is ideal to render the objects
 in the browser.
-It is used for MMOGs (Massively Multiplayer Online Games),
-efficient rendering of 3D models
-and interactive visualization of volumetric data.
+It is used for MMOGs (Massively Multiplayer Online Games),%
+~\cite{chenwebgl}
+efficient rendering of 3D models%
+~\cite{sawicki2013efficient}
+and interactive visualization of volumetric data.%
+~\cite{congote2011interactive}
 
 \section{Methodology}
 \label{sec:methodology}
@@ -219,7 +232,7 @@ The second step was to implement the required queries.
 For every information a visual element was added
 to the browser interface to keep track of the computations
 and avoid gross errors.
-These include: A tracing line for the ball movement,
+These include: A tracing line for the ball movement,  
 the list of players with stats about ball possession,
 colorized sparklines for running analyses,
 the precalculated ball path, the possible hit target,
@@ -228,7 +241,9 @@ and the current time.
 
 As the application has to deal with large data sets,
 it is critical to observe the internally used memory.
-The Chrome Developer Tools Timeline Panel was used
+The Chrome Developer Tools Timeline Panel%
+\footnote{\url{https://developers.google.com/chrome-developer-tools/docs/timeline}}
+was used
 to detect if the scripts result into an increasing usage
 and then the memory leaks were evaluated and removed.
 
@@ -292,8 +307,11 @@ to result into running statistics and heat map calculations.
 To optimize performance
 and to avoid long running scripts,
 plain JavaScript with almost zero dependencies was used.
-The only exceptions are the library fishbone.js
-and Three.js---a wrapper that handles WebGL.
+The only exceptions are the library fishbone.js%
+\footnote{\url{https://github.com/aemkei/fishbone.js}}
+and Three.js%
+\footnote{\url{http://threejs.org/}}
+---a wrapper that handles WebGL.
 The code was organized into two kinds of modules:
 Simple class-like modules with prototype-based inheritance
 that were used for fast-changing game objects
@@ -327,17 +345,21 @@ and comparing all dimensions to create aggregated values.
 
 To visualize the results in the browser,
 position properties of JavaScript objects are updated
-as new data arrives---and because WebGL is a state machine,
+as new data arrives---and because WebGL is a state machine,%
+~\cite{cantor2012webgl}
 it handles these updates very fast.
 Geometries for sensors are displayed as colored cubes,
 the field and ball paths are simple polylines
 and the heat map is a particle system.
 It uses rectangular sprites, because the rendering performance
-of 2D sprites is way better than updating complex geometries.
+of 2D sprites is way better than updating complex geometries.%
+~\cite{hoetzlein2012graphics}
 The list of players is drawn as an unordered HTML list
-and colors are assigned via CSS.
+and colors are assigned via CSS.%
+\footnote{\url{http://www.w3.org/Style/CSS/}}
 The color-coded sparkline graph the end of each list item
-is drawn using HTML5 Canvas,
+is drawn using HTML5 Canvas,%
+\footnote{\url{https://dev.w3.org/html5/2dcontext}}
 which results in a better performance than plain HTML,
 SVG and WebGL, as it generates stateless bitmaps.
 
@@ -345,7 +367,9 @@ SVG and WebGL, as it generates stateless bitmaps.
 
 Output for the command-line version was implemented
 using file streams: For every calculation that emits events,
-a writable stream is created in Node.js.
+a writable stream%
+\footnote{\url{http://nodejs.org/api/all.html#all_class_stream_writable}}
+is created in Node.js.
 The current implementation pipes the output to multiple files
 on the hard disk, each for every type:
 Player running analysis (1 stream),
@@ -371,7 +395,10 @@ is an efficient way to read, process and write data.
 As mentioned above, the current implementation
 outputs all streams to the file system,
 but using the abstract stream pattern in Node.js,
-they can be piped to other types of streams such as WebSockets.
+they can be piped%
+~\cite{ogden2012nodestreams}
+to other types of streams such as WebSockets.%
+\footnote{\url{http://dev.w3.org/html5/websockets/}}
 A possible use case are mobile devices with limited storage
 and computing power.
 They connect to the main server via a socket connection

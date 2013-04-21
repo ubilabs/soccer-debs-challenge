@@ -1,5 +1,8 @@
 var settings = {
-  ITERATIONS: 250, // set to 600 to slow down
+
+  INPUT_FILE: IS_BROWSER ? './data/samples.csv' : './data/full-game',
+
+  ITERATIONS: 2000, // set to 600 to slow down
   MINX:  0,
   MAXX:  52483,
   MINY: -33960,

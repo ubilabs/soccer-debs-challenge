@@ -11,6 +11,8 @@ GLOBAL.Heatmap = Klass({
     this.ySize = ySize;
     this.size = xSize * ySize;
 
+    this.streamName = "heatmap_" + this.xSize + "x" + this.ySize;
+
     this.output = [];
     this.output[1] = this.player.name;
 
@@ -149,14 +151,12 @@ GLOBAL.Heatmap = Klass({
         this.output[i*5 + 4 + 2] = 100 * (values[i] || 0) / count;
       }
 
-      output = this.output.join(",");
+      write(this.streamName + "_" + minutes, this.output);
 
       if (IS_BROWSER){ break; }
     }
 
     if (!this.geometry){ return; }
-
-
 
     console.log(minutes, new Date() - t);
 

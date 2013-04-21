@@ -1,6 +1,6 @@
 GLOBAL.Loader = Model({
 
-  file: './data/samples.csv',
+  file: INPUT_FILE,
 
   init: function(){
     if (IS_BROWSER){

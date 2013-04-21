@@ -1,5 +1,5 @@
 var settings = {
-  ITERATIONS: 2000, // set to 600 to slow down
+  ITERATIONS: 250, // set to 600 to slow down
   MINX:  0,
   MAXX:  52483,
   MINY: -33960,

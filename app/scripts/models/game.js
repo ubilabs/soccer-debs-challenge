@@ -47,7 +47,9 @@ GLOBAL.Game = Klass({
     if (!IS_BROWSER){ return; }
 
     document.addEventListener("keydown", function(event){
+      
       switch (event.keyCode){
+        case 88: ITERATIONS = (ITERATIONS == 250) ? 2000 : 250; break;
         case 32: this.paused = !this.paused; this.runInBrowser(); break;
         case 39: runInBrowser(); break;
       }

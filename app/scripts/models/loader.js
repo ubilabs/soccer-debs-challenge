@@ -46,7 +46,10 @@ GLOBAL.Loader = Model({
       return;
     }
 
-    input = fs.createReadStream(this.file),
+    input = fs.createReadStream(this.file);
+
+    console.log("Parsing '" + this.file + "' …");
+    console.log("Wrinting streams to './output/*.csv'\n");
 
     input.on('data', function(data, lines) {
       lines = (data + "").split("\n");

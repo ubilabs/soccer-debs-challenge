@@ -20,15 +20,19 @@ GLOBAL.Scene = Model({
   },
 
   initCamera: function(){
-    var ratio = window.innerWidth / window.innerHeight;
+
+    this.height = window.innerHeight - 200;
+    this.width = window.innerWidth;
+
+    var ratio = this.width / this.height;
     this.camera = new THREE.PerspectiveCamera( 60, ratio, 1, MAXX*20 );
 
     this.camera.position.x = MAXX*2;
   },
 
   initRenderer: function(){
-    this.renderer = new THREE.WebGLRenderer( { antialias: false } );
-    this.renderer.setSize( window.innerWidth, window.innerHeight-200 );
+    this.renderer = new THREE.WebGLRenderer({ antialias: false });
+    this.renderer.setSize(this.width, this.height);
 
     document.body.appendChild( this.renderer.domElement );
   },

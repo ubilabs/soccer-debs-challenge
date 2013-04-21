@@ -29,6 +29,12 @@ node commandline.js
 
 This will create several file steams in [./output](./app/output).
 
+### Screenshot
+
+![Screenshot](https://raw.github.com/ubilabs/soccer-debs-challenge/master/paper/soccer.png)
+
+Watch the short intro on [YouTube](http://youtu.be/3SBIFFqjle4)!
+
 ### Author
 
 Martin Kleppe - kleppe@ubilabs.net

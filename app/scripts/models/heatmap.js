@@ -15,8 +15,6 @@ GLOBAL.Heatmap = Klass({
     this.height = 1/this.x * HEIGHT;
     this.width = 1/this.y * WIDTH;
 
-    this.size = this.height;
-
     if (IS_BROWSER){
       this.vertices = [];
       this.colors = [];
@@ -33,7 +31,7 @@ GLOBAL.Heatmap = Klass({
 
     this.geometry = new THREE.Geometry();
     this.material =  new THREE.ParticleBasicMaterial({
-      size: this.size,
+      size: this.height,
       color: 0x333300,
       vertexColors: true
     });
@@ -84,7 +82,7 @@ GLOBAL.Heatmap = Klass({
 
     vertex.x = x + this.height/2;
     vertex.y = y + this.width/2;
-    vertex.z = -this.size;
+    vertex.z = -this.height;
 
     this.colors.push(color);
     this.vertices.push(vertex);

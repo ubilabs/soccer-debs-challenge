@@ -34,6 +34,7 @@ GLOBAL.Loader = Model({
       last,
       count = 0,
       time = 0,
+      lastGameTime = 0,
       start = new Date();
 
     input.on('data', function(data, lines) {
@@ -43,22 +44,26 @@ GLOBAL.Loader = Model({
 
       count += lines.length;
 
-      if ((new Date() - time) > 1000){
+      var timeDiff = new Date() - time;
+
+      if (timeDiff > 1000){
         time = new Date();
 
         var seconds = (new Date() - start) / 1000,
           portion = count / 49576080,
-          minutes = Math.floor(seconds/60);
+          speed = ((GAME.time - lastGameTime) / 1e12) / (timeDiff / 1000);
 
-        seconds = Math.abs(Math.round(seconds % 60));
-        if (seconds < 10) { seconds = "0" + seconds; }
+        lastGameTime = GAME.time;
+
 
         sys.print(
           "\r" +
           (portion * 100).toFixed(1) + "% - " +
-          minutes + ":" + seconds + " - ETA: " +
-          Math.round(seconds * 1 / portion) + "s - " +
-          Math.round(process.memoryUsage().heapUsed / 1024 / 1024) + "MB Memory"
+          "Game: " + formatTime((GAME.time - TIMES.FIRST.START) / 1e12) + " - " +
+          "Elapsed: " + formatTime(seconds) + " - " +
+          "ETA: " + formatTime(seconds / portion) + " - " +
+          "Speed: " + Math.round(speed*100) + "% - " +
+          Math.round(process.memoryUsage().heapUsed / 1024 / 1024) + "MB Memory     "
         );
       }
 

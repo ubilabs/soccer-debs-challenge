@@ -111,7 +111,6 @@ GLOBAL.Player = Klass({
 
     if (diff/1e12 < 1/50) { return; }
 
-    this.timeStamp = time;
 
     speed = computeSpeed(distance, diff);
 
@@ -126,9 +125,18 @@ GLOBAL.Player = Klass({
     if (IS_BROWSER){
       this.renderSpeedInBrowser(speed, type);
     } else {
-      this.renderSpeedInNode(speed, type);
+
+      write("running", [
+        this.timeStamp,
+        time,
+        this.name,
+        type,
+        ~~distance,
+        ~~speed
+      ]);
     }
 
+    this.timeStamp = time;
     this.speed = (speed + this.speed||0) / 2;
   },
 
@@ -157,9 +165,6 @@ GLOBAL.Player = Klass({
     this.$speed.innerText = Math.round(this.speed) + "km/h";
   },
 
-  renderSpeedInNode: function(){
-
-  },
 
   possessionTimeframe: function(timeframe){
     var total = 0,

@@ -28,3 +28,7 @@ node commandline.js
 ```
 
 This will create several file steams in [./output](./app/output).
+
+### Author
+
+Martin Kleppe - kleppe@ubilabs.net

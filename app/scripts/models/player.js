@@ -119,19 +119,25 @@ GLOBAL.Player = Klass({
 
   renderSpeedInBrowser: function(speed, type){
 
-    var color = SPEED_COLOR[type];
+    if (!this.startTime){
+      this.startTime = GAME.time;
+      return;
+    }
 
-    this.counter += 0.1;
+    var color = SPEED_COLOR[type],
+      x = 100 - 100 * (TIMES.SECOND.END - GAME.time) / (TIMES.SECOND.END - this.startTime);
 
     this.context.beginPath();
-    this.context.moveTo(this.counter-1, 20-this.speed);
+    this.context.moveTo(x+1, 20-this.speed);
 
     this.context.strokeStyle = color;
 
     this.$speed.style.color = color;
 
-    this.context.lineTo(this.counter, 20-this.speed);
+    this.context.lineTo(this.lastX || -1, 20-this.speed);
     this.context.stroke();
+
+    this.lastX = x;
 
     this.$speed.innerText = Math.round(this.speed) + "km/h";
   },

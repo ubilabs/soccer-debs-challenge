@@ -29,6 +29,8 @@ node commandline.js
 
 This will create several file steams in [./output](./app/output).
 
+If you add the option `--no-output` the application will skip the file stream output. 
+
 The following information is shown while the script is running:
 
 ```

@@ -29,6 +29,18 @@ node commandline.js
 
 This will create several file steams in [./output](./app/output).
 
+The following information is shown while the script is running:
+
+```
+8.3%          - percentage of analysis
+Game: 4:16    - time in recorded game
+Elapsed: 2:32 - time since script was started
+ETA: 30:31    - estimated time for full analysis
+Speed: 217%   - current speed of processing 
+150MB Memory  - RAM used by V8
+```
+
+
 ### Screenshot
 
 ![Screenshot](https://raw.github.com/ubilabs/soccer-debs-challenge/master/paper/soccer.png)

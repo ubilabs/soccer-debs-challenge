@@ -45,9 +45,7 @@ Speed: 217%   - current speed of processing
 
 ![Screenshot](https://raw.github.com/ubilabs/soccer-debs-challenge/master/paper/soccer.png)
 
-Watch a short intro on [YouTube](http://youtu.be/3SBIFFqjle4)!
-
-Read the paper on [EasyChair](https://www.easychair.org/conferences/submission.cgi?a=3869730;track=65072;submission=1305881).
+Watch a short intro on [YouTube](http://youtu.be/3SBIFFqjle4)! and read [the paper](https://github.com/ubilabs/soccer-debs-challenge/tree/master/paper).
 
 ### Author
 
